@@ -19,7 +19,7 @@ MonoBehaviour:
   - m_Id: 0
     m_Sprites:
     - {fileID: 21300000, guid: 8c803a4c5b541494cba11cf843fd996e, type: 3}
-    m_GameObject: {fileID: 0}
+    m_GameObject: {fileID: 8390985496397203027, guid: aae4a537050ea504d83060544c0d51f7, type: 3}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
     m_PerlinScale: 0.5
@@ -40,7 +40,7 @@ MonoBehaviour:
   - m_Id: 1
     m_Sprites:
     - {fileID: 21300000, guid: f5957125d790da7439ccc53918017225, type: 3}
-    m_GameObject: {fileID: 0}
+    m_GameObject: {fileID: 8390985496397203027, guid: aae4a537050ea504d83060544c0d51f7, type: 3}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
     m_PerlinScale: 0.5
@@ -48,20 +48,12 @@ MonoBehaviour:
     m_ColliderType: 1
     m_RandomTransform: 0
     m_Neighbors: 
-    m_NeighborPositions:
-    - {x: -1, y: 1, z: 0}
-    - {x: 0, y: 1, z: 0}
-    - {x: 1, y: 1, z: 0}
-    - {x: -1, y: 0, z: 0}
-    - {x: 1, y: 0, z: 0}
-    - {x: -1, y: -1, z: 0}
-    - {x: 0, y: -1, z: 0}
-    - {x: 1, y: -1, z: 0}
+    m_NeighborPositions: []
     m_RuleTransform: 0
   - m_Id: 2
     m_Sprites:
     - {fileID: 21300000, guid: 70fde4c461891064bb90e930372917b2, type: 3}
-    m_GameObject: {fileID: 0}
+    m_GameObject: {fileID: 8390985496397203027, guid: aae4a537050ea504d83060544c0d51f7, type: 3}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
     m_PerlinScale: 0.5
@@ -79,3 +71,21 @@ MonoBehaviour:
     - {x: 0, y: -1, z: 0}
     - {x: 1, y: -1, z: 0}
     m_RuleTransform: 0
+  - m_Id: 3
+    m_Sprites:
+    - {fileID: 21300000, guid: 9e9719f2f501cc34abeaf11b00c85242, type: 3}
+    - {fileID: 21300000, guid: e5586fcf5c37e424ab71e7994a3a61fe, type: 3}
+    - {fileID: 21300000, guid: 8836d2f2b40c1054d8b425d4624e5278, type: 3}
+    - {fileID: 21300000, guid: b2c4381bc3132444dbcdd8af34e9e5d8, type: 3}
+    m_GameObject: {fileID: 8390985496397203027, guid: aae4a537050ea504d83060544c0d51f7, type: 3}
+    m_MinAnimationSpeed: 1
+    m_MaxAnimationSpeed: 1
+    m_PerlinScale: 0.5
+    m_Output: 2
+    m_ColliderType: 1
+    m_RandomTransform: 0
+    m_Neighbors: 0100000001000000
+    m_NeighborPositions:
+    - {x: 1, y: 0, z: 0}
+    - {x: -1, y: 0, z: 0}
+    m_RuleTransform: 2
