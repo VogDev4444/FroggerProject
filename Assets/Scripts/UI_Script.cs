@@ -27,9 +27,9 @@ public class UI_Script : MonoBehaviour
 
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.I))
+        //if (Input.GetKeyDown(KeyCode.Space))
         //{
-        //    P1Health();
+        //    P2Health();
         //}
 
         //p1.text = (get player 1's health from other script) .ToString();
@@ -38,17 +38,17 @@ public class UI_Script : MonoBehaviour
 
     void P1Health()
     {
-        if (p1_heart_3.activeSelf)
+        if (p1_heart_1.activeSelf)
         {
-            p1_heart_3.SetActive(false);
+            p1_heart_1.SetActive(false);
         }
         else if (p1_heart_2.activeSelf)
         {
             p1_heart_2.SetActive(false);
         }
-        else if (p1_heart_1.activeSelf)
+        else if (p1_heart_3.activeSelf)
         {
-            p1_heart_1.SetActive(false);
+            p1_heart_3.SetActive(false);
             //Debug.Log("P1 loses");
         }
         else
@@ -59,17 +59,17 @@ public class UI_Script : MonoBehaviour
 
     void P2Health()
     {
-        if (p2_heart_3.activeSelf)
+        if (p2_heart_1.activeSelf)
         {
-            p2_heart_3.SetActive(false);
+            p2_heart_1.SetActive(false);
         }
         else if (p2_heart_2.activeSelf)
         {
             p2_heart_2.SetActive(false);
         }
-        else if (p2_heart_1.activeSelf)
+        else if (p2_heart_3.activeSelf)
         {
-            p2_heart_1.SetActive(false);
+            p2_heart_3.SetActive(false);
             //Debug.Log("P2 loses");
         }
         else
