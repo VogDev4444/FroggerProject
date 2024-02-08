@@ -25,17 +25,6 @@ public class UI_Script : MonoBehaviour
         p2.text = "000000";
     }
 
-    void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    P2Health();
-        //}
-
-        //p1.text = (get player 1's health from other script) .ToString();
-        //p2.text = (get player 2's health from other script) .ToString();
-    }
-
     void P1Health()
     {
         if (p1_heart_1.activeSelf)
@@ -51,10 +40,7 @@ public class UI_Script : MonoBehaviour
             p1_heart_3.SetActive(false);
             //Debug.Log("P1 loses");
         }
-        else
-        {
-            //not sure yet
-        }
+        else { }
     }
 
     void P2Health()
@@ -72,10 +58,7 @@ public class UI_Script : MonoBehaviour
             p2_heart_3.SetActive(false);
             //Debug.Log("P2 loses");
         }
-        else
-        {
-            //not sure yet
-        }
+        else { }
     }
     //if player 1 collides with an object, p1 heart sprite disappears
     //if player 2 collides with an object, p2 heart sprite disappears

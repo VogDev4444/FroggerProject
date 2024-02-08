@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class BugManager : MonoBehaviour
 {
     public int bugCount;
-    public Text bugText;
+    public TMP_Text bugText;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +16,6 @@ public class BugManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bugText.text = "P1 Score: " + bugCount.ToString();
+        bugText.text = bugCount.ToString();
     }
 }
