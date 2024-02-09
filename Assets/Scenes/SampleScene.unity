@@ -3486,13 +3486,13 @@ Tilemap:
   - first: {x: -13, y: 3, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 2147483649
+      m_AllTileFlags: 1073741825
   - first: {x: -12, y: 3, z: 0}
     second:
       serializedVersion: 2
@@ -4005,9 +4005,9 @@ Tilemap:
       m_AllTileFlags: 2147483649
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 64
+  - m_RefCount: 63
     m_Data: {fileID: 11400000, guid: 9147cf04c668736458510068b0fbb133, type: 2}
-  - m_RefCount: 12
+  - m_RefCount: 13
     m_Data: {fileID: 11400000, guid: fba0c08542a0a6048ab21dfec5d5e6c2, type: 2}
   - m_RefCount: 94
     m_Data: {fileID: 11400000, guid: 21ea0e28e01640e47b7e41f90a64c9f8, type: 2}
@@ -4020,9 +4020,9 @@ Tilemap:
   - m_RefCount: 13
     m_Data: {fileID: 11400000, guid: 2d24ed6560216294d9626f6331bb25c1, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 64
+  - m_RefCount: 63
     m_Data: {fileID: 21300000, guid: 8c803a4c5b541494cba11cf843fd996e, type: 3}
-  - m_RefCount: 12
+  - m_RefCount: 13
     m_Data: {fileID: 21300000, guid: 2cf4f88cd058a4d4486861b72ff3c47f, type: 3}
   - m_RefCount: 94
     m_Data: {fileID: 21300000, guid: f5957125d790da7439ccc53918017225, type: 3}
@@ -4328,6 +4328,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1553362551620438563, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 58.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553362551620438563, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 40.61
+      objectReference: {fileID: 0}
     - target: {fileID: 2919458582298610205, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_Name
       value: Canvas
