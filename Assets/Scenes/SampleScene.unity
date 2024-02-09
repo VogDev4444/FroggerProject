@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 634467037}
   m_Layer: 0
   m_Name: WaterTiles
-  m_TagString: Death
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -384,7 +384,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 0
+      m_AllTileFlags: 1073741824
   - first: {x: -10, y: 1, z: 0}
     second:
       serializedVersion: 2
@@ -394,7 +394,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 0
+      m_AllTileFlags: 1073741824
   - first: {x: -7, y: 1, z: 0}
     second:
       serializedVersion: 2
@@ -404,7 +404,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 0
+      m_AllTileFlags: 1073741824
   - first: {x: -4, y: 1, z: 0}
     second:
       serializedVersion: 2
@@ -414,7 +414,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 0
+      m_AllTileFlags: 1073741824
   - first: {x: -1, y: 1, z: 0}
     second:
       serializedVersion: 2
@@ -424,7 +424,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 0
+      m_AllTileFlags: 1073741824
   - first: {x: 2, y: 1, z: 0}
     second:
       serializedVersion: 2
@@ -434,7 +434,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 0
+      m_AllTileFlags: 1073741824
   - first: {x: 5, y: 1, z: 0}
     second:
       serializedVersion: 2
@@ -444,7 +444,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 0
+      m_AllTileFlags: 1073741824
   - first: {x: 8, y: 1, z: 0}
     second:
       serializedVersion: 2
@@ -454,7 +454,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 0
+      m_AllTileFlags: 1073741824
   - first: {x: 11, y: 1, z: 0}
     second:
       serializedVersion: 2
@@ -464,7 +464,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 0
+      m_AllTileFlags: 1073741824
   m_AnimatedTiles:
   - first: {x: -13, y: 1, z: 0}
     second:
@@ -639,7 +639,7 @@ TilemapCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 1
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -901,7 +901,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1074893555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -929,6 +929,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bm: {fileID: 1783584294}
   health_UI: {fileID: 1496812653}
+  rigidbody: {fileID: 1074893554}
+  isAirborn: 0
+  isStaggered: 0
+  isKnockedBack: 1
+  invincible: 0
+  moveInput: {x: 0, y: 0}
+  direction: {x: 0, y: 0}
+  lastIn: 
+  flyingCoolDown: 0
+--- !u!95 &1074893558
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074893552}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ab32ff126c542b34192922809095e20c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1341803921
 GameObject:
   m_ObjectHideFlags: 0
@@ -4570,6 +4600,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1560749635288811684, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1074893556}
+    - targetCorrespondingSourceObject: {fileID: 1560749635288811684, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1074893558}
     - targetCorrespondingSourceObject: {fileID: 8872825484125576428, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
       insertIndex: -1
       addedObject: {fileID: 834852647}
