@@ -7,6 +7,7 @@ TagManager:
   - Bug
   - Death
   - Water
+  - Ground
   layers:
   - Default
   - TransparentFX
