@@ -25,7 +25,7 @@ public class UI_Script : MonoBehaviour
         p2.text = "000000";
     }
 
-    void P1Health()
+    public void P1Health()
     {
         if (p1_heart_1.activeSelf)
         {
@@ -43,7 +43,7 @@ public class UI_Script : MonoBehaviour
         else { }
     }
 
-    void P2Health()
+    public void P2Health()
     {
         if (p2_heart_1.activeSelf)
         {
