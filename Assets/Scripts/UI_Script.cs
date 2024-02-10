@@ -7,7 +7,7 @@ using UnityEditor;
 
 public class UI_Script : MonoBehaviour
 {
-    //need to get score from score script (getter methods for both p1 score and p2 score in that script)
+    public GameObject canvas;
 
     public TMP_Text p1;
     public TMP_Text p2;
@@ -19,10 +19,21 @@ public class UI_Script : MonoBehaviour
     public GameObject p2_heart_2;
     public GameObject p2_heart_3;
 
+    bool p1dead = false;
+    //bool p2dead = false;  //will add back in when p2 exists
+
     void Start()
     {
-        p1.text = "000000";
-        p2.text = "000000";
+        p1.text = "0";
+        p2.text = "0";
+    }
+
+    void Update()
+    {
+        if (p1dead) //&& p2dead
+        {
+            canvas.SendMessage("EndGame");
+        }
     }
 
     public void P1Health()
@@ -38,7 +49,7 @@ public class UI_Script : MonoBehaviour
         else if (p1_heart_3.activeSelf)
         {
             p1_heart_3.SetActive(false);
-            //Debug.Log("P1 loses");
+            p1dead = true;
         }
         else { }
     }
@@ -56,11 +67,10 @@ public class UI_Script : MonoBehaviour
         else if (p2_heart_3.activeSelf)
         {
             p2_heart_3.SetActive(false);
-            //Debug.Log("P2 loses");
+            //p2dead = true;
         }
         else { }
     }
     //if player 1 collides with an object, p1 heart sprite disappears
     //if player 2 collides with an object, p2 heart sprite disappears
-    //P1Health() and P2Health() will have to be used in other scripts
 }
