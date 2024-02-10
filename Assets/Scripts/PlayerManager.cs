@@ -66,7 +66,7 @@ public class PlayerManager : MonoBehaviour
         if(other.gameObject.CompareTag("Water"))
         {
             isInWater = true;
-            StartCoroutine(KnockBack(10, this.transform.position));
+            StartCoroutine(KnockBack(20, other.transform.position));
         }
     }
 
