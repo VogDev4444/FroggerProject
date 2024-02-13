@@ -923,7 +923,7 @@ MonoBehaviour:
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
-    - m_Name: 2D Vector
+    - m_Name: WASD
       m_Id: bbe2423a-4125-435a-97e2-b725a2cda2e9
       m_Path: 2DVector
       m_Interactions: 
@@ -1035,9 +1035,22 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1074893562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074893552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b541e356098f9944b943d0d18165184c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 5
 --- !u!1 &1341803921
 GameObject:
   m_ObjectHideFlags: 0
@@ -4686,6 +4699,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1560749635288811684, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1074893560}
+    - targetCorrespondingSourceObject: {fileID: 1560749635288811684, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1074893562}
     - targetCorrespondingSourceObject: {fileID: 8872825484125576428, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
       insertIndex: -1
       addedObject: {fileID: 834852647}
