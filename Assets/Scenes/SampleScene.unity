@@ -914,7 +914,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15f6ae2a6e3d19428d5b6bdc6be0866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 4
+  moveSpeed: 5
+  playerControls:
+    m_Name: Player Controls
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 79422c52-b077-4629-b6a6-69e711b21ebc
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: bbe2423a-4125-435a-97e2-b725a2cda2e9
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 4
+    - m_Name: up
+      m_Id: cc06156b-5a2d-44d7-b1e4-fdec07876220
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 9c698061-c2d1-480c-9171-e008903ae9e0
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 69497a78-133d-40e4-89b3-a314b5f96205
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: right
+      m_Id: f380eb5e-54e9-4a62-877c-0e619f53dd05
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    m_Flags: 0
 --- !u!114 &1074893556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -959,6 +1008,36 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1074893560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074893552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: 0}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1341803921
 GameObject:
   m_ObjectHideFlags: 0
@@ -4268,6 +4347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b154ef57d61fefe4d9e4019af66e8a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
   p1: {fileID: 1663896010111680445}
   p2: {fileID: 1663896010111680444}
   p1_heart_1: {fileID: 1663896010111680443}
@@ -4603,6 +4683,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1560749635288811684, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1074893558}
+    - targetCorrespondingSourceObject: {fileID: 1560749635288811684, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1074893560}
     - targetCorrespondingSourceObject: {fileID: 8872825484125576428, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
       insertIndex: -1
       addedObject: {fileID: 834852647}
@@ -4684,5 +4767,5 @@ SceneRoots:
   - {fileID: 1745793570}
   - {fileID: 964581987}
   - {fileID: 1757322524}
-  - {fileID: 2316146931648984603}
   - {fileID: 1783584295}
+  - {fileID: 2316146931648984603}
