@@ -4463,21 +4463,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1553362551620438563, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 58.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 1553362551620438563, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 40.61
-      objectReference: {fileID: 0}
     - target: {fileID: 2919458582298610205, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6421901165918165769, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8872517658748339147, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_Pivot.x
