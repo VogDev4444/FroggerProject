@@ -10,13 +10,17 @@ GameObject:
   m_Component:
   - component: {fileID: 3336965931421458345}
   - component: {fileID: 957433501563002319}
-  - component: {fileID: 8642762677238333088}
   - component: {fileID: 5809991134505571609}
-  - component: {fileID: 415975370613233411}
-  - component: {fileID: 1238448348371640919}
   - component: {fileID: 4470351936616097579}
   - component: {fileID: 3308715436967885336}
-  - component: {fileID: 3035904186022255253}
+  - component: {fileID: 2970756946219389946}
+  - component: {fileID: 3580042624096663245}
+  - component: {fileID: 159483715424680871}
+  - component: {fileID: 6547958421664382837}
+  - component: {fileID: 6456333781602589705}
+  - component: {fileID: 2382621774781675553}
+  - component: {fileID: 8250056792930626083}
+  - component: {fileID: 6986579329608877357}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -102,7 +106,117 @@ MonoBehaviour:
       m_Action: Player Controls
       m_Flags: 8
     m_Flags: 0
---- !u!50 &8642762677238333088
+--- !u!114 &5809991134505571609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560749635288811684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee29d8ce701a37a4c83653c011d764d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bm: {fileID: 0}
+  health_UI: {fileID: 0}
+  rigidbody: {fileID: 3580042624096663245}
+  isAirborn: 0
+  isStaggered: 0
+  isKnockedBack: 0
+  invincible: 0
+  moveInput: {x: 0, y: 0}
+  direction: {x: 0, y: 0}
+  lastIn: 
+  flyingCoolDown: 0
+--- !u!114 &4470351936616097579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560749635288811684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b541e356098f9944b943d0d18165184c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 5
+--- !u!114 &3308715436967885336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560749635288811684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e205c52515f0e4bbd8c57b9f8488b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2970756946219389946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560749635288811684}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15f6ae2a6e3d19428d5b6bdc6be0866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  playerControls:
+    m_Name: Player Controls
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 79422c52-b077-4629-b6a6-69e711b21ebc
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: WASD
+      m_Id: bbe2423a-4125-435a-97e2-b725a2cda2e9
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 4
+    - m_Name: up
+      m_Id: cc06156b-5a2d-44d7-b1e4-fdec07876220
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 9c698061-c2d1-480c-9171-e008903ae9e0
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 69497a78-133d-40e4-89b3-a314b5f96205
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: right
+      m_Id: f380eb5e-54e9-4a62-877c-0e619f53dd05
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    m_Flags: 0
+--- !u!50 &3580042624096663245
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -129,7 +243,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5809991134505571609
+--- !u!114 &159483715424680871
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bm: {fileID: 0}
   health_UI: {fileID: 0}
-  rigidbody: {fileID: 8642762677238333088}
+  rigidbody: {fileID: 3580042624096663245}
   isAirborn: 0
   isStaggered: 0
   isKnockedBack: 1
@@ -152,7 +266,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   lastIn: 
   flyingCoolDown: 0
---- !u!95 &415975370613233411
+--- !u!95 &6547958421664382837
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -173,7 +287,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1238448348371640919
+--- !u!114 &6456333781602589705
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: 0}
+  m_Actions: {fileID: -944628639613478452, guid: c4f9a618584fb5e4f8d07b2f59a5fafe, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -203,7 +317,7 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &4470351936616097579
+--- !u!114 &2382621774781675553
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,7 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
---- !u!114 &3308715436967885336
+--- !u!114 &8250056792930626083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e205c52515f0e4bbd8c57b9f8488b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &3035904186022255253
+--- !u!212 &6986579329608877357
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -268,7 +382,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 918222837, guid: 309702a34c55e3f45b59b9a715db64b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -291,6 +405,7 @@ GameObject:
   - component: {fileID: 3101707128441528684}
   - component: {fileID: 5412942550101456609}
   - component: {fileID: 5274652400709891565}
+  - component: {fileID: 4767018767327775898}
   m_Layer: 0
   m_Name: frogsSprite
   m_TagString: Untagged
@@ -307,8 +422,8 @@ Transform:
   m_GameObject: {fileID: 8872825484125576428}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.036, y: -0.181, z: 0}
+  m_LocalScale: {x: 0.35325968, y: 0.3008348, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3336965931421458345}
@@ -366,6 +481,41 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!70 &5274652400709891565
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8872825484125576428}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 1
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.1111112, y: 1.1111112}
+  m_Direction: 0
+--- !u!70 &4767018767327775898
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

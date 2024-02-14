@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
 
     //booleans for state of the players 
     bool isInWater = false;
-    public bool isAirborn;
+    public bool isAirborn = false;
     public bool isStaggered;
     public bool isKnockedBack;
     public bool invincible = false;
@@ -63,7 +63,7 @@ public class PlayerManager : MonoBehaviour
             StartCoroutine(KnockBack(5, other.transform.position));
             StartCoroutine(InvincibleTimer(2));
         }
-        if(other.gameObject.CompareTag("Water"))
+        if(other.gameObject.CompareTag("Water") && isAirborn == false)
         {
             isInWater = true;
             StartCoroutine(KnockBack(20, other.transform.position));
