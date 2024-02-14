@@ -61,7 +61,6 @@ public class End_Menu : MonoBehaviour
 
     public void Restart()
     {
-        // add: unpause game
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
