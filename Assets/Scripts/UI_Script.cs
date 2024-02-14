@@ -8,6 +8,8 @@ using UnityEditor;
 public class UI_Script : MonoBehaviour
 {
     public GameObject canvas;
+    public Rigidbody2D player1;
+    public testMove movementScript;  //will change script to Movement when ready
 
     public TMP_Text p1;
     public TMP_Text p2;
@@ -21,7 +23,6 @@ public class UI_Script : MonoBehaviour
 
     bool p1dead = false;
     //bool p2dead = false;     //will add back in when p2 exists
-    //bool gamePaused = false; //still trying to figure out how to pause the game without pausing the menu
 
     void Start()
     {
@@ -33,7 +34,8 @@ public class UI_Script : MonoBehaviour
     {
         if (p1dead) //&& p2dead
         {
-            //gamePaused = true;
+            movementScript.enabled = false;  //inputs will no longer move the frog when game is over
+            player1.velocity = Vector3.zero;  //freeze frog
             canvas.SendMessage("EndGame");
         }
     }

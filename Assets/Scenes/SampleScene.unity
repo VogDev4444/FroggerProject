@@ -4422,6 +4422,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+  player1: {fileID: 0}
+  movementScript: {fileID: 0}
   p1: {fileID: 1663896010111680445}
   p2: {fileID: 1663896010111680444}
   p1_heart_1: {fileID: 0}
@@ -4529,6 +4531,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7589522575767080112, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1074893554}
+    - target: {fileID: 7589522575767080112, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: player1
+      value: 
+      objectReference: {fileID: 1074893554}
+    - target: {fileID: 7589522575767080112, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: movementScript
+      value: 
+      objectReference: {fileID: 1074893562}
     - target: {fileID: 8872517658748339147, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_Pivot.x
       value: 0
