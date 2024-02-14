@@ -22,13 +22,13 @@ public class testMove : MonoBehaviour
         speedX = Input.GetAxisRaw("Horizontal") * movementSpeed;
         speedY = Input.GetAxisRaw("Vertical") * movementSpeed;
         rb.velocity = new Vector2(speedX, speedY);
-        if(speedX != 0)
+        if(speedX != 0 || speedY != 0)
         {
-            anim.speed = speedX;
+            
         }
         else
         {
-            anim.speed = speedY;
+           
         }
     }
 }
