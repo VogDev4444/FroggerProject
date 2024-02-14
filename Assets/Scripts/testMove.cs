@@ -24,11 +24,11 @@ public class testMove : MonoBehaviour
         rb.velocity = new Vector2(speedX, speedY);
         if(speedX != 0 || speedY != 0)
         {
-            
+            anim.SetFloat("speed", 1);
         }
         else
         {
-           
+            anim.SetFloat("speed", 0);
         }
     }
 }
