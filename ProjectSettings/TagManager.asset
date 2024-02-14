@@ -8,6 +8,7 @@ TagManager:
   - Death
   - Water
   - Ground
+  - PlayerA
   layers:
   - Default
   - TransparentFX
