@@ -659,6 +659,16 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &762157910 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2919458582298610205, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+  m_PrefabInstance: {fileID: 1663896010111680437}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1007171226 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3627294681434062950, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+  m_PrefabInstance: {fileID: 1663896010111680437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!50 &1074893554 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 3580042624096663245, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
@@ -735,6 +745,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1096598258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7325306531799080039, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+  m_PrefabInstance: {fileID: 1663896010111680437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1341803921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,6 +1129,11 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &1367271679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1490649769503465916, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+  m_PrefabInstance: {fileID: 1663896010111680437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1496812653 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7589522575767080112, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
@@ -1579,6 +1599,16 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1551849762 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7631866591621945218, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+  m_PrefabInstance: {fileID: 1663896010111680437}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1589456193 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5693089537163431646, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+  m_PrefabInstance: {fileID: 1663896010111680437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1625891387
 GameObject:
   m_ObjectHideFlags: 0
@@ -3869,17 +3899,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b154ef57d61fefe4d9e4019af66e8a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  player1: {fileID: 0}
-  movementScript: {fileID: 0}
+  canvas: {fileID: 762157910}
+  player1: {fileID: 1074893554}
+  movementScript: {fileID: 1074893570}
   p1: {fileID: 1663896010111680445}
   p2: {fileID: 1663896010111680444}
-  p1_heart_1: {fileID: 0}
-  p1_heart_2: {fileID: 0}
-  p1_heart_3: {fileID: 0}
-  p2_heart_1: {fileID: 0}
-  p2_heart_2: {fileID: 0}
-  p2_heart_3: {fileID: 0}
+  p1_heart_1: {fileID: 1096598258}
+  p1_heart_2: {fileID: 1551849762}
+  p1_heart_3: {fileID: 1589456193}
+  p2_heart_1: {fileID: 1007171226}
+  p2_heart_2: {fileID: 1947022945}
+  p2_heart_3: {fileID: 1367271679}
 --- !u!114 &1783584294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3910,6 +3940,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1947022945 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9170864229839807302, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+  m_PrefabInstance: {fileID: 1663896010111680437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1663896010111680437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3918,9 +3953,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1630955518192975227, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -176
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167341350729813971, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -176
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861972358487922415, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -176
+      objectReference: {fileID: 0}
     - target: {fileID: 2919458582298610205, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159014127540191318, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -176
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058962709383240647, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -176
       objectReference: {fileID: 0}
     - target: {fileID: 7589522575767080112, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: player
@@ -3934,6 +3989,10 @@ PrefabInstance:
       propertyPath: movementScript
       value: 
       objectReference: {fileID: 1074893570}
+    - target: {fileID: 8715296563362146965, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -176
+      objectReference: {fileID: 0}
     - target: {fileID: 8872517658748339147, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_Pivot.x
       value: 0
