@@ -3955,15 +3955,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1630955518192975227, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -176
+      value: -259
       objectReference: {fileID: 0}
     - target: {fileID: 2167341350729813971, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -176
+      value: -259
       objectReference: {fileID: 0}
     - target: {fileID: 2861972358487922415, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -176
+      value: -259
       objectReference: {fileID: 0}
     - target: {fileID: 2919458582298610205, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_Name
@@ -3971,11 +3971,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4159014127540191318, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -176
+      value: -259
       objectReference: {fileID: 0}
     - target: {fileID: 5058962709383240647, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -176
+      value: -259
       objectReference: {fileID: 0}
     - target: {fileID: 7589522575767080112, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: player
@@ -3991,7 +3991,7 @@ PrefabInstance:
       objectReference: {fileID: 1074893570}
     - target: {fileID: 8715296563362146965, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -176
+      value: -259
       objectReference: {fileID: 0}
     - target: {fileID: 8872517658748339147, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_Pivot.x
