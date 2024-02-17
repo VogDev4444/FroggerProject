@@ -71,7 +71,7 @@ public class End_Menu : MonoBehaviour
 
     IEnumerator EndDisplayTimer()
     {
-        //add: blur the background
+        //pause the game somehow without pausing this coroutine- Time.timeScale = 0 paused this method too;
 
         p1NewTitle.SetActive(true);
 

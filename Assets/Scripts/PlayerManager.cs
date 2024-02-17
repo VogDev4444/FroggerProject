@@ -7,11 +7,10 @@ public class PlayerManager : MonoBehaviour
     public BugManager bm;
     public UI_Script health_UI;
     private Animator anim;
-    public Rigidbody2D rigidbody;
 
     //booleans for state of the players 
     bool isInWater = false;
-    public bool isAirborn;
+    public bool isAirborn = false;
     public bool isStaggered;
     public bool isKnockedBack;
     public bool invincible = false;
@@ -63,7 +62,7 @@ public class PlayerManager : MonoBehaviour
             StartCoroutine(KnockBack(5, other.transform.position));
             StartCoroutine(InvincibleTimer(2));
         }
-        if(other.gameObject.CompareTag("Water"))
+        if(other.gameObject.CompareTag("Water") && isAirborn == false)
         {
             isInWater = true;
             StartCoroutine(KnockBack(20, other.transform.position));
@@ -163,10 +162,10 @@ public class PlayerManager : MonoBehaviour
         Debug.Log(origin);
         Debug.Log(playerPos);
         Debug.Log(dir);
-        rigidbody.AddForce(-dir * _knockback, ForceMode2D.Force);
+       
         isKnockedBack = true;
         yield return new WaitForSecondsRealtime(0.15f);
         isKnockedBack = false;
-        rigidbody.velocity = Vector2.zero;
+        
     }
 }
