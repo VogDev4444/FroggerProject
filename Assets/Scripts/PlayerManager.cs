@@ -146,7 +146,12 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public void playerDodge()
+    {
+        StartCoroutine(InvincibleTimer(2)); //gives invuln frames
 
+        //add something to activate dodge animation
+    }
 
     IEnumerator InvincibleTimer(float duration)
     {

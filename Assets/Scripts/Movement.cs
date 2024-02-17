@@ -13,10 +13,12 @@ public class Movement : MonoBehaviour
     [SerializeField] private string move = "Move";
     [SerializeField] private string dodge = "Dodge";
     [SerializeField] private string attack = "Attack";
+    [SerializeField] private string look = "Look";
 
     private InputAction moveAction;
     private InputAction dodgeAction;
     private InputAction attackAction;
+    private InputAction lookAction;
 
 
      Rigidbody2D rb;
@@ -24,6 +26,8 @@ public class Movement : MonoBehaviour
 
 
     public Vector2 moveInput { get; private set; }
+
+    public Vector2 lookInput { get; private set; }
     public bool dodgeTrigger { get;private set; }
     public bool attackTrigger { get; private set; }
 
@@ -31,6 +35,9 @@ public class Movement : MonoBehaviour
 
     //Animator controller
     private Animator anim;
+
+    public Rigidbody2D reticalRB;
+
     private void Awake()
     {
         //makes sure this is the only one to exist for player1
@@ -47,6 +54,7 @@ public class Movement : MonoBehaviour
         moveAction = playerControls.FindActionMap(actionMapName).FindAction(move);
         dodgeAction = playerControls.FindActionMap(actionMapName).FindAction(dodge);
         attackAction = playerControls.FindActionMap(actionMapName).FindAction(attack);
+        lookAction = playerControls.FindActionMap(actionMapName).FindAction(look);
         RegisterInputActions();
     }
 
@@ -61,12 +69,16 @@ public class Movement : MonoBehaviour
 
         attackAction.performed += context => attackTrigger = true;
         attackAction.canceled += context => attackTrigger = false;
+
+        lookAction.performed += context => lookInput = context.ReadValue<Vector2>(); //reads the vector2 value to change the retical location
+        lookAction.canceled += context => lookInput = Vector2.zero;
     }
     private void onEnable() 
     {
         moveAction.Enable();
         dodgeAction.Enable(); 
         attackAction.Enable();
+        lookAction.Enable();
         
     }
 
@@ -75,8 +87,15 @@ public class Movement : MonoBehaviour
         moveAction.Disable();
         dodgeAction.Disable();
         attackAction.Disable();
+        lookAction.Disable();
     }
     
+    private void playerAttackMethod()
+    {
+        //spawns the tongue collider or makes it active 
+
+        //knocks the player back from the tongue collider
+    }
 
     void Start()
     {
@@ -96,6 +115,9 @@ public class Movement : MonoBehaviour
         {
             anim.SetFloat("speed", 0);
         }
+
+        //changes where the retical is aimed as if it is another players
+        reticalRB.velocity = new Vector2(lookInput.x * moveSpeed, lookInput.y * moveSpeed);
     }
     
 }

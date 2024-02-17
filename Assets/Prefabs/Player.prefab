@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3336965931421458345}
   - component: {fileID: 5809991134505571609}
-  - component: {fileID: 4470351936616097579}
   - component: {fileID: 2970756946219389946}
   - component: {fileID: 3580042624096663245}
   - component: {fileID: 159483715424680871}
@@ -63,19 +62,6 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   lastIn: 
   flyingCoolDown: 0
---- !u!114 &4470351936616097579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560749635288811684}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b541e356098f9944b943d0d18165184c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 5
 --- !u!114 &2970756946219389946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,7 +79,9 @@ MonoBehaviour:
   move: Move
   dodge: Dodge
   attack: Attack
+  look: Look
   moveSpeed: 5
+  reticalRB: {fileID: 0}
 --- !u!50 &3580042624096663245
 Rigidbody2D:
   serializedVersion: 4
