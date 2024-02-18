@@ -9,7 +9,7 @@ public class UI_Script : MonoBehaviour
 {
     public GameObject canvas;
     public Rigidbody2D player1;
-    public testMove movementScript;  //will change script to Movement when ready
+    public Movement movementScript;  //will change script to Movement when ready
 
     public TMP_Text p1;
     public TMP_Text p2;

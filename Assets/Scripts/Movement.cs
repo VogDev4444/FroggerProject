@@ -36,7 +36,12 @@ public class Movement : MonoBehaviour
     //Animator controller
     private Animator anim;
 
+    //Retical
     public Rigidbody2D reticalRB;
+    public Transform reticalT;
+    public GameObject centerObject;    //frog
+    Vector3 centerObjectPos;           
+    private float radiusOffset = 1f;   //how far away retical is from frog
 
     private void Awake()
     {
@@ -116,8 +121,21 @@ public class Movement : MonoBehaviour
             anim.SetFloat("speed", 0);
         }
 
-        //changes where the retical is aimed as if it is another players
-        reticalRB.velocity = new Vector2(lookInput.x * moveSpeed, lookInput.y * moveSpeed);
+
+        //Retical moves around frog in a circle, following mouse.
+
+        //reticalRB.velocity = new Vector2(lookInput.x * speed, lookInput.y * speed); -> unused for now
+
+        centerObjectPos = centerObject.transform.position;
+
+        Vector2 mouseScreenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);  //USES OLD INPUT SYSTEM to know where to look, BAD
+        
+        Vector2 reticalPosition = (mouseScreenPosition - (Vector2)centerObjectPos).normalized * radiusOffset;   
+        reticalT.position = (Vector2)centerObjectPos + reticalPosition; 
+
+        Vector2 direction = (mouseScreenPosition - (Vector2)transform.position).normalized;
+        reticalT.up = direction;   
+
     }
-    
+
 }
