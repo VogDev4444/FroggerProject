@@ -24,8 +24,10 @@ public class UI_Script : MonoBehaviour
     bool p1dead = false;
     //bool p2dead = false;     //will add back in when p2 exists
 
+
     void Start()
     {
+        
         p1.text = "0";
         p2.text = "0";
     }

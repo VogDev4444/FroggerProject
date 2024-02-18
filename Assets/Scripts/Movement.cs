@@ -1,10 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    [Header("Input Action Asset")]
-    [SerializeField] private InputActionAsset playerControls;
+    //[Header("Input Action Asset")]
+    [SerializeField] public InputActionAsset playerControls;
 
     [Header("Action Map Name References")]
     [SerializeField] private string actionMapName = "Player";
@@ -31,7 +32,7 @@ public class Movement : MonoBehaviour
     public bool dodgeTrigger { get;private set; }
     public bool attackTrigger { get; private set; }
 
-    public static Movement Instance { get; private set; }
+    //public static Movement Instance { get; private set; }
 
     //Animator controller
     private Animator anim;
@@ -46,7 +47,7 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         //makes sure this is the only one to exist for player1
-        if(Instance == null)
+        /*if(Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
@@ -55,6 +56,8 @@ public class Movement : MonoBehaviour
         {
             Destroy(gameObject);
         }
+       */
+        playerControls = this.GetComponent<PlayerInput>().actions;
 
         moveAction = playerControls.FindActionMap(actionMapName).FindAction(move);
         dodgeAction = playerControls.FindActionMap(actionMapName).FindAction(dodge);
@@ -95,12 +98,6 @@ public class Movement : MonoBehaviour
         lookAction.Disable();
     }
     
-    private void playerAttackMethod()
-    {
-        //spawns the tongue collider or makes it active 
-
-        //knocks the player back from the tongue collider
-    }
 
     void Start()
     {

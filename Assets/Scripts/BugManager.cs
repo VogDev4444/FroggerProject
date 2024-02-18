@@ -11,8 +11,10 @@ public class BugManager : MonoBehaviour
 
     private BugSpawner bugSpawner;
 
+
     void Start()
     {
+        
         // Find the BugSpawner GameObject in the scene
         bugSpawner = FindObjectOfType<BugSpawner>();
 

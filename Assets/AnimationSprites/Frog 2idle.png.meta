@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6e58e6b247570b54ca3b665972cf4e03
+guid: 1801ea2428aa3d442a891cb4811f35f2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Frog1JumpAnim_0
+      name: Frog 2idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -122,20 +122,20 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -98, y: -122}
-        - {x: -92, y: -68}
-        - {x: 94, y: -67}
-        - {x: 89, y: -122}
+      - - {x: -97, y: -96}
+        - {x: -98, y: -29}
+        - {x: 69, y: -25}
+        - {x: 60, y: -96}
       tessellationDetail: 0
       bones: []
-      spriteID: 31915831176cd844cb8fd520807da0d2
-      internalID: 916721474
+      spriteID: 0b37f8c7a616ec747b2f683cd74b6a7d
+      internalID: 1416799964
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frog1JumpAnim_1
+      name: Frog 2idle_1
       rect:
         serializedVersion: 2
         x: 300
@@ -147,21 +147,20 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -78, y: -123}
-        - {x: -78, y: -102}
-        - {x: -4, y: -111}
-        - {x: 73, y: -102}
-        - {x: 73, y: -123}
+      - - {x: -98, y: -95}
+        - {x: -98, y: -20}
+        - {x: 80, y: -20}
+        - {x: 80, y: -95}
       tessellationDetail: 0
       bones: []
-      spriteID: 1856fb221a3bc12419e003a9ac61c930
-      internalID: -1842136829
+      spriteID: 209150bed4ad68b43ae54b567b42cf48
+      internalID: -1541611233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frog1JumpAnim_2
+      name: Frog 2idle_2
       rect:
         serializedVersion: 2
         x: 600
@@ -172,17 +171,21 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -69, y: -96}
+        - {x: -69, y: 48}
+        - {x: 84, y: 48}
+        - {x: 84, y: -96}
       tessellationDetail: 0
       bones: []
-      spriteID: e049f8a65ff36c243b22ef8900b9c677
-      internalID: -1439164860
+      spriteID: d608189d04f52794d951392980c3b983
+      internalID: 1449593472
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frog1JumpAnim_3
+      name: Frog 2idle_3
       rect:
         serializedVersion: 2
         x: 900
@@ -194,14 +197,14 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -71, y: -87}
-        - {x: -79, y: -2}
-        - {x: 82, y: 3}
-        - {x: 74, y: -88}
+      - - {x: -85, y: -92}
+        - {x: -85, y: -18}
+        - {x: 86, y: -18}
+        - {x: 86, y: -92}
       tessellationDetail: 0
       bones: []
-      spriteID: 259553403a3bedb40a1a2545fe922c0c
-      internalID: -557131330
+      spriteID: 6854a9c08d3ece744970be6b9e532027
+      internalID: -1648768533
       vertices: []
       indices: 
       edges: []
@@ -217,10 +220,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Frog1JumpAnim_0: 916721474
-      Frog1JumpAnim_1: -1842136829
-      Frog1JumpAnim_2: -1439164860
-      Frog1JumpAnim_3: -557131330
+      Frog 2idle_0: 1416799964
+      Frog 2idle_1: -1541611233
+      Frog 2idle_2: 1449593472
+      Frog 2idle_3: -1648768533
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
