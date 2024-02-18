@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerManager : MonoBehaviour
 {
     public BugManager bm;
@@ -21,7 +22,7 @@ public class PlayerManager : MonoBehaviour
     public string lastIn;
 
     int health = 3;
-
+    public int playerNum;
 
     public bool flyingCoolDown;
 
@@ -29,6 +30,12 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        bm = FindAnyObjectByType<BugManager>();
+        health_UI = FindAnyObjectByType<UI_Script>();
+        if(playerNum == 0)
+        {
+            playerNum = 2;
+        }
         
     }
 
@@ -39,7 +46,14 @@ public class PlayerManager : MonoBehaviour
         if (isInWater && !invincible)
         {
             health -= 1;
-            health_UI.P1Health();
+            if(playerNum == 1)
+            {
+                health_UI.P1Health();
+            }
+            else
+            {
+                health_UI.P2Health();
+            }
             StartCoroutine(InvincibleTimer(5)); //aftrer 5 seconds players take damage again
         }
         
@@ -58,14 +72,21 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.CompareTag("Death") && !invincible)
         {
             health -= 1;
-            health_UI.P1Health();
+            if (playerNum == 1)
+            {
+                health_UI.P1Health();
+            }
+            else
+            {
+                health_UI.P2Health();
+            }
             StartCoroutine(KnockBack(5, other.transform.position));
             StartCoroutine(InvincibleTimer(2));
         }
         if(other.gameObject.CompareTag("Water") && isAirborn == false)
         {
             isInWater = true;
-            StartCoroutine(KnockBack(20, other.transform.position));
+            
         }
     }
 
@@ -167,7 +188,7 @@ public class PlayerManager : MonoBehaviour
         Debug.Log(origin);
         Debug.Log(playerPos);
         Debug.Log(dir);
-       
+        
         isKnockedBack = true;
         yield return new WaitForSecondsRealtime(0.15f);
         isKnockedBack = false;

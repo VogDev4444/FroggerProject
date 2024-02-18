@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5809991134505571609}
   - component: {fileID: 2970756946219389946}
   - component: {fileID: 3580042624096663245}
-  - component: {fileID: 159483715424680871}
   - component: {fileID: 6547958421664382837}
   - component: {fileID: 6456333781602589705}
   - component: {fileID: 8250056792930626083}
@@ -110,28 +109,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &159483715424680871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560749635288811684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee29d8ce701a37a4c83653c011d764d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bm: {fileID: 0}
-  health_UI: {fileID: 0}
-  isAirborn: 0
-  isStaggered: 0
-  isKnockedBack: 1
-  invincible: 0
-  moveInput: {x: 0, y: 0}
-  direction: {x: 0, y: 0}
-  lastIn: 
-  flyingCoolDown: 0
 --- !u!95 &6547958421664382837
 Animator:
   serializedVersion: 5
@@ -251,7 +228,7 @@ MonoBehaviour:
     m_ActionId: 7b8f7dfe-9113-49d9-a130-4e0d370d9323
     m_ActionName: Player/Attack[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

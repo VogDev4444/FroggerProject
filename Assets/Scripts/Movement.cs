@@ -1,10 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    [Header("Input Action Asset")]
-    [SerializeField] private InputActionAsset playerControls;
+    //[Header("Input Action Asset")]
+    [SerializeField] public InputActionAsset playerControls;
 
     [Header("Action Map Name References")]
     [SerializeField] private string actionMapName = "Player";
@@ -51,6 +52,7 @@ public class Movement : MonoBehaviour
             Destroy(gameObject);
         }
        */
+        playerControls = this.GetComponent<PlayerInput>().actions;
 
         moveAction = playerControls.FindActionMap(actionMapName).FindAction(move);
         dodgeAction = playerControls.FindActionMap(actionMapName).FindAction(dodge);

@@ -674,6 +674,17 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 3580042624096663245, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
   m_PrefabInstance: {fileID: 2316146931648984603}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1074893559 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2970756946219389946, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
+  m_PrefabInstance: {fileID: 2316146931648984603}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15f6ae2a6e3d19428d5b6bdc6be0866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1075009614
 GameObject:
   m_ObjectHideFlags: 0
@@ -3858,6 +3869,7 @@ GameObject:
   - component: {fileID: 1783584295}
   - component: {fileID: 1783584294}
   - component: {fileID: 1783584293}
+  - component: {fileID: 1783584296}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3872,14 +3884,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783584292}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b154ef57d61fefe4d9e4019af66e8a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 762157910}
   player1: {fileID: 1074893554}
-  movementScript: {fileID: 0}
+  movementScript: {fileID: 1074893559}
   p1: {fileID: 1663896010111680445}
   p2: {fileID: 1663896010111680444}
   p1_heart_1: {fileID: 1096598258}
@@ -3918,6 +3930,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1783584296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783584292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NotificationBehavior: 0
+  m_MaxPlayerCount: -1
+  m_AllowJoining: 1
+  m_JoinBehavior: 0
+  m_PlayerJoinedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_PlayerLeftEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_JoinAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_PlayerPrefab: {fileID: 3298647439135900664, guid: a647f211ea617974c98b7c1b3d6041cd, type: 3}
+  m_SplitScreen: 0
+  m_MaintainAspectRatioInSplitScreen: 0
+  m_FixedNumberOfSplitScreens: -1
+  m_SplitScreenRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &1947022945 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9170864229839807302, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
@@ -3954,6 +4010,10 @@ PrefabInstance:
     - target: {fileID: 5058962709383240647, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -259
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325306531799080039, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7589522575767080112, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: player
@@ -4086,14 +4146,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 159483715424680871, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
-      propertyPath: bm
-      value: 
-      objectReference: {fileID: 1783584294}
-    - target: {fileID: 159483715424680871, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
-      propertyPath: health_UI
-      value: 
-      objectReference: {fileID: 1496812653}
     - target: {fileID: 1560749635288811684, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4138,6 +4190,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3619229735362957846, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619229735362957846, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619229735362957846, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5809991134505571609, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
       propertyPath: bm
       value: 
@@ -4146,6 +4210,18 @@ PrefabInstance:
       propertyPath: health_UI
       value: 
       objectReference: {fileID: 1496812653}
+    - target: {fileID: 5809991134505571609, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
+      propertyPath: isAirborn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809991134505571609, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
+      propertyPath: playerNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809991134505571609, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
+      propertyPath: flyingCoolDown
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

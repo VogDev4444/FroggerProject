@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,107 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Frog 2idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -97, y: -96}
+        - {x: -98, y: -29}
+        - {x: 69, y: -25}
+        - {x: 60, y: -96}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b37f8c7a616ec747b2f683cd74b6a7d
+      internalID: 1416799964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frog 2idle_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -98, y: -95}
+        - {x: -98, y: -20}
+        - {x: 80, y: -20}
+        - {x: 80, y: -95}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 209150bed4ad68b43ae54b567b42cf48
+      internalID: -1541611233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frog 2idle_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -69, y: -96}
+        - {x: -69, y: 48}
+        - {x: 84, y: 48}
+        - {x: 84, y: -96}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d608189d04f52794d951392980c3b983
+      internalID: 1449593472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frog 2idle_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -85, y: -92}
+        - {x: -85, y: -18}
+        - {x: 86, y: -18}
+        - {x: 86, y: -92}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6854a9c08d3ece744970be6b9e532027
+      internalID: -1648768533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +219,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Frog 2idle_0: 1416799964
+      Frog 2idle_1: -1541611233
+      Frog 2idle_2: 1449593472
+      Frog 2idle_3: -1648768533
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
