@@ -4120,7 +4120,7 @@ PrefabInstance:
     - target: {fileID: 7589522575767080112, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: movementScript
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1074893559}
     - target: {fileID: 8715296563362146965, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -259
