@@ -60,6 +60,7 @@ MonoBehaviour:
   moveInput: {x: 0, y: 0}
   direction: {x: 0, y: 0}
   lastIn: 
+  playerNum: 0
   flyingCoolDown: 0
 --- !u!114 &662780069096059138
 MonoBehaviour:
@@ -183,7 +184,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!50 &-2913114181375462271
 Rigidbody2D:
   serializedVersion: 4
@@ -246,7 +247,7 @@ BoxCollider2D:
   m_Offset: {x: -0.043281406, y: -0.21424289}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.49025336, y: 0.22709537}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5

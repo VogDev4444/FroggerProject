@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -34,10 +36,14 @@ public class Movement : MonoBehaviour
 
     //public static Movement Instance { get; private set; }
 
+    public bool invincible;
+
     //Animator controller
     private Animator anim;
 
     public Rigidbody2D reticalRB;
+
+    public Rigidbody2D projectPrefab;
 
     private void Awake()
     {
@@ -67,10 +73,10 @@ public class Movement : MonoBehaviour
         moveAction.performed += context => moveInput = context.ReadValue<Vector2>(); //reads the value at the time of the input
         moveAction.canceled += context => moveInput = Vector2.zero; //when no player input, defaults to 0
 
-        dodgeAction.performed += context => dodgeTrigger = true;
+        dodgeAction.performed += context => playerDodge();
         dodgeAction.canceled += context => dodgeTrigger = false;
 
-        attackAction.performed += context => attackTrigger = true;
+        attackAction.performed += context => playerFire();
         attackAction.canceled += context => attackTrigger = false;
 
         lookAction.performed += context => lookInput = context.ReadValue<Vector2>(); //reads the vector2 value to change the retical location
@@ -106,15 +112,55 @@ public class Movement : MonoBehaviour
          rb.velocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed);
         if (moveInput.x != 0 || moveInput.y != 0)
         {
-            anim.SetFloat("speed", 1);
+            anim.SetBool("isWalking", true);
         }
         else
         {
-            anim.SetFloat("speed", 0);
+            anim.SetBool("isWalking", false);
         }
 
         //changes where the retical is aimed as if it is another players
         reticalRB.velocity = new Vector2(lookInput.x * moveSpeed, lookInput.y * moveSpeed);
     }
-    
+
+    public void playerDodge()
+    {
+
+        //add something to activate dodge animation
+        if (moveInput.x > 0)
+        {
+            anim.SetBool("isDodging", true);
+            anim.SetFloat("speed", 1);
+        }
+        else if (moveInput.x<0)
+        {
+            anim.SetBool("isDodging", true);
+            anim.SetFloat("speed", -1);
+        }
+        StartCoroutine(InvincibleTimer(2)); //gives invuln frames
+        
+    }
+
+    public void playerFire()
+    {
+        //instantiating the bullet 
+        Rigidbody2D project = Instantiate(projectPrefab, new Vector3(transform.position.x,transform.position.y, transform.position.z),transform.rotation) as Rigidbody2D;
+        
+        project.GetComponent<Rigidbody2D>().AddForce(reticalRB.transform.right * 500);
+
+    }
+
+    IEnumerator InvincibleTimer(float duration)
+    {
+        if(invincible == false)
+        {
+            invincible = true;
+            dodgeTrigger = true;
+            yield return new WaitForSeconds(duration);
+            invincible = false;
+            dodgeTrigger = false;
+            anim.SetBool("isDodging", false);
+        }
+    }
+
 }

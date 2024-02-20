@@ -54,13 +54,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bm: {fileID: 0}
   health_UI: {fileID: 0}
-  isAirborn: 1
+  isAirborn: 0
   isStaggered: 0
   isKnockedBack: 0
   invincible: 0
   moveInput: {x: 0, y: 0}
   direction: {x: 0, y: 0}
   lastIn: 
+  playerNum: 1
   flyingCoolDown: 0
 --- !u!114 &2970756946219389946
 MonoBehaviour:
@@ -295,7 +296,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &6389034256433895204
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,7 +323,7 @@ Transform:
   m_GameObject: {fileID: 6389034256433895204}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.075280845, y: -0.16505906, z: 0.08200439}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
