@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -24,6 +26,7 @@ public class Movement : MonoBehaviour
 
      Rigidbody2D rb;
     public float moveSpeed = 5f;
+    public float lookSpeed = 10f;
 
 
     public Vector2 moveInput { get; private set; }
@@ -34,15 +37,16 @@ public class Movement : MonoBehaviour
 
     //public static Movement Instance { get; private set; }
 
+    public bool invincible;
+
     //Animator controller
     private Animator anim;
 
-    //Retical
+    //where the projectile will be aimed at
     public Rigidbody2D reticalRB;
-    public Transform reticalT;
-    public GameObject centerObject;    //frog
-    Vector3 centerObjectPos;           
-    private float radiusOffset = 1f;   //how far away retical is from frog
+    //the projectile prefab itself
+    public Rigidbody2D projectPrefab;
+    public Transform fireStartPos; //where the projectile spawns
 
     private void Awake()
     {
@@ -72,10 +76,10 @@ public class Movement : MonoBehaviour
         moveAction.performed += context => moveInput = context.ReadValue<Vector2>(); //reads the value at the time of the input
         moveAction.canceled += context => moveInput = Vector2.zero; //when no player input, defaults to 0
 
-        dodgeAction.performed += context => dodgeTrigger = true;
+        dodgeAction.performed += context => playerDodge();
         dodgeAction.canceled += context => dodgeTrigger = false;
 
-        attackAction.performed += context => attackTrigger = true;
+        attackAction.performed += context => playerFire();
         attackAction.canceled += context => attackTrigger = false;
 
         lookAction.performed += context => lookInput = context.ReadValue<Vector2>(); //reads the vector2 value to change the retical location
@@ -111,28 +115,64 @@ public class Movement : MonoBehaviour
          rb.velocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed);
         if (moveInput.x != 0 || moveInput.y != 0)
         {
-            anim.SetFloat("speed", 1);
+            anim.SetBool("isWalking", true);
         }
         else
         {
-            anim.SetFloat("speed", 0);
+            anim.SetBool("isWalking", false);
         }
 
+        //changes where the retical is aimed as if it is another players
+        reticalRB.velocity = new Vector2(lookInput.x * lookSpeed, lookInput.y * lookSpeed);
 
-        //Retical moves around frog in a circle, following mouse.
+        //Entire section is changing where the projectiles spawn a certain distance away from the player in a radius around them
+        Vector2 v = reticalRB.position - (Vector2) transform.position;
+        v.Normalize();
+        v = v * 1.3f;
+        fireStartPos.transform.position = (Vector2) transform.position + v;
 
-        //reticalRB.velocity = new Vector2(lookInput.x * speed, lookInput.y * speed); -> unused for now
+    }
 
-        centerObjectPos = centerObject.transform.position;
+    public void playerDodge()
+    {
 
-        Vector2 mouseScreenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);  //USES OLD INPUT SYSTEM to know where to look, BAD
+        //add something to activate dodge animation
+        if (moveInput.x > 0)
+        {
+            anim.SetBool("isDodging", true);
+            anim.SetFloat("speed", 1);
+        }
+        else if (moveInput.x<0)
+        {
+            anim.SetBool("isDodging", true);
+            anim.SetFloat("speed", -1);
+        }
+        StartCoroutine(InvincibleTimer(2)); //gives invuln frames
         
-        Vector2 reticalPosition = (mouseScreenPosition - (Vector2)centerObjectPos).normalized * radiusOffset;   
-        reticalT.position = (Vector2)centerObjectPos + reticalPosition; 
+    }
 
-        Vector2 direction = (mouseScreenPosition - (Vector2)transform.position).normalized;
-        reticalT.up = direction;   
+    public void playerFire()
+    {
+        //instantiating the bullet 
+        Rigidbody2D project = Instantiate(projectPrefab, new Vector3(fireStartPos.position.x,fireStartPos.position.y, fireStartPos.position.z),transform.rotation) as Rigidbody2D;
+        Vector2 projectileSpeed = reticalRB.transform.position;
+        projectileSpeed.Normalize();
+        projectileSpeed = projectileSpeed * 10;
+        project.GetComponent<Rigidbody2D>().AddForce(projectileSpeed * 100);
 
+    }
+
+    IEnumerator InvincibleTimer(float duration)
+    {
+        if(invincible == false)
+        {
+            invincible = true;
+            dodgeTrigger = true;
+            yield return new WaitForSeconds(duration);
+            invincible = false;
+            dodgeTrigger = false;
+            anim.SetBool("isDodging", false);
+        }
     }
 
 }
