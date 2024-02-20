@@ -26,6 +26,7 @@ public class Movement : MonoBehaviour
 
      Rigidbody2D rb;
     public float moveSpeed = 5f;
+    public float lookSpeed = 10f;
 
 
     public Vector2 moveInput { get; private set; }
@@ -41,9 +42,11 @@ public class Movement : MonoBehaviour
     //Animator controller
     private Animator anim;
 
+    //where the projectile will be aimed at
     public Rigidbody2D reticalRB;
-
+    //the projectile prefab itself
     public Rigidbody2D projectPrefab;
+    public Transform fireStartPos; //where the projectile spawns
 
     private void Awake()
     {
@@ -120,7 +123,14 @@ public class Movement : MonoBehaviour
         }
 
         //changes where the retical is aimed as if it is another players
-        reticalRB.velocity = new Vector2(lookInput.x * moveSpeed, lookInput.y * moveSpeed);
+        reticalRB.velocity = new Vector2(lookInput.x * lookSpeed, lookInput.y * lookSpeed);
+
+        //Entire section is changing where the projectiles spawn a certain distance away from the player in a radius around them
+        Vector2 v = reticalRB.position - (Vector2) transform.position;
+        v.Normalize();
+        v = v * 1.3f;
+        fireStartPos.transform.position = (Vector2) transform.position + v;
+
     }
 
     public void playerDodge()
@@ -144,9 +154,11 @@ public class Movement : MonoBehaviour
     public void playerFire()
     {
         //instantiating the bullet 
-        Rigidbody2D project = Instantiate(projectPrefab, new Vector3(transform.position.x,transform.position.y, transform.position.z),transform.rotation) as Rigidbody2D;
-        
-        project.GetComponent<Rigidbody2D>().AddForce(reticalRB.transform.right * 500);
+        Rigidbody2D project = Instantiate(projectPrefab, new Vector3(fireStartPos.position.x,fireStartPos.position.y, fireStartPos.position.z),transform.rotation) as Rigidbody2D;
+        Vector2 projectileSpeed = reticalRB.transform.position;
+        projectileSpeed.Normalize();
+        projectileSpeed = projectileSpeed * 10;
+        project.GetComponent<Rigidbody2D>().AddForce(projectileSpeed * 100);
 
     }
 

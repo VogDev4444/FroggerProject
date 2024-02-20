@@ -11,19 +11,23 @@ public class ProjectileKnockBack : MonoBehaviour
     public float cooldown;
     public float projectileSpeed = 500;
 
+    public float lifeSpan = 2f;
+
     // Start is called before the first frame update
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        Destroy(this.gameObject, lifeSpan);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
             {
-            //way to reduce score add here
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(this.transform.position * 100);
         }
     }
+
 
 }

@@ -815,11 +815,11 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.507874, y: 1.4017975, z: 0}
+  m_ChunkCullingBounds: {x: 0.5619025, y: 1.3870624, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 2
-  m_Mode: 0
+  m_Mode: 1
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
 --- !u!1839735485 &1341803924
@@ -4152,11 +4152,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3336965931421458345, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 3336965931421458345, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: 3336965931421458345, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4190,18 +4190,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3619229735362957846, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3619229735362957846, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3619229735362957846, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5809991134505571609, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
       propertyPath: bm
       value: 
@@ -4210,17 +4198,9 @@ PrefabInstance:
       propertyPath: health_UI
       value: 
       objectReference: {fileID: 1496812653}
-    - target: {fileID: 5809991134505571609, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
-      propertyPath: isAirborn
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5809991134505571609, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
-      propertyPath: playerNum
+    - target: {fileID: 8181413911825113718, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
+      propertyPath: m_SpriteSortPoint
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5809991134505571609, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
-      propertyPath: flyingCoolDown
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
