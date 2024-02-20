@@ -99,7 +99,9 @@ MonoBehaviour:
   attackSpeed: 0.5
   cooldown: 0
   projectileSpeed: 500
+  force: 400
   lifeSpan: 2
+  moveDir: {x: 0, y: 0}
 --- !u!212 &8059509783847195222
 SpriteRenderer:
   m_ObjectHideFlags: 0
