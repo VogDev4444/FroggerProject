@@ -26,7 +26,7 @@ public class UI_Script : MonoBehaviour
 
     protected int p1_score = 0;
     protected int p2_score = 0;
-    int scoreCap = 5;  //change to score that makes sense
+    int scoreCap = 3;  //change to score that makes sense
 
 
     void Start()

@@ -50,12 +50,12 @@ public class PlayerManager : MonoBehaviour
                 {
                     bm.bugCount1--;
                 }
-                else
+            }
+            else
+            {
+                if (bm.bugCount2 > 0)
                 {
-                    if (bm.bugCount2 > 0)
-                    {
-                        bm.bugCount2--;
-                    }
+                    bm.bugCount2--;
                 }
             }
             StartCoroutine(InvincibleTimer(5)); //aftrer 5 seconds players take damage again
@@ -82,21 +82,21 @@ public class PlayerManager : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Death") && !invincible)
         {
-                if (playerNum == 1)
+            if (playerNum == 1)
+            {
+                if (bm.bugCount1 > 0)
                 {
-                    if (bm.bugCount1 > 0)
-                    {
-                        bm.bugCount1--;
-                    }
-                    else
-                    {
-                        if (bm.bugCount2 > 0)
-                        {
-                            bm.bugCount2--;
-                        }
-                    }
+                    bm.bugCount1--;
                 }
-                    StartCoroutine(KnockBack(5, other.transform.position));
+            }
+            else
+            {
+                if (bm.bugCount2 > 0)
+                {
+                    bm.bugCount2--;
+                }
+            }
+            StartCoroutine(KnockBack(5, other.transform.position));
             StartCoroutine(InvincibleTimer(2));
         }
         if(other.gameObject.CompareTag("Water") && isAirborn == false)
