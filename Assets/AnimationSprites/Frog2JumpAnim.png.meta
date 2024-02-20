@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 309702a34c55e3f45b59b9a715db64b4
+guid: e55ce97d22eb75247b8d4d88bd8c233a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Frog 1 idle_0
+      name: Frog2JumpAnim_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,24 +118,24 @@ TextureImporter:
         width: 300
         height: 300
       alignment: 9
-      pivot: {x: 0.49999994, y: 0.12962946}
+      pivot: {x: 0.50974655, y: 0.14912264}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -114, y: -121}
-        - {x: -77, y: -98}
-        - {x: 45, y: -94}
-        - {x: 94, y: -116}
+      - - {x: -86, y: -123}
+        - {x: -88, y: -83}
+        - {x: 75, y: -79}
+        - {x: 69, y: -120}
       tessellationDetail: 0
       bones: []
-      spriteID: 60012bfdd4273414c838f649a55cc623
-      internalID: 918222837
+      spriteID: 7a2b6da776e9d124d93775f827081fe8
+      internalID: -689621169
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frog 1 idle_1
+      name: Frog2JumpAnim_1
       rect:
         serializedVersion: 2
         x: 300
@@ -143,49 +143,45 @@ TextureImporter:
         width: 300
         height: 300
       alignment: 9
-      pivot: {x: 0.5194931, y: 0.110136285}
+      pivot: {x: 0.4805067, y: 0.14912264}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -101, y: -124}
-        - {x: -80, y: -110}
-        - {x: 68, y: -105}
+      - - {x: -88, y: -123}
+        - {x: -88, y: -112}
+        - {x: 83, y: -112}
         - {x: 83, y: -123}
       tessellationDetail: 0
       bones: []
-      spriteID: ac381e37dca26b34fafe956ff0dc01f3
-      internalID: 138517107
+      spriteID: ed41acbafad61e94a88f1228a1451bb9
+      internalID: 762710985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frog 1 idle_2
+      name: Frog2JumpAnim_2
       rect:
         serializedVersion: 2
-        x: 597
+        x: 600
         y: 0
         width: 300
         height: 300
       alignment: 9
-      pivot: {x: 0.5682259, y: 0.13937606}
+      pivot: {x: 0.519493, y: 0.353801}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -90, y: -121}
-        - {x: -51, y: -92}
-        - {x: 62, y: -85}
-        - {x: 112, y: -116}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 941ce23f66b52464ebd2eada97c82de1
-      internalID: -29383284
+      spriteID: f54328e51d0b97a48b492e5706fff3f4
+      internalID: -110568486
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frog 1 idle_3
+      name: Frog2JumpAnim_3
       rect:
         serializedVersion: 2
         x: 900
@@ -193,18 +189,18 @@ TextureImporter:
         width: 300
         height: 300
       alignment: 9
-      pivot: {x: 0.54873294, y: 0.119882874}
+      pivot: {x: 0.5, y: 0.22709537}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -72, y: -117}
-        - {x: -86, y: -90}
-        - {x: 95, y: -93}
-        - {x: 84, y: -117}
+      - - {x: -84, y: -92}
+        - {x: -75, y: -14}
+        - {x: 74, y: -15}
+        - {x: 75, y: -92}
       tessellationDetail: 0
       bones: []
-      spriteID: f243335b112bcd04e961a7311af9a18a
-      internalID: 219244645
+      spriteID: 29557067071bc6846832c91f8c1466de
+      internalID: -1274809332
       vertices: []
       indices: 
       edges: []
@@ -220,10 +216,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Frog 1 idle_0: 918222837
-      Frog 1 idle_1: 138517107
-      Frog 1 idle_2: -29383284
-      Frog 1 idle_3: 219244645
+      Frog2JumpAnim_0: -689621169
+      Frog2JumpAnim_1: 762710985
+      Frog2JumpAnim_2: -110568486
+      Frog2JumpAnim_3: -1274809332
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

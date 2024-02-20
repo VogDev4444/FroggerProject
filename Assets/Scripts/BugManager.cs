@@ -5,14 +5,18 @@ using TMPro;
 
 public class BugManager : MonoBehaviour
 {
-    public int bugCount;
-    public TMP_Text bugText;
+    public int bugCount1;
+    public int bugCount2;
+    public TMP_Text bugText1;
+    public TMP_Text bugText2;
+
     public float moveSpeed = 2f; // Speed at which bugs move
 
     private BugSpawner bugSpawner;
 
+
     void Start()
-    {
+    { 
         // Find the BugSpawner GameObject in the scene
         bugSpawner = FindObjectOfType<BugSpawner>();
 
@@ -51,7 +55,8 @@ public class BugManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bugText.text = bugCount.ToString();
+        bugText1.text = bugCount1.ToString();
+        bugText2.text = bugCount2.ToString();
     }
 
     // Method to be called when a bug is destroyed

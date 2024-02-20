@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 309702a34c55e3f45b59b9a715db64b4
+guid: 83d41adcd905e754aa247429562c2484
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,101 +110,76 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Frog 1 idle_0
+      name: frogAttackAnim_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 300
         height: 300
-      alignment: 9
-      pivot: {x: 0.49999994, y: 0.12962946}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -114, y: -121}
-        - {x: -77, y: -98}
-        - {x: 45, y: -94}
-        - {x: 94, y: -116}
+      - - {x: -99, y: -96}
+        - {x: -101, y: -28}
+        - {x: 74, y: -25}
+        - {x: 69, y: -96}
       tessellationDetail: 0
       bones: []
-      spriteID: 60012bfdd4273414c838f649a55cc623
-      internalID: 918222837
+      spriteID: 4d499afa7663e4342af5db1833d9c149
+      internalID: 2034418834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frog 1 idle_1
+      name: frogAttackAnim_1
       rect:
         serializedVersion: 2
         x: 300
         y: 0
         width: 300
         height: 300
-      alignment: 9
-      pivot: {x: 0.5194931, y: 0.110136285}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -101, y: -124}
-        - {x: -80, y: -110}
-        - {x: 68, y: -105}
-        - {x: 83, y: -123}
+      - - {x: -106, y: -93}
+        - {x: -104, y: -47}
+        - {x: 85, y: -43}
+        - {x: 85, y: -93}
       tessellationDetail: 0
       bones: []
-      spriteID: ac381e37dca26b34fafe956ff0dc01f3
-      internalID: 138517107
+      spriteID: 0f09ce0444dad7f48a72ff6f209731a1
+      internalID: 2002887134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frog 1 idle_2
+      name: frogAttackAnim_2
       rect:
         serializedVersion: 2
-        x: 597
+        x: 600
         y: 0
         width: 300
         height: 300
-      alignment: 9
-      pivot: {x: 0.5682259, y: 0.13937606}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -90, y: -121}
-        - {x: -51, y: -92}
-        - {x: 62, y: -85}
-        - {x: 112, y: -116}
+      - - {x: -99, y: -97}
+        - {x: -98, y: -22}
+        - {x: 73, y: -22}
+        - {x: 73, y: -97}
       tessellationDetail: 0
       bones: []
-      spriteID: 941ce23f66b52464ebd2eada97c82de1
-      internalID: -29383284
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Frog 1 idle_3
-      rect:
-        serializedVersion: 2
-        x: 900
-        y: 0
-        width: 300
-        height: 300
-      alignment: 9
-      pivot: {x: 0.54873294, y: 0.119882874}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -72, y: -117}
-        - {x: -86, y: -90}
-        - {x: 95, y: -93}
-        - {x: 84, y: -117}
-      tessellationDetail: 0
-      bones: []
-      spriteID: f243335b112bcd04e961a7311af9a18a
-      internalID: 219244645
+      spriteID: 76b8f45588c6f5c449aefdb5b22a49ed
+      internalID: 2063405068
       vertices: []
       indices: 
       edges: []
@@ -220,10 +195,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Frog 1 idle_0: 918222837
-      Frog 1 idle_1: 138517107
-      Frog 1 idle_2: -29383284
-      Frog 1 idle_3: 219244645
+      frogAttackAnim_0: 2034418834
+      frogAttackAnim_1: 2002887134
+      frogAttackAnim_2: 2063405068
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
