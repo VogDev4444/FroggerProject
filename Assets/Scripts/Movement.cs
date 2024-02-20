@@ -125,13 +125,14 @@ public class Movement : MonoBehaviour
 
         centerObjectPos = centerObject.transform.position;
 
-        Vector2 mouseScreenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);  //USES OLD INPUT SYSTEM to know where to look, BAD
-        
-        Vector2 reticalPosition = (mouseScreenPosition - (Vector2)centerObjectPos).normalized * radiusOffset;   
-        reticalT.position = (Vector2)centerObjectPos + reticalPosition; 
+        Vector2 aimRetical = lookAction.ReadValue<Vector2>();  //Old: Vector2 aimRetical = Input.mousePosition;
+        aimRetical = Camera.main.ScreenToWorldPoint(aimRetical);
 
-        Vector2 direction = (mouseScreenPosition - (Vector2)transform.position).normalized;
-        reticalT.up = direction;   
+        Vector2 reticalPosition = (aimRetical - (Vector2)centerObjectPos).normalized * radiusOffset;
+        reticalT.position = (Vector2)centerObjectPos + reticalPosition;
+
+        Vector2 direction = (aimRetical - (Vector2)transform.position).normalized;
+        reticalT.up = direction;
 
     }
 
