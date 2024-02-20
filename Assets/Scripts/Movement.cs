@@ -43,10 +43,11 @@ public class Movement : MonoBehaviour
     private Animator anim;
 
     //where the projectile will be aimed at
-    public Rigidbody2D reticalRB;
+    public GameObject reticalRB;
     //the projectile prefab itself
     public Rigidbody2D projectPrefab;
     public Transform fireStartPos; //where the projectile spawns
+    Vector2 projectileSpeed;
 
     private void Awake()
     {
@@ -123,13 +124,20 @@ public class Movement : MonoBehaviour
         }
 
         //changes where the retical is aimed as if it is another players
-        reticalRB.velocity = new Vector2(lookInput.x * lookSpeed, lookInput.y * lookSpeed);
+        //reticalRB.transform.Translate(new Vector2(lookInput.x, lookInput.y));
+
+        //need to translate world pos and not local
+        reticalRB.GetComponent<Rigidbody2D>().velocity = new Vector2(lookInput.x * lookSpeed, lookInput.y * lookSpeed);
 
         //Entire section is changing where the projectiles spawn a certain distance away from the player in a radius around them
-        Vector2 v = reticalRB.position - (Vector2) transform.position;
+        Vector3 v = reticalRB.transform.position - this.transform.position;
         v.Normalize();
         v = v * 1.3f;
-        fireStartPos.transform.position = (Vector2) transform.position + v;
+        fireStartPos.transform.position = this.transform.position + v;
+        //direction it is firing towards
+        projectileSpeed = reticalRB.transform.localPosition;
+        projectileSpeed.Normalize();
+        projectileSpeed = projectileSpeed * 10;
 
     }
 
@@ -153,12 +161,11 @@ public class Movement : MonoBehaviour
 
     public void playerFire()
     {
+
         //instantiating the bullet 
-        Rigidbody2D project = Instantiate(projectPrefab, new Vector3(fireStartPos.position.x,fireStartPos.position.y, fireStartPos.position.z),transform.rotation) as Rigidbody2D;
-        Vector2 projectileSpeed = reticalRB.transform.position;
-        projectileSpeed.Normalize();
-        projectileSpeed = projectileSpeed * 10;
-        project.GetComponent<Rigidbody2D>().AddForce(projectileSpeed * 100);
+        Rigidbody2D project = Instantiate(projectPrefab, new Vector3(fireStartPos.position.x,fireStartPos.position.y, fireStartPos.position.z),fireStartPos.rotation) as Rigidbody2D;
+        project.GetComponent<ProjectileKnockBack>().moveDir = projectileSpeed;
+        project.AddForce(projectileSpeed * 100);
 
     }
 

@@ -82,8 +82,9 @@ MonoBehaviour:
   attack: Attack
   look: Look
   moveSpeed: 5
+  lookSpeed: 10
   invincible: 0
-  reticalRB: {fileID: 3719421411132434232}
+  reticalRB: {fileID: 4369558305498689154}
   projectPrefab: {fileID: 5102559030586233977, guid: 24ed43c4c554f2f48a399defa5375ca0, type: 3}
   fireStartPos: {fileID: 339753989692760536}
 --- !u!114 &1461822457759913284

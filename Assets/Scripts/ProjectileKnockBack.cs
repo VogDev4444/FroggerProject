@@ -10,8 +10,10 @@ public class ProjectileKnockBack : MonoBehaviour
     public float attackSpeed = 0.5f;
     public float cooldown;
     public float projectileSpeed = 500;
+    public float force = 500;
 
     public float lifeSpan = 2f;
+    public Vector2 moveDir;
 
     // Start is called before the first frame update
     void Awake()
@@ -25,8 +27,9 @@ public class ProjectileKnockBack : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
             {
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(this.transform.position * 100);
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(moveDir * force,ForceMode2D.Force);
         }
+        Destroy(this.gameObject);
     }
 
 
