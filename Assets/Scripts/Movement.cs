@@ -50,6 +50,8 @@ public class Movement : MonoBehaviour
     public Vector3 fireStartPos; //where the projectile spawns
     Vector2 projectileSpeed;
 
+    private bool inWater = false;
+
     private void Awake()
     {
         playerControls = this.GetComponent<PlayerInput>().actions;
@@ -173,4 +175,19 @@ public class Movement : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Water"))
+        {
+            moveSpeed = 2;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Water"))
+        {
+            moveSpeed = 5f;
+        }
+    }
 }
