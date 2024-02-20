@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public BugManager bm;
-    public UI_Script health_UI;
+    public UI_Script score_UI;
     private Animator anim;
 
     //booleans for state of the players 
@@ -21,7 +21,6 @@ public class PlayerManager : MonoBehaviour
     public Vector2 direction;
     public string lastIn;
 
-    int health = 3;
     public int playerNum;
 
     public bool flyingCoolDown;
@@ -31,7 +30,7 @@ public class PlayerManager : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         bm = FindAnyObjectByType<BugManager>();
-        health_UI = FindAnyObjectByType<UI_Script>();
+        score_UI = FindAnyObjectByType<UI_Script>();
         if(playerNum == 0)
         {
             playerNum = 2;
@@ -45,14 +44,19 @@ public class PlayerManager : MonoBehaviour
         //gives players time to move out before they just die 
         if (isInWater && !invincible)
         {
-            health -= 1;
-            if(playerNum == 1)
+            if (playerNum == 1)
             {
-                health_UI.P1Health();
-            }
-            else
-            {
-                health_UI.P2Health();
+                if (bm.bugCount1 > 0)
+                {
+                    bm.bugCount1--;
+                }
+                else
+                {
+                    if (bm.bugCount2 > 0)
+                    {
+                        bm.bugCount2--;
+                    }
+                }
             }
             StartCoroutine(InvincibleTimer(5)); //aftrer 5 seconds players take damage again
         }
@@ -67,20 +71,32 @@ public class PlayerManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bug")){
             Destroy(other.gameObject);
-            bm.bugCount++;
-        }
-        if (other.gameObject.CompareTag("Death") && !invincible)
-        {
-            health -= 1;
             if (playerNum == 1)
             {
-                health_UI.P1Health();
+                bm.bugCount1++;
             }
             else
             {
-                health_UI.P2Health();
+                bm.bugCount2++;
             }
-            StartCoroutine(KnockBack(5, other.transform.position));
+        }
+        if (other.gameObject.CompareTag("Death") && !invincible)
+        {
+                if (playerNum == 1)
+                {
+                    if (bm.bugCount1 > 0)
+                    {
+                        bm.bugCount1--;
+                    }
+                    else
+                    {
+                        if (bm.bugCount2 > 0)
+                        {
+                            bm.bugCount2--;
+                        }
+                    }
+                }
+                    StartCoroutine(KnockBack(5, other.transform.position));
             StartCoroutine(InvincibleTimer(2));
         }
         if(other.gameObject.CompareTag("Water") && isAirborn == false)

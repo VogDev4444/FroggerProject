@@ -4,17 +4,15 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class End_Menu : MonoBehaviour
+public class End_Menu : UI_Script
 {
-    //ui from actual game
+    //ui turned off at endgame
     public GameObject p1OldTitle;
     public GameObject p1Before;
-    public TMP_Text p1Score;
     public GameObject p2OldTitle;
     public GameObject p2Before;
-    public TMP_Text p2Score;
 
-    //ui for endgame
+    //ui turned on at endgame
     public GameObject p1NewTitle;
     public GameObject p1End;
     public TMP_Text p1FinalScore;
@@ -26,9 +24,6 @@ public class End_Menu : MonoBehaviour
     public TMP_Text winText;
     public GameObject RestartButton;
     public GameObject EndButton;
-
-    int p1score;
-    int p2score;
 
     void Start()
     {
@@ -45,10 +40,10 @@ public class End_Menu : MonoBehaviour
     public void EndGame()
     {
         //final score is calculated
-        p1score = int.Parse(p1Score.text);
-        p2score = int.Parse(p2Score.text);
-        p1FinalScore.text = p1Score.text;
-        p2FinalScore.text = p2Score.text;
+        p1_score = int.Parse(p1.text);
+        p2_score = int.Parse(p2.text);
+        p1FinalScore.text = p1.text;
+        p2FinalScore.text = p2.text;
 
         //turn off old score ui
         p1OldTitle.SetActive(false);
@@ -92,17 +87,17 @@ public class End_Menu : MonoBehaviour
         win.SetActive(true);
 
         //determine who won
-        if (p1score < p2score)
+        if (p1win && p2win)
         {
-            winText.text = "PLAYER 2 WINS!";
+            winText.text = "DRAW!";
         }
-        else if (p1score > p2score)
+        else if (p1win)
         {
             winText.text = "PLAYER 1 WINS!";
         }
         else
         {
-            winText.text = "DRAW!";
+            winText.text = "PLAYER 2 WINS!";
         }
 
         yield return new WaitForSeconds(1);
