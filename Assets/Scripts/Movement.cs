@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -46,22 +47,11 @@ public class Movement : MonoBehaviour
     public GameObject reticalRB;
     //the projectile prefab itself
     public Rigidbody2D projectPrefab;
-    public Transform fireStartPos; //where the projectile spawns
+    public Vector3 fireStartPos; //where the projectile spawns
     Vector2 projectileSpeed;
 
     private void Awake()
     {
-        //makes sure this is the only one to exist for player1
-        /*if(Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-       */
         playerControls = this.GetComponent<PlayerInput>().actions;
 
         moveAction = playerControls.FindActionMap(actionMapName).FindAction(move);
@@ -109,6 +99,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
+
     }
 
     private void FixedUpdate()
@@ -133,7 +124,7 @@ public class Movement : MonoBehaviour
         Vector3 v = reticalRB.transform.position - this.transform.position;
         v.Normalize();
         v = v * 1.3f;
-        fireStartPos.transform.position = this.transform.position + v;
+        fireStartPos = this.transform.position + v;
         //direction it is firing towards
         projectileSpeed = reticalRB.transform.localPosition;
         projectileSpeed.Normalize();
@@ -163,7 +154,7 @@ public class Movement : MonoBehaviour
     {
 
         //instantiating the bullet 
-        Rigidbody2D project = Instantiate(projectPrefab, new Vector3(fireStartPos.position.x,fireStartPos.position.y, fireStartPos.position.z),fireStartPos.rotation) as Rigidbody2D;
+        Rigidbody2D project = Instantiate(projectPrefab, new Vector3(fireStartPos.x,fireStartPos.y, fireStartPos.z),this.transform.rotation) as Rigidbody2D;
         project.GetComponent<ProjectileKnockBack>().moveDir = projectileSpeed;
         project.AddForce(projectileSpeed * 100);
 

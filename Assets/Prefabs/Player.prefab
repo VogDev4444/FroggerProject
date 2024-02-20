@@ -245,7 +245,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560749635288811684}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8e205c52515f0e4bbd8c57b9f8488b6, type: 3}
   m_Name: 
@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: 3619229735362957846}
   - component: {fileID: 6571029872806241007}
   - component: {fileID: 8181413911825113718}
+  - component: {fileID: 3502700138034164633}
   m_Layer: 0
   m_Name: Retical
   m_TagString: Untagged
@@ -445,6 +446,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &3502700138034164633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6389034256433895204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bdfac8759f1db145a7a5f00c63fe705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8872825484125576428
 GameObject:
   m_ObjectHideFlags: 0
