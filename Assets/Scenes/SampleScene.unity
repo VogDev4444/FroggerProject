@@ -3985,7 +3985,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 762157910}
   player1: {fileID: 1074893554}
-  movementScript: {fileID: 1074893559}
+  movementScript_p1: {fileID: 0}
+  movementScript_p2: {fileID: 0}
   p1: {fileID: 1663896010111680445}
   p2: {fileID: 1663896010111680444}
   p1_heart_1: {fileID: 1096598258}
@@ -4121,6 +4122,14 @@ PrefabInstance:
       propertyPath: movementScript
       value: 
       objectReference: {fileID: 1074893559}
+    - target: {fileID: 7589522575767080112, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: movementScript_p1
+      value: 
+      objectReference: {fileID: 1074893559}
+    - target: {fileID: 7589522575767080112, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: movementScript_p2
+      value: 
+      objectReference: {fileID: 662780069096059138, guid: a647f211ea617974c98b7c1b3d6041cd, type: 3}
     - target: {fileID: 8715296563362146965, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -259

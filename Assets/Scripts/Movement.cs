@@ -37,11 +37,12 @@ public class Movement : MonoBehaviour
     //Animator controller
     private Animator anim;
 
-    //Retical
-    public Rigidbody2D reticalRB;
-    public Transform reticalT;
-    public GameObject centerObject;    //frog
-    Vector3 centerObjectPos;           
+    //retical
+    GameObject retical;
+    Rigidbody2D reticalRB;
+    Transform reticalT;
+    GameObject centerObject;    //frog
+    Vector3 centerObjectPos;
     private float radiusOffset = 1f;   //how far away retical is from frog
 
     private void Awake()
@@ -104,6 +105,10 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
+        centerObject = this.GameObject();
+        retical = centerObject.transform.GetChild(0).gameObject;
+        reticalT = retical.transform;
+        reticalRB = retical.GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
@@ -118,14 +123,14 @@ public class Movement : MonoBehaviour
             anim.SetFloat("speed", 0);
         }
 
-
         //Retical moves around frog in a circle, following mouse.
 
         //reticalRB.velocity = new Vector2(lookInput.x * speed, lookInput.y * speed); -> unused for now
 
         centerObjectPos = centerObject.transform.position;
 
-        Vector2 aimRetical = lookAction.ReadValue<Vector2>();  //Old: Vector2 aimRetical = Input.mousePosition;
+        //Vector2 aimRetical = lookAction.ReadValue<Vector2>();  //new version, doesn't work
+        Vector2 aimRetical = Input.mousePosition;   //Old version in its place for now
         aimRetical = Camera.main.ScreenToWorldPoint(aimRetical);
 
         Vector2 reticalPosition = (aimRetical - (Vector2)centerObjectPos).normalized * radiusOffset;
@@ -133,7 +138,6 @@ public class Movement : MonoBehaviour
 
         Vector2 direction = (aimRetical - (Vector2)transform.position).normalized;
         reticalT.up = direction;
-
     }
 
 }

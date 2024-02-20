@@ -9,7 +9,7 @@ public class UI_Script : MonoBehaviour
 {
     public GameObject canvas;
     public Rigidbody2D player1;
-    public Movement movementScript;  //will change script to Movement when ready
+    public Movement movementScript;
 
     public TMP_Text p1;
     public TMP_Text p2;
@@ -22,19 +22,18 @@ public class UI_Script : MonoBehaviour
     public GameObject p2_heart_3;
 
     bool p1dead = false;
-    //bool p2dead = false;     //will add back in when p2 exists
+    bool p2dead = false;
 
 
     void Start()
     {
-        
         p1.text = "0";
         p2.text = "0";
     }
 
     void Update()
     {
-        if (p1dead) //&& p2dead
+        if (p1dead && p2dead)
         {
             movementScript.enabled = false;  //inputs will no longer move the frog when game is over
             player1.velocity = Vector3.zero;  //freeze frog
@@ -73,7 +72,7 @@ public class UI_Script : MonoBehaviour
         else if (p2_heart_3.activeSelf)
         {
             p2_heart_3.SetActive(false);
-            //p2dead = true;
+            p2dead = true;
         }
         else { }
     }
