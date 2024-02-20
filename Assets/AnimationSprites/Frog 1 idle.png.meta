@@ -117,8 +117,8 @@ TextureImporter:
         y: 0
         width: 300
         height: 300
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.49999994, y: 0.12962946}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
@@ -142,8 +142,8 @@ TextureImporter:
         y: 0
         width: 300
         height: 300
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5194931, y: 0.110136285}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
@@ -163,12 +163,12 @@ TextureImporter:
       name: Frog 1 idle_2
       rect:
         serializedVersion: 2
-        x: 600
+        x: 597
         y: 0
         width: 300
         height: 300
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5682259, y: 0.13937606}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
@@ -192,8 +192,8 @@ TextureImporter:
         y: 0
         width: 300
         height: 300
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.54873294, y: 0.119882874}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
