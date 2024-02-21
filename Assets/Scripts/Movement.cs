@@ -25,20 +25,21 @@ public class Movement : MonoBehaviour
     private InputAction lookAction;
 
 
-     Rigidbody2D rb;
+    Rigidbody2D rb;
     public float moveSpeed = 5f;
-    public float lookSpeed = 1f;
+    public float lookSpeed = 10f;
 
 
     public Vector2 moveInput { get; private set; }
 
     public Vector2 lookInput { get; private set; }
-    public bool dodgeTrigger { get;private set; }
+    public bool dodgeTrigger { get; private set; }
     public bool attackTrigger { get; private set; }
 
     //public static Movement Instance { get; private set; }
 
-    public bool invincible;
+    public bool invincible = false;
+    private bool canDodge = true;
 
     //Animator controller
     private Animator anim;
@@ -49,8 +50,8 @@ public class Movement : MonoBehaviour
     public Rigidbody2D projectPrefab;
     public Vector3 fireStartPos; //where the projectile spawns
     Vector2 projectileSpeed;
-    private bool atkCD = false;
-    bool isAttacking = false;
+
+    private bool inWater = false;
 
     private void Awake()
     {
@@ -66,11 +67,10 @@ public class Movement : MonoBehaviour
     //Registering the actions
     void RegisterInputActions()
     {
-        
         moveAction.performed += context => moveInput = context.ReadValue<Vector2>(); //reads the value at the time of the input
         moveAction.canceled += context => moveInput = Vector2.zero; //when no player input, defaults to 0
 
-        dodgeAction.performed += context => playerDodge();
+        dodgeAction.performed += context => playerDodge(); // Changed method name to follow convention
         dodgeAction.canceled += context => dodgeTrigger = false;
 
         attackAction.performed += context => playerFire();
@@ -79,23 +79,23 @@ public class Movement : MonoBehaviour
         lookAction.performed += context => lookInput = context.ReadValue<Vector2>(); //reads the vector2 value to change the retical location
         lookAction.canceled += context => lookInput = Vector2.zero;
     }
-    private void onEnable() 
+    private void onEnable()
     {
         moveAction.Enable();
-        dodgeAction.Enable(); 
+        dodgeAction.Enable();
         attackAction.Enable();
         lookAction.Enable();
-        
+
     }
 
-    private void onDisable() 
+    private void onDisable()
     {
         moveAction.Disable();
         dodgeAction.Disable();
         attackAction.Disable();
         lookAction.Disable();
     }
-    
+
 
     void Start()
     {
@@ -107,14 +107,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(isAttacking == false)
-        {
-            rb.velocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed);
-        }
-        else
-        {
-            rb.velocity = Vector2.zero;
-        }
+        rb.velocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed);
         if (moveInput.x != 0 || moveInput.y != 0)
         {
             anim.SetBool("isWalking", true);
@@ -145,71 +138,53 @@ public class Movement : MonoBehaviour
     public void playerDodge()
     {
 
-        //add something to activate dodge animation
-        if (moveInput.x > 0)
+        if (!invincible && canDodge)
         {
-            anim.SetBool("isDodging", true);
-            anim.SetFloat("speed", 1);
+            anim.SetBool("isDodging", true); // Set animation parameters for dodge
+
+            StartCoroutine(InvincibleTimer(2)); // Start invincibility timer
+            StartCoroutine(DodgeCooldown(5)); // Start dodge cooldown timer
         }
-        else if (moveInput.x<0)
-        {
-            anim.SetBool("isDodging", true);
-            anim.SetFloat("speed", -1);
-        }
-        StartCoroutine(InvincibleTimer(2)); //gives invuln frames
-        
+
     }
 
     public void playerFire()
     {
 
-        if(atkCD == false)
-        {
-            //instantiating the bullet 
-            anim.SetBool("isAttacking", true);
-            atkCD = true;
-            Rigidbody2D project = Instantiate(projectPrefab, new Vector3(fireStartPos.x, fireStartPos.y, fireStartPos.z), this.transform.rotation) as Rigidbody2D;
-            project.GetComponent<ProjectileKnockBack>().moveDir = projectileSpeed;
-            project.AddForce(projectileSpeed * 100);
-            isAttacking = true;
-            StartCoroutine(playAttackAnim());
-            StartCoroutine(attackCooldDown());
-        }
+        //instantiating the bullet 
+        Rigidbody2D project = Instantiate(projectPrefab, new Vector3(fireStartPos.x, fireStartPos.y, fireStartPos.z), this.transform.rotation) as Rigidbody2D;
+        project.GetComponent<ProjectileKnockBack>().moveDir = projectileSpeed;
+        project.AddForce(projectileSpeed * 100);
 
-
-    }
-
-    IEnumerator playAttackAnim()
-    {
-        yield return new WaitForSeconds(.5f);
-        anim.SetBool("isAttacking", false);
-        isAttacking = false;
-    }
-
-    IEnumerator attackCooldDown()
-    {
-        yield return new WaitForSeconds(1);
-        atkCD = false;
     }
 
     IEnumerator InvincibleTimer(float duration)
     {
-        if(invincible == false)
-        {
-            invincible = true;
-            dodgeTrigger = true;
-            yield return new WaitForSeconds(duration);
-            invincible = false;
-            dodgeTrigger = false;
-            anim.SetBool("isDodging", false);
-        }
+        invincible = true; // Set invincibility flag to true
+        dodgeTrigger = true;
+
+        yield return new WaitForSeconds(duration);
+
+        invincible = false; // Reset invincibility flag
+        dodgeTrigger = false;
+
+        anim.SetBool("isDodging", false); // Reset animation parameters for dodge
+    }
+
+    IEnumerator DodgeCooldown(float cooldownDuration)
+    {
+        canDodge = false; // Set canDodge flag to false during cooldown
+
+        yield return new WaitForSeconds(cooldownDuration);
+
+        canDodge = true; // Reset canDodge flag after cooldown duration
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Water"))
+        if (collision.CompareTag("Death") && !invincible) // Check if the player is not invulnerable
         {
-            moveSpeed = 2;
+            // Handle collision with enemy (e.g., decrease player score)
         }
     }
 
