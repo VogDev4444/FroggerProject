@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
 
     public Vector2 lookInput { get; private set; }
     public bool dodgeTrigger { get; private set; }
-    public bool attackTrigger { get; private set; }
+    public bool attackTrigger = false;
 
     //public static Movement Instance { get; private set; }
 
@@ -51,7 +51,6 @@ public class Movement : MonoBehaviour
     public Vector3 fireStartPos; //where the projectile spawns
     Vector2 projectileSpeed;
 
-    private bool inWater = false;
 
     private void Awake()
     {
@@ -74,7 +73,7 @@ public class Movement : MonoBehaviour
         dodgeAction.canceled += context => dodgeTrigger = false;
 
         attackAction.performed += context => playerFire();
-        attackAction.canceled += context => attackTrigger = false;
+        //attackAction.canceled += context => attackTrigger = false;
 
         lookAction.performed += context => lookInput = context.ReadValue<Vector2>(); //reads the vector2 value to change the retical location
         lookAction.canceled += context => lookInput = Vector2.zero;
@@ -150,11 +149,15 @@ public class Movement : MonoBehaviour
 
     public void playerFire()
     {
+        if(attackTrigger == false)
+        {
+            //instantiating the bullet 
+            Rigidbody2D project = Instantiate(projectPrefab, new Vector3(fireStartPos.x, fireStartPos.y, fireStartPos.z), this.transform.rotation) as Rigidbody2D;
+            project.GetComponent<ProjectileKnockBack>().moveDir = projectileSpeed;
+            project.AddForce(projectileSpeed * 100);
+            StartCoroutine(attackCooldown(1));
+        }
 
-        //instantiating the bullet 
-        Rigidbody2D project = Instantiate(projectPrefab, new Vector3(fireStartPos.x, fireStartPos.y, fireStartPos.z), this.transform.rotation) as Rigidbody2D;
-        project.GetComponent<ProjectileKnockBack>().moveDir = projectileSpeed;
-        project.AddForce(projectileSpeed * 100);
 
     }
 
@@ -172,6 +175,13 @@ public class Movement : MonoBehaviour
         dodgeTrigger = false;
 
         anim.SetBool("isDodging", false); // Reset animation parameters for dodge
+    }
+
+    IEnumerator attackCooldown(float cooldown)
+    {
+        attackTrigger = true;
+        yield return new WaitForSeconds(cooldown);
+        attackTrigger = false;
     }
 
     IEnumerator DodgeCooldown(float cooldownDuration)
