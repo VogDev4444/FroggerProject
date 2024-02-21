@@ -27,7 +27,7 @@ public class Movement : MonoBehaviour
 
      Rigidbody2D rb;
     public float moveSpeed = 5f;
-    public float lookSpeed = 10f;
+    public float lookSpeed = 1f;
 
 
     public Vector2 moveInput { get; private set; }
@@ -49,6 +49,8 @@ public class Movement : MonoBehaviour
     public Rigidbody2D projectPrefab;
     public Vector3 fireStartPos; //where the projectile spawns
     Vector2 projectileSpeed;
+    private bool atkCD = false;
+    bool isAttacking = false;
 
     private bool inWater = false;
 
@@ -66,6 +68,7 @@ public class Movement : MonoBehaviour
     //Registering the actions
     void RegisterInputActions()
     {
+        
         moveAction.performed += context => moveInput = context.ReadValue<Vector2>(); //reads the value at the time of the input
         moveAction.canceled += context => moveInput = Vector2.zero; //when no player input, defaults to 0
 
@@ -106,7 +109,14 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-         rb.velocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed);
+        if(isAttacking == false)
+        {
+            rb.velocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed);
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
         if (moveInput.x != 0 || moveInput.y != 0)
         {
             anim.SetBool("isWalking", true);
@@ -155,11 +165,33 @@ public class Movement : MonoBehaviour
     public void playerFire()
     {
 
-        //instantiating the bullet 
-        Rigidbody2D project = Instantiate(projectPrefab, new Vector3(fireStartPos.x,fireStartPos.y, fireStartPos.z),this.transform.rotation) as Rigidbody2D;
-        project.GetComponent<ProjectileKnockBack>().moveDir = projectileSpeed;
-        project.AddForce(projectileSpeed * 100);
+        if(atkCD == false)
+        {
+            //instantiating the bullet 
+            anim.SetBool("isAttacking", true);
+            atkCD = true;
+            Rigidbody2D project = Instantiate(projectPrefab, new Vector3(fireStartPos.x, fireStartPos.y, fireStartPos.z), this.transform.rotation) as Rigidbody2D;
+            project.GetComponent<ProjectileKnockBack>().moveDir = projectileSpeed;
+            project.AddForce(projectileSpeed * 100);
+            isAttacking = true;
+            StartCoroutine(playAttackAnim());
+            StartCoroutine(attackCooldDown());
+        }
 
+
+    }
+
+    IEnumerator playAttackAnim()
+    {
+        yield return new WaitForSeconds(.5f);
+        anim.SetBool("isAttacking", false);
+        isAttacking = false;
+    }
+
+    IEnumerator attackCooldDown()
+    {
+        yield return new WaitForSeconds(1);
+        atkCD = false;
     }
 
     IEnumerator InvincibleTimer(float duration)

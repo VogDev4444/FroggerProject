@@ -21,6 +21,7 @@ public class ProjectileKnockBack : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         Destroy(this.gameObject, lifeSpan);
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
