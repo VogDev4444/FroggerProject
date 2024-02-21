@@ -10,7 +10,7 @@ public class BugManager : MonoBehaviour
     public TMP_Text bugText1;
     public TMP_Text bugText2;
 
-    public float moveSpeed = 2f; // Speed at which bugs move
+    public float moveSpeed = 50f; // Speed at which bugs move
 
     private BugSpawner bugSpawner;
 
