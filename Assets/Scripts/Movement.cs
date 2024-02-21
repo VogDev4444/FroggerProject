@@ -163,8 +163,11 @@ public class Movement : MonoBehaviour
         invincible = true; // Set invincibility flag to true
         dodgeTrigger = true;
 
+        moveSpeed = moveSpeed * 2;
+
         yield return new WaitForSeconds(duration);
 
+        moveSpeed = moveSpeed / 2;
         invincible = false; // Reset invincibility flag
         dodgeTrigger = false;
 
@@ -185,6 +188,12 @@ public class Movement : MonoBehaviour
         if (collision.CompareTag("Death") && !invincible) // Check if the player is not invulnerable
         {
             // Handle collision with enemy (e.g., decrease player score)
+        }
+        if (collision.CompareTag("Water") && !invincible)
+        {
+            {
+                moveSpeed = 2f;
+            }
         }
     }
 
