@@ -41,7 +41,7 @@ public class UI_Script : MonoBehaviour
 
         if (p1win || p2win)
         {
-            movementScript.enabled = false;  //inputs will no longer move the frog when game is over
+            //movementScript.enabled = false;  //inputs will no longer move the frog when game is over
             player1.velocity = Vector3.zero;  //freeze frog
             canvas.SendMessage("EndGame");
         }

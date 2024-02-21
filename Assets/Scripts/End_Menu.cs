@@ -57,7 +57,7 @@ public class End_Menu : UI_Script
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        movementScript.enabled = true;
+        //movementScript.enabled = true;
     }
 
     public void BackToStartMenu()
