@@ -1522,7 +1522,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7762120962762211610}
         m_TargetAssemblyTypeName: End_Menu, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: BackToStartMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

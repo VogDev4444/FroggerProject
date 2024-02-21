@@ -50,8 +50,6 @@ public class Movement : MonoBehaviour
     public Vector3 fireStartPos; //where the projectile spawns
     Vector2 projectileSpeed;
 
-    private bool inWater = false;
-
     private void Awake()
     {
         playerControls = this.GetComponent<PlayerInput>().actions;
