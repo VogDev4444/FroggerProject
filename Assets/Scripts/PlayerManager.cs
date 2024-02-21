@@ -96,8 +96,7 @@ public class PlayerManager : MonoBehaviour
                     bm.bugCount2--;
                 }
             }
-            StartCoroutine(KnockBack(5, other.transform.position));
-            StartCoroutine(InvincibleTimer(2));
+            StartCoroutine(InvincibleTimer(1));
         }
         if(other.gameObject.CompareTag("Water") && isAirborn == false)
         {
@@ -114,6 +113,27 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Death") && !invincible)
+        {
+            if (playerNum == 1)
+            {
+                if (bm.bugCount1 > 0)
+                {
+                    bm.bugCount1--;
+                }
+            }
+            else
+            {
+                if (bm.bugCount2 > 0)
+                {
+                    bm.bugCount2--;
+                }
+            }
+            StartCoroutine(InvincibleTimer(1));
+        }
+    }
     public void SetMovement(Vector2 input)
     {
         if (input.x != 0 && input.y != 0)

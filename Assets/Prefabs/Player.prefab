@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bm: {fileID: 0}
-  health_UI: {fileID: 0}
+  score_UI: {fileID: 0}
   isAirborn: 0
   isStaggered: 0
   isKnockedBack: 0
@@ -87,7 +87,7 @@ MonoBehaviour:
   invincible: 0
   reticalRB: {fileID: 6389034256433895204}
   projectPrefab: {fileID: 5102559030586233977, guid: 24ed43c4c554f2f48a399defa5375ca0, type: 3}
-  fireStartPos: {fileID: 2512699790487123162}
+  fireStartPos: {x: 0, y: 0, z: 0}
 --- !u!50 &3580042624096663245
 Rigidbody2D:
   serializedVersion: 4
