@@ -33,6 +33,7 @@ public class UI_Script : MonoBehaviour
     {
         p1.text = "0";
         p2.text = "0";
+
     }
 
     void Update()
@@ -62,6 +63,17 @@ public class UI_Script : MonoBehaviour
         }
     }
 
+    public void increaseScore(int player)
+    {
+        if(player == 1)
+        {
+            p1_score += 1;
+        }
+        else
+        {
+            p2_score += 1;
+        }
+    }
 
     //public void P1Health()
     //{
