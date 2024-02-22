@@ -52,6 +52,8 @@ public class Movement : MonoBehaviour
     Vector2 projectileSpeed;
 
 
+    public GameObject firePointer;
+
     private void Awake()
     {
         playerControls = this.GetComponent<PlayerInput>().actions;
@@ -120,13 +122,15 @@ public class Movement : MonoBehaviour
         //reticalRB.transform.Translate(new Vector2(lookInput.x, lookInput.y));
 
         //need to translate world pos and not local
-        reticalRB.GetComponent<Rigidbody2D>().velocity = new Vector2(lookInput.x * lookSpeed, lookInput.y * lookSpeed);
+        reticalRB.GetComponent<Rigidbody2D>().velocity = new Vector2(lookInput.x * lookSpeed, lookInput.y * lookSpeed); //older retical, will disable sprite render
 
         //Entire section is changing where the projectiles spawn a certain distance away from the player in a radius around them
         Vector3 v = reticalRB.transform.position - this.transform.position;
         v.Normalize();
         v = v * 1.3f;
         fireStartPos = this.transform.position + v;
+        firePointer.transform.position = fireStartPos; //actual retical
+        reticalRB.transform.position = firePointer.transform.position;
         //direction it is firing towards
         projectileSpeed = reticalRB.transform.localPosition;
         projectileSpeed.Normalize();
