@@ -29,6 +29,7 @@ public class ProjectileKnockBack : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
             {
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(moveDir * force,ForceMode2D.Force);
+            collision.gameObject.GetComponent<Movement>().getStaggered(1.5f);
         }
         Destroy(this.gameObject);
     }

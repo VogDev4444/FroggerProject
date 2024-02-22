@@ -39,6 +39,7 @@ public class End_Menu : UI_Script
 
     public void EndGame()
     {
+        Cursor.visible = true;
         //final score is calculated
         p1_score = int.Parse(p1.text);
         p2_score = int.Parse(p2.text);
@@ -102,6 +103,7 @@ public class End_Menu : UI_Script
         }
 
         yield return new WaitForSeconds(1);
+
 
         //display buttons
         RestartButton.SetActive(true);
