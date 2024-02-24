@@ -5268,6 +5268,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3301476867983628432, guid: 8c2890d19ce3e8c4e890a8ee51ff6d93, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1450794890, guid: 1bdb6a5c3cb89214eae89350932faa97, type: 3}
+    - target: {fileID: 3301476867983628432, guid: 8c2890d19ce3e8c4e890a8ee51ff6d93, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6775561426820072782, guid: 8c2890d19ce3e8c4e890a8ee51ff6d93, type: 3}
       propertyPath: m_Name
       value: Snake
