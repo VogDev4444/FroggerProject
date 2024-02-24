@@ -1,0 +1,305 @@
+fileFormatVersion: 2
+guid: 1bdb6a5c3cb89214eae89350932faa97
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: snake Walk_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -62, y: -24}
+        - {x: -50, y: -52}
+        - {x: -1, y: -7}
+        - {x: 36, y: 4}
+        - {x: 56, y: -16}
+        - {x: 56, y: -77}
+        - {x: 111, y: -60}
+        - {x: 79, y: -104}
+        - {x: 34, y: -97}
+        - {x: 29, y: -44}
+        - {x: 5, y: -58}
+        - {x: -41, y: -104}
+        - {x: -98, y: -93}
+        - {x: -114, y: -40}
+        - {x: -75, y: 29}
+        - {x: -111, y: 35}
+        - {x: -118, y: 53}
+        - {x: -93, y: 82}
+        - {x: -47, y: 95}
+        - {x: -6, y: 78}
+        - {x: 6, y: 51}
+        - {x: -7, y: 25}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5193f4ef576f57041abfffcdc45a56f7
+      internalID: -33317763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snake Walk_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -48, y: -21}
+        - {x: -36, y: -49}
+        - {x: 13, y: -4}
+        - {x: 42, y: -1}
+        - {x: 53, y: -26}
+        - {x: 54, y: -74}
+        - {x: 90, y: -66}
+        - {x: 82, y: -99}
+        - {x: 34, y: -97}
+        - {x: 34, y: -52}
+        - {x: 17, y: -44}
+        - {x: -30, y: -92}
+        - {x: -92, y: -93}
+        - {x: -106, y: -45}
+        - {x: -41, y: 47}
+        - {x: -86, y: 42}
+        - {x: -93, y: 60}
+        - {x: -79, y: 85}
+        - {x: -33, y: 98}
+        - {x: 0, y: 75}
+        - {x: 4, y: 50}
+        - {x: -1, y: 26}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3cebf533f0bdfa46836e316ffc1af11
+      internalID: 570274452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snake Walk_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -49, y: -30}
+        - {x: -42, y: -54}
+        - {x: 6, y: -12}
+        - {x: 36, y: 4}
+        - {x: 45, y: -16}
+        - {x: 42, y: -79}
+        - {x: 80, y: -63}
+        - {x: 57, y: -102}
+        - {x: 23, y: -97}
+        - {x: 26, y: -51}
+        - {x: 9, y: -46}
+        - {x: -15, y: -94}
+        - {x: -41, y: -104}
+        - {x: -80, y: -97}
+        - {x: -94, y: -69}
+        - {x: -94, y: -33}
+        - {x: -42, y: 38}
+        - {x: -82, y: 31}
+        - {x: -89, y: 49}
+        - {x: -68, y: 80}
+        - {x: -47, y: 91}
+        - {x: -1, y: 80}
+        - {x: 8, y: 49}
+        - {x: -5, y: 19}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14d6fd12adaf1754d993e5f0a67a5ce4
+      internalID: -1763411500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snake Walk_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -54, y: -27}
+        - {x: -42, y: -55}
+        - {x: -1, y: -7}
+        - {x: 22, y: 7}
+        - {x: 44, y: -17}
+        - {x: 45, y: -71}
+        - {x: 85, y: -66}
+        - {x: 66, y: -99}
+        - {x: 25, y: -92}
+        - {x: 15, y: -40}
+        - {x: -14, y: -72}
+        - {x: -41, y: -104}
+        - {x: -83, y: -96}
+        - {x: -99, y: -43}
+        - {x: -60, y: 26}
+        - {x: -96, y: 32}
+        - {x: -103, y: 50}
+        - {x: -78, y: 79}
+        - {x: -47, y: 95}
+        - {x: -6, y: 78}
+        - {x: 6, y: 51}
+        - {x: -7, y: 25}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b23343ecd77b4da4e9d9aa5dc821361f
+      internalID: 2049788968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      snake Walk_0: -33317763
+      snake Walk_1: 570274452
+      snake Walk_2: -1763411500
+      snake Walk_3: 2049788968
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
