@@ -276,6 +276,17 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""4e58fffc-a630-49aa-97ed-a3d99d900e81"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dodge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""913a43f6-acc0-4f4e-ad8b-df4c06c1a6ac"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
