@@ -40,6 +40,7 @@ public class Movement : MonoBehaviour
 
     public bool invincible = false;
     private bool canDodge = true;
+    private bool isStaggered = false; //plays stagger animation when hit
 
     //Animator controller
     private Animator anim;
@@ -50,7 +51,9 @@ public class Movement : MonoBehaviour
     public Rigidbody2D projectPrefab;
     public Vector3 fireStartPos; //where the projectile spawns
     Vector2 projectileSpeed;
+    public GameObject firePointer;
 
+    private bool kbMouse = false;
 
     private void Awake()
     {
@@ -61,6 +64,15 @@ public class Movement : MonoBehaviour
         attackAction = playerControls.FindActionMap(actionMapName).FindAction(attack);
         lookAction = playerControls.FindActionMap(actionMapName).FindAction(look);
         RegisterInputActions();
+
+        Debug.Log(""+lookAction.ToString());
+        Cursor.visible = false;
+
+        if (lookAction.ToString() == "Player/Look[/Mouse/position]")
+        {
+            kbMouse = true;
+        }
+        Debug.Log(kbMouse);
     }
 
     //Registering the actions
@@ -106,27 +118,42 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed);
-        if (moveInput.x != 0 || moveInput.y != 0)
+       if(isStaggered == false)
         {
-            anim.SetBool("isWalking", true);
+            rb.velocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed);
+            if (moveInput.x != 0 || moveInput.y != 0)
+            {
+                anim.SetBool("isWalking", true);
+            }
+            else
+            {
+                anim.SetBool("isWalking", false);
+            }
         }
         else
         {
-            anim.SetBool("isWalking", false);
+            rb.velocity = Vector2.zero;
         }
 
         //changes where the retical is aimed as if it is another players
         //reticalRB.transform.Translate(new Vector2(lookInput.x, lookInput.y));
+        if (kbMouse == true)
+        {
+            reticalRB.GetComponent<Rigidbody2D>().velocity = new Vector2(lookInput.x * lookSpeed, lookInput.y * lookSpeed); //older retical, will disable sprite render
 
-        //need to translate world pos and not local
-        reticalRB.GetComponent<Rigidbody2D>().velocity = new Vector2(lookInput.x * lookSpeed, lookInput.y * lookSpeed);
+        }
+        else
+        {
+            reticalRB.GetComponent<Rigidbody2D>().velocity = new Vector2(lookInput.x * lookSpeed, lookInput.y * lookSpeed); //older retical, will disable sprite render
+        }
 
         //Entire section is changing where the projectiles spawn a certain distance away from the player in a radius around them
         Vector3 v = reticalRB.transform.position - this.transform.position;
         v.Normalize();
         v = v * 1.3f;
         fireStartPos = this.transform.position + v;
+        firePointer.transform.position = fireStartPos; //actual retical
+        reticalRB.transform.position = firePointer.transform.position;
         //direction it is firing towards
         projectileSpeed = reticalRB.transform.localPosition;
         projectileSpeed.Normalize();
@@ -193,6 +220,14 @@ public class Movement : MonoBehaviour
         canDodge = true; // Reset canDodge flag after cooldown duration
     }
 
+    IEnumerator staggerEffect(float duration)
+    {
+        isStaggered = true;
+        anim.SetBool("isStaggered", true);
+        yield return new WaitForSeconds(duration);
+        anim.SetBool("isStaggered", false);
+        isStaggered = false;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Death") && !invincible) // Check if the player is not invulnerable
@@ -213,5 +248,11 @@ public class Movement : MonoBehaviour
         {
             moveSpeed = 5f;
         }
+        
+    }
+
+    public void getStaggered(float duration)
+    {
+        StartCoroutine(staggerEffect(duration));
     }
 }
