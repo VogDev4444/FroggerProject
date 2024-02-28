@@ -114,9 +114,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 15
-        y: 33
+        y: 88
         width: 1367
-        height: 2949
+        height: 2894
       alignment: 9
       pivot: {x: 0.4043752, y: 0.04442165}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,10 +268,10 @@ TextureImporter:
       name: Purple tile_7
       rect:
         serializedVersion: 2
-        x: 2172
-        y: 1086
-        width: 205
-        height: 91
+        x: 2105
+        y: 939
+        width: 278
+        height: 254
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,69 +281,6 @@ TextureImporter:
       bones: []
       spriteID: b0b8e73179f7da245a498f8b94813f3d
       internalID: -879208784
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Purple tile_8
-      rect:
-        serializedVersion: 2
-        x: 2279
-        y: 1148
-        width: 26
-        height: 38
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b19c8ecdcc0fda044872e9aa8ba02051
-      internalID: -584796561
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Purple tile_9
-      rect:
-        serializedVersion: 2
-        x: 2220
-        y: 1074
-        width: 47
-        height: 19
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e2eef1f8bfca4d04eb9a927a4dba1523
-      internalID: 1873343711
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Purple tile_10
-      rect:
-        serializedVersion: 2
-        x: 2242
-        y: 1047
-        width: 63
-        height: 44
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 11c39fcadbf62ca43a86ee30b65cf668
-      internalID: -2109603060
       vertices: []
       indices: 
       edges: []
@@ -370,34 +307,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Purple tile_12
-      rect:
-        serializedVersion: 2
-        x: 2309
-        y: 1029
-        width: 25
-        height: 45
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1b36f5a0ca66c946a6e1b210ec45cbe
-      internalID: 115955793
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Purple tile_13
       rect:
         serializedVersion: 2
         x: 2482
-        y: 219
-        width: 264
-        height: 312
+        y: 139
+        width: 464
+        height: 392
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -428,27 +344,6 @@ TextureImporter:
       bones: []
       spriteID: a4be5ac667600a74388a8a7fd299e022
       internalID: -1192088106
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Purple tile_15
-      rect:
-        serializedVersion: 2
-        x: 2681
-        y: 165
-        width: 254
-        height: 306
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1547184a848f66843823d814a1562965
-      internalID: -1129825360
       vertices: []
       indices: 
       edges: []

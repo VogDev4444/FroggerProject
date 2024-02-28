@@ -55,6 +55,8 @@ public class Movement : MonoBehaviour
 
     private bool kbMouse = false;
 
+    Collider2D bodyCol;
+
     private void Awake()
     {
         playerControls = this.GetComponent<PlayerInput>().actions;
@@ -112,6 +114,7 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        bodyCol = GetComponent<Collider2D>();
 
 
     }
@@ -168,7 +171,7 @@ public class Movement : MonoBehaviour
         {
             anim.SetBool("isDodging", true); // Set animation parameters for dodge
 
-            StartCoroutine(InvincibleTimer(.4f)); // Start invincibility timer
+            StartCoroutine(InvincibleTimer(.2f)); // Start invincibility timer
             StartCoroutine(DodgeCooldown(5)); // Start dodge cooldown timer
         }
 
@@ -214,9 +217,9 @@ public class Movement : MonoBehaviour
     IEnumerator DodgeCooldown(float cooldownDuration)
     {
         canDodge = false; // Set canDodge flag to false during cooldown
-
+        bodyCol.enabled = false; //activates collider
         yield return new WaitForSeconds(cooldownDuration);
-
+        bodyCol.enabled = true; //deactivates collider
         canDodge = true; // Reset canDodge flag after cooldown duration
     }
 
