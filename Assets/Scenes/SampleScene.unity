@@ -1500,6 +1500,7 @@ MonoBehaviour:
   spawnAreaWidth: 20
   spawnAreaHeight: 10
   maxBugs: 10
+  currentBugs: 0
 --- !u!4 &1075009616
 Transform:
   m_ObjectHideFlags: 0
@@ -11996,6 +11997,7 @@ MonoBehaviour:
   bugText1: {fileID: 1663896010111680445}
   bugText2: {fileID: 1663896010111680444}
   moveSpeed: 2
+  bugSpawner: {fileID: 1075009615}
 --- !u!4 &1783584295
 Transform:
   m_ObjectHideFlags: 0
@@ -12523,7 +12525,7 @@ PrefabInstance:
     - target: {fileID: 5809991134505571609, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
       propertyPath: score_UI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1783584293}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

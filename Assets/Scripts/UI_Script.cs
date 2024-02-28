@@ -82,6 +82,12 @@ public class UI_Script : MonoBehaviour
         {
             DisplayScore();
         }
+
+        //in case of emergency
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            BackToStartMenu();
+        }
     }
 
     void DisplayScore()
