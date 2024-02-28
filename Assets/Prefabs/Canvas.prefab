@@ -548,7 +548,7 @@ GameObject:
   - component: {fileID: 6421901165918165769}
   - component: {fileID: 464100595212932886}
   - component: {fileID: 7917658206110782166}
-  - component: {fileID: 7762120962762211610}
+  - component: {fileID: 8570121699095221949}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -568,7 +568,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5824812129481332288}
   - {fileID: 3293573623140129833}
   - {fileID: 212873788014345512}
   - {fileID: 6253286424555150328}
@@ -650,37 +649,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7762120962762211610
-MonoBehaviour:
+--- !u!225 &8570121699095221949
+CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2919458582298610205}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d572e13d5e1352847980a3f8a8b780db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  player1: {fileID: 0}
-  movementScript: {fileID: 0}
-  p1: {fileID: 0}
-  p2: {fileID: 0}
-  p1OldTitle: {fileID: 7268251368494000758}
-  p1Before: {fileID: 2949139490509623767}
-  p2OldTitle: {fileID: 8076968994382241808}
-  p2Before: {fileID: 6268499344593047971}
-  p1NewTitle: {fileID: 747261966060838512}
-  p1End: {fileID: 2397667594104356755}
-  p1FinalScore: {fileID: 4923953040554204716}
-  p2NewTitle: {fileID: 8222069564687106127}
-  p2End: {fileID: 493555850346302101}
-  p2FinalScore: {fileID: 1956647804491362801}
-  win: {fileID: 2806126318510239484}
-  winText: {fileID: 3175525186818768382}
-  RestartButton: {fileID: 7695296672727217699}
-  EndButton: {fileID: 5654292505009691466}
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2949139490509623767
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,7 +1050,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7762120962762211610}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: End_Menu, Assembly-CSharp
         m_MethodName: BackToStartMenu
         m_Mode: 1
@@ -1350,55 +1330,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &7672730614358446488
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5824812129481332288}
-  - component: {fileID: 7589522575767080112}
-  m_Layer: 0
-  m_Name: UI_Script_Empty
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5824812129481332288
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7672730614358446488}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8872517658748339147}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7589522575767080112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7672730614358446488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b154ef57d61fefe4d9e4019af66e8a70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 2919458582298610205}
-  player1: {fileID: 0}
-  movementScript: {fileID: 0}
-  p1: {fileID: 240982208226141748}
-  p2: {fileID: 8477766780173141217}
 --- !u!1 &7695296672727217699
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,7 +1451,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7762120962762211610}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: End_Menu, Assembly-CSharp
         m_MethodName: BackToStartMenu
         m_Mode: 1
