@@ -171,7 +171,7 @@ public class Movement : MonoBehaviour
         {
             anim.SetBool("isDodging", true); // Set animation parameters for dodge
 
-            StartCoroutine(InvincibleTimer(.2f)); // Start invincibility timer
+            StartCoroutine(InvincibleTimer(.4f)); // Start invincibility timer
             StartCoroutine(DodgeCooldown(5)); // Start dodge cooldown timer
         }
 
