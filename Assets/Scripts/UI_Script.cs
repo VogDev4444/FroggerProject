@@ -58,7 +58,9 @@ public class UI_Script : MonoBehaviour
 
         //display howToPlay canvas
         howToPlay.alpha = 1;
+        howToPlay.blocksRaycasts = true;
         gameCanvas.alpha = 0;
+        gameCanvas.blocksRaycasts = false;
     }
 
     void Update()
@@ -67,11 +69,11 @@ public class UI_Script : MonoBehaviour
         {
             //stop frogs from moving after game is over
             FindPlayers();
-            movementp1.enabled = false;  
+            //movementp1.enabled = false;  
             player1.velocity = Vector3.zero;
             if (player2 != null)
             {
-                movementp2.enabled = false;  
+                //movementp2.enabled = false;  
                 player2.velocity = Vector3.zero;
             }
 
@@ -112,7 +114,9 @@ public class UI_Script : MonoBehaviour
 
         //display main game canvas
         gameCanvas.alpha = 1;
+        gameCanvas.blocksRaycasts = true;
         howToPlay.alpha = 0;
+        howToPlay.blocksRaycasts = false;
 
         //don't display endgame ui
         p1NewTitle.SetActive(false);
