@@ -74,12 +74,12 @@ public class PlayerManager : MonoBehaviour
             if (playerNum == 1)
             {
                 bm.bugCount1++;
-                score_UI.increaseScore(1);
+                //score_UI.increaseScore(1); does not exist
             }
             else
             {
                 bm.bugCount2++;
-                score_UI.increaseScore(2);
+                //score_UI.increaseScore(2); does not exist
             }
         }
         if (other.gameObject.CompareTag("Death") && !invincible)
