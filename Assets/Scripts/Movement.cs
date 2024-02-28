@@ -197,9 +197,11 @@ public class Movement : MonoBehaviour
         dodgeTrigger = true;
 
         moveSpeed = moveSpeed * 2;
+        bodyCol.enabled = false; //activates collider
 
         yield return new WaitForSeconds(duration);
 
+        bodyCol.enabled = true; //deactivates collider
         moveSpeed = moveSpeed / 2;
         invincible = false; // Reset invincibility flag
         dodgeTrigger = false;
@@ -217,9 +219,9 @@ public class Movement : MonoBehaviour
     IEnumerator DodgeCooldown(float cooldownDuration)
     {
         canDodge = false; // Set canDodge flag to false during cooldown
-        bodyCol.enabled = false; //activates collider
+        
         yield return new WaitForSeconds(cooldownDuration);
-        bodyCol.enabled = true; //deactivates collider
+        
         canDodge = true; // Reset canDodge flag after cooldown duration
     }
 
