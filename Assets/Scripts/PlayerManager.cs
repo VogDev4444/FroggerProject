@@ -71,6 +71,10 @@ public class PlayerManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bug")){
             Destroy(other.gameObject);
+            if (bm != null)
+            {
+                bm.BugDestroyed();  //needed to decrement bug count
+            }
             if (playerNum == 1)
             {
                 bm.bugCount1++;
