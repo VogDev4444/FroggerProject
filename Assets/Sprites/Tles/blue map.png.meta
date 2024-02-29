@@ -134,13 +134,13 @@ TextureImporter:
       name: blue map_1
       rect:
         serializedVersion: 2
-        x: 35
-        y: 1492
-        width: 1547
+        x: 42
+        y: 1495
+        width: 1253
         height: 666
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      alignment: 9
+      pivot: {x: 0.5006308, y: 0.10153482}
+      border: {x: 0, y: 0, z: 6, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -155,12 +155,12 @@ TextureImporter:
       name: blue map_10
       rect:
         serializedVersion: 2
-        x: 124
+        x: 133
         y: 654
         width: 656
         height: 441
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.49570057, y: 0.15730019}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
@@ -186,12 +186,12 @@ TextureImporter:
       name: blue map_11
       rect:
         serializedVersion: 2
-        x: 982
-        y: 635
+        x: 984
+        y: 638
         width: 520
         height: 538
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.52948326, y: 0.038508303}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
@@ -217,12 +217,12 @@ TextureImporter:
       name: blue map_14
       rect:
         serializedVersion: 2
-        x: 1659
-        y: 287
+        x: 1656
+        y: 284
         width: 1315
         height: 955
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.507645, y: 0.070100285}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
@@ -249,12 +249,12 @@ TextureImporter:
       name: blue map_16
       rect:
         serializedVersion: 2
-        x: 101
+        x: 104
         y: 69
         width: 357
         height: 373
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.4906135, y: 0.18556267}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
