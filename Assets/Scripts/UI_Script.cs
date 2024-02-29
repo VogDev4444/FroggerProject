@@ -103,7 +103,7 @@ public class UI_Script : MonoBehaviour
     public void ChangeCanvas()
     {
         //Happens when Ready! button on HowToPlay canvas is pushed
-
+        Cursor.visible = false; //Makes cursor invisible when the ready button is pushed
         //display main game canvas
         gameCanvas.alpha = 1;
         howToPlay.alpha = 0;
@@ -121,18 +121,21 @@ public class UI_Script : MonoBehaviour
     public void Restart()
     {
         //Happens when try again is pushed
+        Cursor.visible = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void BackToStartMenu()
     {
         //Happens when Back to Start is pushed
+        Cursor.visible=true; //makes mouse visible again
         SceneManager.LoadScene("StartMenu");
     }
 
     public void EndGame()
     {
         //final score is calculated
+        Cursor.visible=true;
         p1FinalScore.text = p1_score.ToString();
         p2FinalScore.text = p2_score.ToString();
 

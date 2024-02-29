@@ -68,7 +68,6 @@ public class Movement : MonoBehaviour
         RegisterInputActions();
 
         Debug.Log(""+lookAction.ToString());
-        Cursor.visible = false;
 
         if (lookAction.ToString() == "Player/Look[/Mouse/position]")
         {
@@ -197,11 +196,11 @@ public class Movement : MonoBehaviour
         dodgeTrigger = true;
 
         moveSpeed = moveSpeed * 2;
-        bodyCol.enabled = false; //activates collider
+        
 
         yield return new WaitForSeconds(duration);
 
-        bodyCol.enabled = true; //deactivates collider
+        
         moveSpeed = moveSpeed / 2;
         invincible = false; // Reset invincibility flag
         dodgeTrigger = false;
