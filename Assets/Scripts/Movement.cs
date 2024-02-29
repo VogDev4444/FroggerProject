@@ -41,6 +41,7 @@ public class Movement : MonoBehaviour
     public bool invincible = false;
     private bool canDodge = true;
     private bool isStaggered = false; //plays stagger animation when hit
+    private bool inWater = false;
 
     //Animator controller
     private Animator anim;
@@ -139,6 +140,10 @@ public class Movement : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
 
+       if(inWater == false && invincible == false)
+        {
+            moveSpeed = 5;
+        }
         
     }
   
@@ -201,7 +206,7 @@ public class Movement : MonoBehaviour
     {
         invincible = true; // Set invincibility flag to true
         dodgeTrigger = true;
-
+        inWater = false;
         moveSpeed = moveSpeed * 2;
         
 
@@ -250,6 +255,19 @@ public class Movement : MonoBehaviour
         if (collision.CompareTag("Water") && !invincible)
         {
             {
+                inWater = true;
+                moveSpeed = 2f;
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider collision)
+    {
+        //keeps slow even in water after dodging
+        if (collision.CompareTag("Water") && !invincible)
+        {
+            {
+                inWater = true;
                 moveSpeed = 2f;
             }
         }
@@ -259,6 +277,7 @@ public class Movement : MonoBehaviour
     {
         if (collision.CompareTag("Water"))
         {
+            inWater = false;
             moveSpeed = 5f;
         }
         
