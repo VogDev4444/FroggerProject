@@ -68,6 +68,7 @@ public class Movement : MonoBehaviour
         RegisterInputActions();
 
         Debug.Log(""+lookAction.ToString());
+        Cursor.visible = false;
 
         if (lookAction.ToString() == "Player/Look[/Mouse/position]")
         {
@@ -88,7 +89,8 @@ public class Movement : MonoBehaviour
         attackAction.performed += context => playerFire();
         //attackAction.canceled += context => attackTrigger = false;
 
-        lookAction.performed += context => lookInput = context.ReadValue<Vector2>(); //reads the vector2 value to change the retical location
+        lookAction.performed += context => lookInput = context.ReadValue<Vector2>();
+        lookAction.performed += context => playerLookMethod();//reads the vector2 value to change the retical location
         lookAction.canceled += context => lookInput = Vector2.zero;
     }
     private void onEnable()
@@ -137,6 +139,11 @@ public class Movement : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
 
+        
+    }
+  
+    public void playerLookMethod()
+    {
         //changes where the retical is aimed as if it is another players
         //reticalRB.transform.Translate(new Vector2(lookInput.x, lookInput.y));
         if (kbMouse == true)
@@ -149,6 +156,7 @@ public class Movement : MonoBehaviour
             reticalRB.GetComponent<Rigidbody2D>().velocity = new Vector2(lookInput.x * lookSpeed, lookInput.y * lookSpeed); //older retical, will disable sprite render
         }
 
+
         //Entire section is changing where the projectiles spawn a certain distance away from the player in a radius around them
         Vector3 v = reticalRB.transform.position - this.transform.position;
         v.Normalize();
@@ -160,7 +168,6 @@ public class Movement : MonoBehaviour
         projectileSpeed = reticalRB.transform.localPosition;
         projectileSpeed.Normalize();
         projectileSpeed = projectileSpeed * 10;
-
     }
 
     public void playerDodge()
@@ -227,9 +234,11 @@ public class Movement : MonoBehaviour
     IEnumerator staggerEffect(float duration)
     {
         isStaggered = true;
+        canDodge = false;
         anim.SetBool("isStaggered", true);
         yield return new WaitForSeconds(duration);
         anim.SetBool("isStaggered", false);
+        canDodge = true;
         isStaggered = false;
     }
     private void OnTriggerEnter2D(Collider2D collision)
