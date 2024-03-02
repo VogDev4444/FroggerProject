@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8442457326550820850}
   - component: {fileID: 8539926798438591050}
   - component: {fileID: 1110626140007022439}
+  - component: {fileID: 2588755761774047295}
   m_Layer: 5
   m_Name: Start_Menu_Canvas
   m_TagString: Untagged
@@ -119,6 +120,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3796435d087304f85e1be9efd29148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  start: {fileID: 2588755761774047295}
+  howToPlay: {fileID: 0}
+--- !u!225 &2588755761774047295
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57186963052013249}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1325988137966458746
 GameObject:
   m_ObjectHideFlags: 0

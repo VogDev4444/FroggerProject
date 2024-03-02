@@ -9,10 +9,6 @@ using UnityEngine.SceneManagement;
 
 public class UI_Script : MonoBehaviour
 {
-    //use these to switch canvas in scene
-    public CanvasGroup gameCanvas;
-    public CanvasGroup howToPlay;
-
     //text that displays scores
     public TMP_Text p1;  
     public TMP_Text p2;
@@ -53,14 +49,20 @@ public class UI_Script : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false; //Makes cursor invisible when the ready button is pushed
+
+        //don't display endgame ui
+        p1NewTitle.SetActive(false);
+        p1End.SetActive(false);
+        p2NewTitle.SetActive(false);
+        p2End.SetActive(false);
+        win.SetActive(false);
+        RestartButton.SetActive(false);
+        EndButton.SetActive(false);
+
+        //set score text to 0
         p1.text = "0";
         p2.text = "0";
-
-        //display howToPlay canvas
-        howToPlay.alpha = 1;
-        howToPlay.blocksRaycasts = true;
-        gameCanvas.alpha = 0;
-        gameCanvas.blocksRaycasts = false;
     }
 
     void Update()
@@ -106,26 +108,6 @@ public class UI_Script : MonoBehaviour
         {
             p2win = true;
         }
-    }
-
-    public void ChangeCanvas()
-    {
-        //Happens when Ready! button on HowToPlay canvas is pushed
-        Cursor.visible = false; //Makes cursor invisible when the ready button is pushed
-        //display main game canvas
-        gameCanvas.alpha = 1;
-        gameCanvas.blocksRaycasts = true;
-        howToPlay.alpha = 0;
-        howToPlay.blocksRaycasts = false;
-
-        //don't display endgame ui
-        p1NewTitle.SetActive(false);
-        p1End.SetActive(false);
-        p2NewTitle.SetActive(false);
-        p2End.SetActive(false);
-        win.SetActive(false);
-        RestartButton.SetActive(false);
-        EndButton.SetActive(false);
     }
 
     public void Restart()
