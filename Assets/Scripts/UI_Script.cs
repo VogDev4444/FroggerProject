@@ -5,10 +5,13 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEditor;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 
 public class UI_Script : MonoBehaviour
 {
+    public PlayerInput playerController;
+
     //text that displays scores
     public TMP_Text p1;  
     public TMP_Text p2;
@@ -136,6 +139,8 @@ public class UI_Script : MonoBehaviour
         p2OldTitle.SetActive(false);
         p1Before.SetActive(false);
         p2Before.SetActive(false);
+
+        playerController.SwitchCurrentActionMap("UI");
 
         StartCoroutine(EndDisplayTimer());
     }
