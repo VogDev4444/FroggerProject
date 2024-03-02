@@ -5,8 +5,32 @@ using UnityEngine.SceneManagement;
 
 public class Start_Menu : MonoBehaviour
 {
+    public CanvasGroup start;
+    public CanvasGroup howToPlay;
+
+    private void Start()
+    {
+        //display start menu
+        start.alpha = 1;
+        start.interactable = true;
+        start.blocksRaycasts = true;
+        howToPlay.alpha = 0;
+        howToPlay.interactable = false;
+        howToPlay.blocksRaycasts = false;
+    }
 
     public void StartGame()
+    {
+        //display howToPlay canvas
+        howToPlay.alpha = 1;
+        howToPlay.interactable = true;
+        howToPlay.blocksRaycasts = true;
+        start.alpha = 0;
+        start.interactable = false;
+        start.blocksRaycasts = false;
+    }
+
+    public void Ready()
     {
         SceneManager.LoadScene("SampleScene");
     }

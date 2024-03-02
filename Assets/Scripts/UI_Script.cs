@@ -5,13 +5,12 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEditor;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 
 public class UI_Script : MonoBehaviour
 {
-    //use these to switch canvas in scene
-    public CanvasGroup gameCanvas;
-    public CanvasGroup howToPlay;
+    public PlayerInput playerController;
 
     //text that displays scores
     public TMP_Text p1;  
@@ -53,12 +52,20 @@ public class UI_Script : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false; //Makes cursor invisible when the ready button is pushed
+
+        //don't display endgame ui
+        p1NewTitle.SetActive(false);
+        p1End.SetActive(false);
+        p2NewTitle.SetActive(false);
+        p2End.SetActive(false);
+        win.SetActive(false);
+        RestartButton.SetActive(false);
+        EndButton.SetActive(false);
+
+        //set score text to 0
         p1.text = "0";
         p2.text = "0";
-
-        //display howToPlay canvas
-        howToPlay.alpha = 1;
-        gameCanvas.alpha = 0;
     }
 
     void Update()
@@ -67,11 +74,11 @@ public class UI_Script : MonoBehaviour
         {
             //stop frogs from moving after game is over
             FindPlayers();
-            movementp1.enabled = false;  
+            //movementp1.enabled = false;  
             player1.velocity = Vector3.zero;
             if (player2 != null)
             {
-                movementp2.enabled = false;  
+                //movementp2.enabled = false;  
                 player2.velocity = Vector3.zero;
             }
 
@@ -81,6 +88,12 @@ public class UI_Script : MonoBehaviour
         else
         {
             DisplayScore();
+        }
+
+        //in case of emergency
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            BackToStartMenu();
         }
     }
 
@@ -98,24 +111,6 @@ public class UI_Script : MonoBehaviour
         {
             p2win = true;
         }
-    }
-
-    public void ChangeCanvas()
-    {
-        //Happens when Ready! button on HowToPlay canvas is pushed
-        Cursor.visible = false; //Makes cursor invisible when the ready button is pushed
-        //display main game canvas
-        gameCanvas.alpha = 1;
-        howToPlay.alpha = 0;
-
-        //don't display endgame ui
-        p1NewTitle.SetActive(false);
-        p1End.SetActive(false);
-        p2NewTitle.SetActive(false);
-        p2End.SetActive(false);
-        win.SetActive(false);
-        RestartButton.SetActive(false);
-        EndButton.SetActive(false);
     }
 
     public void Restart()
@@ -144,6 +139,8 @@ public class UI_Script : MonoBehaviour
         p2OldTitle.SetActive(false);
         p1Before.SetActive(false);
         p2Before.SetActive(false);
+
+        playerController.SwitchCurrentActionMap("UI");
 
         StartCoroutine(EndDisplayTimer());
     }
