@@ -57,5 +57,6 @@ public class LilyPadMovement : MonoBehaviour
             // Remove the lily pad as the parent of the player
             other.transform.SetParent(null);
         }
+        
     }
 }
