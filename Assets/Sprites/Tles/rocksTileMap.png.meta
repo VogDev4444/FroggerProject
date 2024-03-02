@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9b1f98228c1495341aa426eae1f55a55
+guid: 8aa916da5805b17499527fb9f5682560
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,240 +110,227 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Purple tile_0
+      name: rocksTileMap_1
       rect:
         serializedVersion: 2
-        x: 15
-        y: 88
-        width: 1367
-        height: 2894
+        x: 1743
+        y: 0
+        width: 1183
+        height: 3000
       alignment: 9
-      pivot: {x: 0.42034733, y: 0.014243257}
+      pivot: {x: 0.5430649, y: 0.09243089}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -345.5, y: -1434}
-        - {x: -241.5, y: -1222}
-        - {x: 55.5, y: -1202}
-        - {x: 278.5, y: -1474.5}
+      - - {x: -35.5, y: -1262}
+        - {x: -38.5, y: -1033}
+        - {x: 70.5, y: -1006}
+        - {x: 133.5, y: -1255}
       tessellationDetail: 0
       bones: []
-      spriteID: 9784bbd9e42b2a04fadf70a798c10936
-      internalID: -136703671
+      spriteID: b816cf12d9d35d74ab55ccf187e4b5bd
+      internalID: -1304181912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Purple tile_1
+      name: rocksTileMap_4
       rect:
         serializedVersion: 2
-        x: 420
-        y: 2969
-        width: 20
-        height: 17
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c838f658956457469013ee7d2c14c35
-      internalID: -127639284
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Purple tile_2
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 2804
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1fde6e727e8efa45a68ed27530c3e6d
-      internalID: 1039056329
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Purple tile_3
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 2511
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a99351addd679914191b9421154aa715
-      internalID: 1640455931
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Purple tile_4
-      rect:
-        serializedVersion: 2
-        x: 1682
-        y: 1810
-        width: 1144
-        height: 958
+        x: 655
+        y: 1966
+        width: 675
+        height: 949
       alignment: 9
-      pivot: {x: 0.5127239, y: 0.08215969}
+      pivot: {x: 0.6078224, y: 0.07819703}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -325, y: -466}
-        - {x: -522, y: -241}
-        - {x: 488, y: -299}
-        - {x: 568, y: -466}
+      - - {x: -14.5, y: -461.5}
+        - {x: 22.5, y: -439.5}
+        - {x: 24.5, y: -381.5}
+        - {x: 127.5, y: -380.5}
+        - {x: 150.5, y: -466.5}
       tessellationDetail: 0
       bones: []
-      spriteID: 842afabf542a9204e8809d38672a62c0
-      internalID: -1911706963
+      spriteID: 68a231cc397feb844b9b99299a00d127
+      internalID: -1240754944
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Purple tile_5
+      name: rocksTileMap_8
       rect:
         serializedVersion: 2
-        x: 1354
-        y: 1744
-        width: 37
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae8e3774bcb1d5748b0ac5ea5f56b9c0
-      internalID: 2094222396
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Purple tile_6
-      rect:
-        serializedVersion: 2
-        x: 1367
-        y: 1565
-        width: 24
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9a73121fbe37ba1478f8097965ba1593
-      internalID: 1917016379
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Purple tile_7
-      rect:
-        serializedVersion: 2
-        x: 2105
-        y: 939
-        width: 278
-        height: 254
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b0b8e73179f7da245a498f8b94813f3d
-      internalID: -879208784
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Purple tile_11
-      rect:
-        serializedVersion: 2
-        x: 2112
-        y: 941
-        width: 102
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6c39464157aca6946804703bcd7f5498
-      internalID: -1147934279
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Purple tile_13
-      rect:
-        serializedVersion: 2
-        x: 2479
-        y: 142
-        width: 464
-        height: 392
+        x: 41
+        y: 2060
+        width: 583
+        height: 461
       alignment: 9
-      pivot: {x: 0.49346608, y: 0.06728601}
+      pivot: {x: 0.45006466, y: 0.31055057}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -53.5, y: -79.5}
+        - {x: -66.5, y: -44.5}
+        - {x: 30.5, y: -37.5}
+        - {x: 15.5, y: -79.5}
       tessellationDetail: 0
       bones: []
-      spriteID: 4caef3c423a17fb47a90366ad850d767
-      internalID: -567848808
+      spriteID: 033b8005d76daba4793ec241755bda68
+      internalID: -469956623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Purple tile_14
+      name: rocksTileMap_10
       rect:
         serializedVersion: 2
-        x: 2643
-        y: 153
-        width: 123
-        height: 123
+        x: 67
+        y: 1256
+        width: 656
+        height: 441
       alignment: 9
-      pivot: {x: 0.61922795, y: 0.08270586}
+      pivot: {x: 0.49999994, y: 0.2524486}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -261.5, y: -120.5}
+        - {x: -245.5, y: -44.5}
+        - {x: 279.5, y: -51.5}
+        - {x: 306.5, y: -127.5}
       tessellationDetail: 0
       bones: []
-      spriteID: a4be5ac667600a74388a8a7fd299e022
-      internalID: -1192088106
+      spriteID: a8e9a5429cff79e42963c8d367773eaa
+      internalID: -1471665073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocksTileMap_11
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 1237
+        width: 520
+        height: 539
+      alignment: 9
+      pivot: {x: 0.49999976, y: 0.20293815}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -236, y: -184}
+        - {x: -260, y: -104}
+        - {x: 216, y: -94}
+        - {x: 219, y: -184}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4502cad4219e7c4bac6a5f8e385756d
+      internalID: -262407122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocksTileMap_15
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 664
+        width: 655
+        height: 441
+      alignment: 9
+      pivot: {x: 0.49999985, y: 0.28545535}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -272.5, y: -125.5}
+        - {x: -255.5, y: -9.5}
+        - {x: 288.5, y: -79.5}
+        - {x: 298.5, y: -135.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88d01e4a21ebc0748bedf7ba7b778bb3
+      internalID: -338307531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocksTileMap_16
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 645
+        width: 520
+        height: 539
+      alignment: 9
+      pivot: {x: 0.49999952, y: 0.20293815}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -233, y: -179.5}
+        - {x: -260, y: -106.5}
+        - {x: 225, y: -103.5}
+        - {x: 222, y: -182.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e724766c73b36eb49948d11a298ea6e1
+      internalID: 1620459942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocksTileMap_20
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 52
+        width: 655
+        height: 441
+      alignment: 9
+      pivot: {x: 0.52222276, y: 0.25244832}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -261.5, y: -120.5}
+        - {x: -245.5, y: -44.5}
+        - {x: 279.5, y: -51.5}
+        - {x: 306.5, y: -127.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4862885182732d4cbc8703b3f936116
+      internalID: -1609308649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocksTileMap_21
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 33
+        width: 520
+        height: 538
+      alignment: 9
+      pivot: {x: 0.4860037, y: 0.2700256}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -236, y: -184}
+        - {x: -260, y: -104}
+        - {x: 216, y: -94}
+        - {x: 219, y: -184}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30f6357bfd4e3e74ca20d04d9946a0ab
+      internalID: -1350878531
       vertices: []
       indices: 
       edges: []
@@ -359,22 +346,32 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Purple tile_0: -136703671
-      Purple tile_1: -127639284
-      Purple tile_10: -2109603060
-      Purple tile_11: -1147934279
-      Purple tile_12: 115955793
-      Purple tile_13: -567848808
-      Purple tile_14: -1192088106
-      Purple tile_15: -1129825360
-      Purple tile_2: 1039056329
-      Purple tile_3: 1640455931
-      Purple tile_4: -1911706963
-      Purple tile_5: 2094222396
-      Purple tile_6: 1917016379
-      Purple tile_7: -879208784
-      Purple tile_8: -584796561
-      Purple tile_9: 1873343711
+      rocksTileMap_0: -1081908667
+      rocksTileMap_1: -1304181912
+      rocksTileMap_10: -1471665073
+      rocksTileMap_11: -262407122
+      rocksTileMap_12: 998106200
+      rocksTileMap_13: -1552790883
+      rocksTileMap_14: -920213591
+      rocksTileMap_15: -338307531
+      rocksTileMap_16: 1620459942
+      rocksTileMap_17: 539319254
+      rocksTileMap_18: 2039676476
+      rocksTileMap_19: 58834011
+      rocksTileMap_2: -273262646
+      rocksTileMap_20: -1609308649
+      rocksTileMap_21: -1350878531
+      rocksTileMap_22: -1169767407
+      rocksTileMap_23: 335350273
+      rocksTileMap_24: -701390984
+      rocksTileMap_25: -1389608587
+      rocksTileMap_3: 217481245
+      rocksTileMap_4: -1240754944
+      rocksTileMap_5: -591331529
+      rocksTileMap_6: -2127894455
+      rocksTileMap_7: 1688278090
+      rocksTileMap_8: -469956623
+      rocksTileMap_9: 870514367
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
