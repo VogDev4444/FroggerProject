@@ -21,13 +21,19 @@ public class ProjectileKnockBack : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         Destroy(this.gameObject, lifeSpan);
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
             {
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(moveDir * force,ForceMode2D.Force);
+            if(collision.gameObject.GetComponent<Movement>().invincible == false)
+            {
+                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(moveDir * force, ForceMode2D.Force);
+                collision.gameObject.GetComponent<Movement>().getStaggered(1.5f);
+            }
+            
         }
         Destroy(this.gameObject);
     }

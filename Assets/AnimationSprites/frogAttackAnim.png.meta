@@ -117,8 +117,8 @@ TextureImporter:
         y: 0
         width: 300
         height: 300
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.4808429, y: 0.18390806}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
@@ -142,8 +142,8 @@ TextureImporter:
         y: 0
         width: 300
         height: 300
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.480843, y: 0.20945084}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
@@ -163,12 +163,12 @@ TextureImporter:
       name: frogAttackAnim_2
       rect:
         serializedVersion: 2
-        x: 600
+        x: 599
         y: 0
         width: 300
         height: 300
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.49680704, y: 0.20625798}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
