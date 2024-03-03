@@ -869,7 +869,7 @@ GameObject:
   - component: {fileID: 634467036}
   - component: {fileID: 634467035}
   - component: {fileID: 634467037}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: WaterTiles
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -1473,7 +1473,7 @@ TilemapCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 1
+  m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295

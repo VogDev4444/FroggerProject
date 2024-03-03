@@ -41,7 +41,7 @@ public class Movement : MonoBehaviour
     public bool invincible = false;
     private bool canDodge = true;
     private bool isStaggered = false; //plays stagger animation when hit
-    private bool inWater = false;
+    public bool inWater = false;
 
     //Animator controller
     private Animator anim;
@@ -143,6 +143,10 @@ public class Movement : MonoBehaviour
        if(inWater == false && invincible == false)
         {
             moveSpeed = 5;
+        }
+       else if (inWater == true && invincible == false)
+        {
+            moveSpeed = 2f;
         }
         
     }
@@ -256,7 +260,7 @@ public class Movement : MonoBehaviour
         {
             {
                 inWater = true;
-                moveSpeed = 2f;
+                
             }
         }
     }
@@ -268,7 +272,7 @@ public class Movement : MonoBehaviour
         {
             {
                 inWater = true;
-                moveSpeed = 2f;
+                
             }
         }
     }

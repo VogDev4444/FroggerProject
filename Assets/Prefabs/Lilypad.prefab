@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7682725452421239725}
   - component: {fileID: 697751124037018345}
   - component: {fileID: 3303768722742899236}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lilypad
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -115,11 +115,11 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 487
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
+    m_Bits: 16
+  m_LayerOverridePriority: 1
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295

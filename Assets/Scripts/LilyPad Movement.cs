@@ -45,6 +45,7 @@ public class LilyPadMovement : MonoBehaviour
         {
             // Move the player with the lily pad by setting it as the parent
             other.transform.SetParent(transform);
+            other.GetComponent<Movement>().inWater = false;
         }
     }
 
@@ -56,6 +57,7 @@ public class LilyPadMovement : MonoBehaviour
         {
             // Remove the lily pad as the parent of the player
             other.transform.SetParent(null);
+            other.GetComponent<Movement>().inWater = true;
         }
         
     }
