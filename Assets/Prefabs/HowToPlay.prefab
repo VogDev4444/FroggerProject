@@ -2271,7 +2271,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Whoever gets 5 points first wins!
+  m_text: Whoever gets 12 points first wins!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 58510f0d9eac9834e958ffd84a2ba11a, type: 2}
   m_sharedMaterial: {fileID: -7674141133102219920, guid: 58510f0d9eac9834e958ffd84a2ba11a, type: 2}
