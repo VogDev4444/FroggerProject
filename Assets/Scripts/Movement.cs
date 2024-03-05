@@ -24,9 +24,12 @@ public class Movement : MonoBehaviour
     private InputAction attackAction;
     private InputAction lookAction;
 
+    private PlayerManager playerManager;
+
 
     Rigidbody2D rb;
     public float moveSpeed = 5f;
+    public float baseMoveSpeed = 5f;
     public float lookSpeed = 10f;
 
 
@@ -42,6 +45,7 @@ public class Movement : MonoBehaviour
     private bool canDodge = true;
     private bool isStaggered = false; //plays stagger animation when hit
     public bool inWater = false;
+    public bool onLily = false;
 
     //Animator controller
     private Animator anim;
@@ -117,6 +121,8 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         bodyCol = GetComponent<Collider2D>();
+
+        playerManager = GetComponent<PlayerManager>();
 
 
     }
@@ -263,19 +269,38 @@ public class Movement : MonoBehaviour
                 
             }
         }
-    }
-
-    private void OnTriggerStay(Collider collision)
-    {
-        //keeps slow even in water after dodging
-        if (collision.CompareTag("Water") && !invincible)
+        if (collision.CompareTag("Enemy") && !invincible) // Check if the player is not invulnerable
         {
+            playerManager.SubtractScore();
+            getStaggered(1f);
+        }
+        if (collision.CompareTag("Ground") && !invincible) // Check if the player is not invulnerable
+        {
+            inWater = false;
+            if(moveSpeed != baseMoveSpeed)
             {
-                inWater = true;
-                
+                moveSpeed = baseMoveSpeed;
             }
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //keeps slow even in water after dodging
+        if (collision.CompareTag("Water"))
+        {
+            if (inWater == true && invincible == false && !onLily)
+            {
+                {
+                    playerManager.SubtractScore();
+                    moveSpeed = baseMoveSpeed / 2;
+                    getStaggered(1f);
+                }
+            }
+        }
+    }
+
+    
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -283,6 +308,7 @@ public class Movement : MonoBehaviour
         {
             inWater = false;
             moveSpeed = 5f;
+            
         }
         
     }

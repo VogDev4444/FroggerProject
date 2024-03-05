@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5879822605594875612}
   - component: {fileID: 7682725452421239725}
   - component: {fileID: 697751124037018345}
-  - component: {fileID: 3303768722742899236}
+  - component: {fileID: 2601005991893359820}
   m_Layer: 6
   m_Name: Lilypad
   m_TagString: Ground
@@ -103,8 +103,8 @@ MonoBehaviour:
   respawnPositionX: -27
   riverStartX: -27
   riverEndX: 25
---- !u!58 &3303768722742899236
-CircleCollider2D:
+--- !u!60 &2601005991893359820
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -115,11 +115,11 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 487
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 16
-  m_LayerOverridePriority: 1
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -135,6 +135,20 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.92061245}
-  serializedVersion: 2
-  m_Radius: 0.960816
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.509704, y: 0.9657933}
+    oldSize: {x: 2.015748, y: 2.015748}
+    newSize: {x: 2.015748, y: 2.015748}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -1.0274348, y: -1.946796}
+      - {x: -1.0274348, y: 0.06895204}
+      - {x: 0.98831314, y: 0.06895204}
+      - {x: 0.98831314, y: -1.946796}
+  m_UseDelaunayMesh: 0

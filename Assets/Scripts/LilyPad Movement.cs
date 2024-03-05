@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LilyPadMovement : MonoBehaviour
@@ -45,7 +46,10 @@ public class LilyPadMovement : MonoBehaviour
         {
             // Move the player with the lily pad by setting it as the parent
             other.transform.SetParent(transform);
-            other.GetComponent<Movement>().inWater = false;
+            if (other.GetComponent<Movement>().onLily == false)
+            {
+                other.GetComponent<Movement>().onLily = true;
+            };
         }
     }
 
@@ -56,8 +60,9 @@ public class LilyPadMovement : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Remove the lily pad as the parent of the player
+            other.GetComponent<Movement>().onLily = false;
             other.transform.SetParent(null);
-            other.GetComponent<Movement>().inWater = true;
+            
         }
         
     }
