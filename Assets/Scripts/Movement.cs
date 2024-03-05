@@ -319,11 +319,11 @@ public class Movement : MonoBehaviour
     {
         canDodge = false;
         invincible = true;
-        //anim.SetBool("isStaggered", true); //may implement a swimming sprite
+        anim.SetBool("isStaggered", true); //may implement a swimming sprite
         playerManager.SubtractScore();
         moveSpeed = baseMoveSpeed / 2;
         yield return new WaitForSeconds(duration);
-        //anim.SetBool("isStaggered", false);
+        anim.SetBool("isStaggered", false);
         invincible = false;
         canDodge = true;
     }
