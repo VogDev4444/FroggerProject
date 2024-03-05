@@ -31,45 +31,46 @@ public class PlayerManager : MonoBehaviour
         anim = GetComponent<Animator>();
         bm = FindAnyObjectByType<BugManager>();
         score_UI = FindAnyObjectByType<UI_Script>();
-        if(playerNum == 0)
+        if (playerNum == 0)
         {
             playerNum = 2;
         }
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //gives players time to move out before they just die 
-        if (isInWater && !invincible)
-        {
-            if (playerNum == 1)
-            {
-                if (bm.bugCount1 > 0)
-                {
-                    bm.bugCount1--;
-                }
-            }
-            else
-            {
-                if (bm.bugCount2 > 0)
-                {
-                    bm.bugCount2--;
-                }
-            }
-            StartCoroutine(InvincibleTimer(5)); //aftrer 5 seconds players take damage again
-        }
-        
+        ////gives players time to move out before they just die 
+        //if (isInWater && !invincible)
+        //{
+        //    if (playerNum == 1)
+        //    {
+        //        if (bm.bugCount1 > 0)
+        //        {
+        //            bm.bugCount1--;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        if (bm.bugCount2 > 0)
+        //        {
+        //            bm.bugCount2--;
+        //        }
+        //    }
+        //    StartCoroutine(InvincibleTimer(5)); //aftrer 5 seconds players take damage again
+        //}
+
     }
 
     public void FixedUpdate()
     {
-        
+
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Bug")){
+        if (other.gameObject.CompareTag("Bug"))
+        {
             Destroy(other.gameObject);
             if (bm != null)
             {
@@ -104,16 +105,17 @@ public class PlayerManager : MonoBehaviour
             }
             StartCoroutine(InvincibleTimer(1));
         }
-        if(other.gameObject.CompareTag("Water") && isAirborn == false)
+        if (other.gameObject.CompareTag("Water") && isAirborn == false)
         {
             isInWater = true;
-            
+
         }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Water"))
+        if (collision.gameObject.CompareTag("Water"))
         {
             isInWater = false;
         }
@@ -223,10 +225,28 @@ public class PlayerManager : MonoBehaviour
         Debug.Log(origin);
         Debug.Log(playerPos);
         Debug.Log(dir);
-        
+
         isKnockedBack = true;
         yield return new WaitForSecondsRealtime(0.15f);
         isKnockedBack = false;
-        
+
+    }
+
+    public void SubtractScore()
+    {
+        if (playerNum == 1)
+        {
+            if (bm.bugCount1 > 0)
+            {
+                bm.bugCount1--;
+            }
+        }
+        else
+        {
+            if (bm.bugCount2 > 0)
+            {
+                bm.bugCount2--;
+            }
+        }
     }
 }

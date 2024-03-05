@@ -38,5 +38,12 @@ public class ProjectileKnockBack : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision) //knockback enemies
+    {
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(moveDir * 2, ForceMode2D.Force);
+        }
+    }
 
 }
