@@ -146,14 +146,18 @@ public class Movement : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
 
+
+        //subtracts points when players are in the water
        if(inWater == false && invincible == false)
         {
             moveSpeed = 5;
         }
-       else if (inWater == true && invincible == false)
+       else if (inWater == true && invincible == false && onLily == false)
         {
             moveSpeed = 2f;
+            
         }
+        
         
     }
   
@@ -223,7 +227,7 @@ public class Movement : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         
-        moveSpeed = moveSpeed / 2;
+        moveSpeed = baseMoveSpeed / 2;
         invincible = false; // Reset invincibility flag
         dodgeTrigger = false;
 
@@ -287,15 +291,12 @@ public class Movement : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         //keeps slow even in water after dodging
+
         if (collision.CompareTag("Water"))
         {
-            if (inWater == true && invincible == false && !onLily)
+            if (inWater == true && invincible == false && onLily == false)
             {
-                {
-                    playerManager.SubtractScore();
-                    moveSpeed = baseMoveSpeed / 2;
-                    getStaggered(1f);
-                }
+                StartCoroutine(waterStagger(1.5f));
             }
         }
     }
@@ -313,6 +314,19 @@ public class Movement : MonoBehaviour
         
     }
 
+    //IEnum for when players are in the water
+    IEnumerator waterStagger(float duration)
+    {
+        canDodge = false;
+        invincible = true;
+        //anim.SetBool("isStaggered", true); //may implement a swimming sprite
+        playerManager.SubtractScore();
+        moveSpeed = baseMoveSpeed / 2;
+        yield return new WaitForSeconds(duration);
+        //anim.SetBool("isStaggered", false);
+        invincible = false;
+        canDodge = true;
+    }
     public void getStaggered(float duration)
     {
         StartCoroutine(staggerEffect(duration));
