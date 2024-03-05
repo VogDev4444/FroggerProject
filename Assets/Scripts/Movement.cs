@@ -286,6 +286,11 @@ public class Movement : MonoBehaviour
                 moveSpeed = baseMoveSpeed;
             }
         }
+        else if (collision.CompareTag("Ground") && invincible) // Check if the player is not invulnerable
+        {
+            inWater = false;
+            
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
