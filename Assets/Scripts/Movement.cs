@@ -150,7 +150,11 @@ public class Movement : MonoBehaviour
 
 
         //sets the animation when inwater at different times or when the player is on lily
-       if(inWater == false && invincible == false)
+        if (inWater == true && onLily == false)
+        {
+            anim.SetBool("inWater", true);
+        }
+        else if (inWater == false && invincible == false)
         {
             anim.SetBool("inWater", false);
             moveSpeed = 5;
@@ -162,17 +166,16 @@ public class Movement : MonoBehaviour
        else if (inWater == true && onLily == true)
         {
             anim.SetBool("inWater", false);
+            moveSpeed = baseMoveSpeed;
         }
        else if (inWater == true && invincible == false && onLily == false)
         {
             anim.SetBool("inWater", true);
+            StartCoroutine(waterStagger(1.5f));
             moveSpeed = 2f;
             
         }
-       else if (inWater == true && onLily == false)
-        {
-            anim.SetBool("inWater", true);
-        }
+       
         
         
     }
@@ -316,6 +319,7 @@ public class Movement : MonoBehaviour
 
         if (collision.CompareTag("Water"))
         {
+            inWater = true;
             if (inWater == true && invincible == false && onLily == false)
             {
                 StartCoroutine(waterStagger(1.5f));
