@@ -2177,8 +2177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bugPrefab: {fileID: 3587554274976217564, guid: d3356f62f5734bd4bb658f7e4c7eca75, type: 3}
   spawnInterval: 3
-  spawnAreaWidth: 20
-  spawnAreaHeight: 10
+  spawnAreaWidth: 30
+  spawnAreaHeight: 20
   maxBugs: 10
 --- !u!4 &1075009616
 Transform:
@@ -14320,6 +14320,8 @@ MonoBehaviour:
   winText: {fileID: 1663896010111680441}
   RestartButton: {fileID: 1663896010111680440}
   EndButton: {fileID: 1663896010111680439}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
 --- !u!114 &1783584294
 MonoBehaviour:
   m_ObjectHideFlags: 0
