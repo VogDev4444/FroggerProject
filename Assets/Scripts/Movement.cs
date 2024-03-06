@@ -147,15 +147,29 @@ public class Movement : MonoBehaviour
         }
 
 
-        //subtracts points when players are in the water
+        //sets the animation when inwater at different times or when the player is on lily
        if(inWater == false && invincible == false)
         {
+            anim.SetBool("inWater", false);
             moveSpeed = 5;
+        }
+       if(inWater == false && invincible == true)
+        {
+            anim.SetBool("inWater", false);
+        }
+       else if (inWater == true && onLily == true)
+        {
+            anim.SetBool("inWater", false);
         }
        else if (inWater == true && invincible == false && onLily == false)
         {
+            anim.SetBool("inWater", true);
             moveSpeed = 2f;
             
+        }
+       else if (inWater == true && onLily == false)
+        {
+            anim.SetBool("inWater", true);
         }
         
         
@@ -324,11 +338,11 @@ public class Movement : MonoBehaviour
     {
         canDodge = false;
         invincible = true;
-        anim.SetBool("isStaggered", true); //may implement a swimming sprite
+        //may implement a swimming sprite
+        //anim.SetBool("inWater",true);
         playerManager.SubtractScore();
         moveSpeed = baseMoveSpeed / 2;
         yield return new WaitForSeconds(duration);
-        anim.SetBool("isStaggered", false);
         invincible = false;
         canDodge = true;
     }
