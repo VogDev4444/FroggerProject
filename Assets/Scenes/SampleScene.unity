@@ -1854,7 +1854,7 @@ Transform:
   m_GameObject: {fileID: 991693981}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.024668463, y: 11.89915, z: -10}
+  m_LocalPosition: {x: -0.021778397, y: 11.899139, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2177,8 +2177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bugPrefab: {fileID: 3587554274976217564, guid: d3356f62f5734bd4bb658f7e4c7eca75, type: 3}
   spawnInterval: 3
-  spawnAreaWidth: 20
-  spawnAreaHeight: 10
+  spawnAreaWidth: 30
+  spawnAreaHeight: 20
   maxBugs: 10
 --- !u!4 &1075009616
 Transform:
@@ -2424,7 +2424,7 @@ Transform:
   m_GameObject: {fileID: 1239024093}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.015541373, y: -3.7059898, z: -10}
+  m_LocalPosition: {x: 0.013723826, y: -3.7059898, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14320,6 +14320,8 @@ MonoBehaviour:
   winText: {fileID: 1663896010111680441}
   RestartButton: {fileID: 1663896010111680440}
   EndButton: {fileID: 1663896010111680439}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
 --- !u!114 &1783584294
 MonoBehaviour:
   m_ObjectHideFlags: 0

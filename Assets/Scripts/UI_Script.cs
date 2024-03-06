@@ -36,10 +36,8 @@ public class UI_Script : MonoBehaviour
     public GameObject EndButton;
 
     //players stop moving at endgame
-    Rigidbody2D player1;
-    Movement movementp1;
-    Rigidbody2D player2;
-    Movement movementp2;
+    [SerializeField] Rigidbody2D player1;
+    [SerializeField] Rigidbody2D player2;
 
     bool p1win = false;
     bool p2win = false;
@@ -66,19 +64,18 @@ public class UI_Script : MonoBehaviour
         //set score text to 0
         p1.text = "0";
         p2.text = "0";
+
+        FindPlayers();
     }
 
     void Update()
     {
         if (p1win || p2win)
         {
-            //stop frogs from moving after game is over
-            FindPlayers();
-            //movementp1.enabled = false;  
+            //stop frogs from moving after game is over  
             player1.velocity = Vector3.zero;
             if (player2 != null)
-            {
-                //movementp2.enabled = false;  
+            { 
                 player2.velocity = Vector3.zero;
             }
 
@@ -122,6 +119,22 @@ public class UI_Script : MonoBehaviour
 
     public void BackToStartMenu()
     {
+        if (player1.GetComponentInParent<Transform>() != null)
+        {
+            // Remove the lily pad as the parent of the player
+            player1.GetComponent<Movement>().onLily = false;
+            player1.transform.SetParent(null);
+        }
+        if (player2 != null) 
+        { 
+            if (player2.GetComponentInParent<Transform>() != null)
+            {
+                // Remove the lily pad as the parent of the player
+                player2.GetComponent<Movement>().onLily = false;
+                player2.transform.SetParent(null);
+            }
+        }
+
         //Happens when Back to Start is pushed
         Cursor.visible=true; //makes mouse visible again
         SceneManager.LoadScene("StartMenu");
@@ -192,13 +205,11 @@ public class UI_Script : MonoBehaviour
     {
         GameObject frog1 = GameObject.Find("Player");
         player1 = frog1.GetComponent<Rigidbody2D>();
-        movementp1 = frog1.GetComponent<Movement>();
 
         GameObject frog2 = GameObject.Find("Player2");
-        if (player2 != null)
+        if (frog2 != null)
         {
             player2 = frog2.GetComponent<Rigidbody2D>();
-            movementp2 = frog2.GetComponent<Movement>();
         }
     }
 
