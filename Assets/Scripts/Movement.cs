@@ -32,6 +32,8 @@ public class Movement : MonoBehaviour
     public float baseMoveSpeed = 5f;
     public float lookSpeed = 10f;
 
+    //variable to hold the sfx that plays when attacking - Jax
+    public AudioSource attackSFX;
 
     public Vector2 moveInput { get; private set; }
 
@@ -210,6 +212,7 @@ public class Movement : MonoBehaviour
             Rigidbody2D project = Instantiate(projectPrefab, new Vector3(fireStartPos.x, fireStartPos.y, fireStartPos.z), this.transform.rotation) as Rigidbody2D;
             project.GetComponent<ProjectileKnockBack>().moveDir = projectileSpeed;
             project.AddForce(projectileSpeed * 100);
+            attackSFX.Play();
             StartCoroutine(attackCooldown(1));
         }
 
@@ -286,6 +289,11 @@ public class Movement : MonoBehaviour
                 moveSpeed = baseMoveSpeed;
             }
         }
+        else if (collision.CompareTag("Ground") && invincible) // Check if the player is not invulnerable
+        {
+            inWater = false;
+            
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -319,11 +327,11 @@ public class Movement : MonoBehaviour
     {
         canDodge = false;
         invincible = true;
-        //anim.SetBool("isStaggered", true); //may implement a swimming sprite
+        anim.SetBool("isStaggered", true); //may implement a swimming sprite
         playerManager.SubtractScore();
         moveSpeed = baseMoveSpeed / 2;
         yield return new WaitForSeconds(duration);
-        //anim.SetBool("isStaggered", false);
+        anim.SetBool("isStaggered", false);
         invincible = false;
         canDodge = true;
     }
