@@ -32,6 +32,8 @@ public class Movement : MonoBehaviour
     public float baseMoveSpeed = 5f;
     public float lookSpeed = 10f;
 
+    //variable to hold the sfx that plays when attacking - Jax
+    public AudioSource attackSFX;
 
     public Vector2 moveInput { get; private set; }
 
@@ -210,6 +212,7 @@ public class Movement : MonoBehaviour
             Rigidbody2D project = Instantiate(projectPrefab, new Vector3(fireStartPos.x, fireStartPos.y, fireStartPos.z), this.transform.rotation) as Rigidbody2D;
             project.GetComponent<ProjectileKnockBack>().moveDir = projectileSpeed;
             project.AddForce(projectileSpeed * 100);
+            attackSFX.Play();
             StartCoroutine(attackCooldown(1));
         }
 
