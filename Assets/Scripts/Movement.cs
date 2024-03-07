@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour
 {
@@ -75,7 +76,7 @@ public class Movement : MonoBehaviour
         RegisterInputActions();
 
         Debug.Log(""+lookAction.ToString());
-        Cursor.visible = false;
+        UnityEngine.Cursor.visible = false;
 
         if (lookAction.ToString() == "Player/Look[/Mouse/position]")
         {
@@ -171,7 +172,7 @@ public class Movement : MonoBehaviour
        else if (inWater == true && invincible == false && onLily == false)
         {
             anim.SetBool("inWater", true);
-            StartCoroutine(waterStagger(1.5f));
+            
             moveSpeed = 2f;
             
         }
@@ -195,23 +196,35 @@ public class Movement : MonoBehaviour
         }
 
 
+        updateRetical();
+    }
+
+    public void updateRetical()
+    {
         //Entire section is changing where the projectiles spawn a certain distance away from the player in a radius around them
         Vector3 v = reticalRB.transform.position - this.transform.position;
         v.Normalize();
-        v = v * 1.3f;
+        v = v * 1.4f;
         fireStartPos = this.transform.position + v;
         firePointer.transform.position = fireStartPos; //actual retical
         reticalRB.transform.position = firePointer.transform.position;
         //direction it is firing towards
         projectileSpeed = reticalRB.transform.localPosition;
         projectileSpeed.Normalize();
+
+        //Changes direction of  heart, does not work rn
+        float radvalue = Mathf.Atan2(projectileSpeed.y, projectileSpeed.x);
+        float angle = (radvalue * (180/ Mathf.PI))+90;
+        firePointer.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        //This changes the spawn location of the projectile 
         projectileSpeed = projectileSpeed * 10;
     }
 
     public void playerDodge()
     {
 
-        if (!invincible && canDodge)
+        if (canDodge)
         {
             anim.SetBool("isDodging", true); // Set animation parameters for dodge
 
@@ -226,6 +239,7 @@ public class Movement : MonoBehaviour
         if(attackTrigger == false)
         {
             //instantiating the bullet 
+            updateRetical();
             Rigidbody2D project = Instantiate(projectPrefab, new Vector3(fireStartPos.x, fireStartPos.y, fireStartPos.z), this.transform.rotation) as Rigidbody2D;
             project.GetComponent<ProjectileKnockBack>().moveDir = projectileSpeed;
             project.AddForce(projectileSpeed * 100);
@@ -241,13 +255,13 @@ public class Movement : MonoBehaviour
         invincible = true; // Set invincibility flag to true
         dodgeTrigger = true;
         inWater = false;
-        moveSpeed = moveSpeed * 2;
+        moveSpeed = baseMoveSpeed * 2;
         
 
         yield return new WaitForSeconds(duration);
 
         
-        moveSpeed = baseMoveSpeed / 2;
+        moveSpeed = baseMoveSpeed;
         invincible = false; // Reset invincibility flag
         dodgeTrigger = false;
 
@@ -257,7 +271,9 @@ public class Movement : MonoBehaviour
     IEnumerator attackCooldown(float cooldown)
     {
         attackTrigger = true;
+        changeRetical(0);
         yield return new WaitForSeconds(cooldown);
+        changeRetical(1);
         attackTrigger = false;
     }
 
@@ -320,10 +336,7 @@ public class Movement : MonoBehaviour
         if (collision.CompareTag("Water"))
         {
             inWater = true;
-            if (inWater == true && invincible == false && onLily == false)
-            {
-                StartCoroutine(waterStagger(1.5f));
-            }
+            
         }
     }
 
@@ -340,21 +353,22 @@ public class Movement : MonoBehaviour
         
     }
 
-    //IEnum for when players are in the water
-    IEnumerator waterStagger(float duration)
-    {
-        canDodge = false;
-        invincible = true;
-        //may implement a swimming sprite
-        //anim.SetBool("inWater",true);
-        playerManager.SubtractScore();
-        moveSpeed = baseMoveSpeed / 2;
-        yield return new WaitForSeconds(duration);
-        invincible = false;
-        canDodge = true;
-    }
+    
     public void getStaggered(float duration)
     {
         StartCoroutine(staggerEffect(duration));
+    }
+
+    public void changeRetical(int mode)
+    {
+        if(mode == 0)
+        {
+            firePointer.GetComponent<SpriteRenderer>().GetComponent<changeSprite>().changeRetical(0);
+        }
+        else
+        {
+            firePointer.GetComponent<SpriteRenderer>().GetComponent<changeSprite>().changeRetical(1);
+        }
+        
     }
 }

@@ -44,13 +44,15 @@ public class LilyPadMovement : MonoBehaviour
         // Check if the collider belongs to a player
         if (other.CompareTag("Player"))
         {
-                //if (this.transform == other.GetComponentInParent<Transform>()) {
+            if (other.GetComponent<Transform>().parent == null)
+            {
                 // Move the player with the lily pad by setting it as the parent
                 other.transform.SetParent(transform);
                 if (other.GetComponent<Movement>().onLily == false)
                 {
                     other.GetComponent<Movement>().onLily = true;
                 };
+            }
         }
     }
 
@@ -60,10 +62,14 @@ public class LilyPadMovement : MonoBehaviour
         // Check if the collider belongs to a player
         if (other.CompareTag("Player"))
         {
-            //if (parent of player is the lilypad that it's on other.gameObject.parent = lilypad){}
-            // Remove the lily pad as the parent of the player
-            other.GetComponent<Movement>().onLily = false;
-            other.transform.SetParent(null);
+            if(other.GetComponent<Transform>().parent == this.transform)
+            {
+                //if (parent of player is the lilypad that it's on other.gameObject.parent = lilypad){}
+                // Remove the lily pad as the parent of the player
+                other.GetComponent<Movement>().onLily = false;
+                other.transform.SetParent(null);
+            }
+            
             
         }
         
