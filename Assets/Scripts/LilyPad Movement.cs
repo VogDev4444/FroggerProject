@@ -53,6 +53,16 @@ public class LilyPadMovement : MonoBehaviour
                     other.GetComponent<Movement>().onLily = true;
                 };
             }
+            else
+            {
+                // Move the player with the lily pad by setting it as the parent
+                other.transform.SetParent(null);
+                other.transform.SetParent(this.transform);
+                if (other.GetComponent<Movement>().onLily == false)
+                {
+                    other.GetComponent<Movement>().onLily = true;
+                };
+            }
         }
     }
 

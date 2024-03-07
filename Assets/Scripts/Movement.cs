@@ -236,7 +236,7 @@ public class Movement : MonoBehaviour
 
     public void playerFire()
     {
-        if(attackTrigger == false)
+        if(attackTrigger == false && isStaggered == false)
         {
             //instantiating the bullet 
             updateRetical();
