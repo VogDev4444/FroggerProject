@@ -248,5 +248,26 @@ public class PlayerManager : MonoBehaviour
                 bm.bugCount2--;
             }
         }
+
+    }
+
+    public void StealPoint()
+    {
+        if (playerNum == 1)
+        {
+            if (bm.bugCount1 > 0)
+            {
+                bm.bugCount2++;
+                bm.bugCount1--;
+            }
+        }
+        else
+        {
+            if (bm.bugCount2 > 0)
+            {
+                bm.bugCount1++;
+                bm.bugCount2--;
+            }
+        }
     }
 }

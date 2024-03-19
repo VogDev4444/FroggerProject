@@ -11,6 +11,7 @@ using UnityEngine.InputSystem;
 public class UI_Script : MonoBehaviour
 {
     public PlayerInput playerController;
+    public PlayerInput player2Controler;
 
     //text that displays scores
     public TMP_Text p1;  
@@ -154,6 +155,7 @@ public class UI_Script : MonoBehaviour
         p2Before.SetActive(false);
 
         playerController.SwitchCurrentActionMap("UI");
+        player2Controler.SwitchCurrentActionMap("UI");
 
         StartCoroutine(EndDisplayTimer());
     }

@@ -296,12 +296,17 @@ public class Movement : MonoBehaviour
         canDodge = true;
         isStaggered = false;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Projectile") && !invincible) // Check if the player is not invulnerable
+        {
+            playerManager.StealPoint();
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Death") && !invincible) // Check if the player is not invulnerable
-        {
-            // Handle collision with enemy (e.g., decrease player score)
-        }
+        
         if (collision.CompareTag("Water") && !invincible)
         {
             {
