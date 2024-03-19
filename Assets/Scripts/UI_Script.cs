@@ -113,6 +113,21 @@ public class UI_Script : MonoBehaviour
 
     public void Restart()
     {
+        if (player1.GetComponentInParent<Transform>() != null)
+        {
+            // Remove the lily pad as the parent of the player
+            player1.GetComponent<Movement>().onLily = false;
+            player1.transform.SetParent(null);
+        }
+        if (player2 != null)
+        {
+            if (player2.GetComponentInParent<Transform>() != null)
+            {
+                // Remove the lily pad as the parent of the player
+                player2.GetComponent<Movement>().onLily = false;
+                player2.transform.SetParent(null);
+            }
+        }
         //Happens when try again is pushed
         Cursor.visible = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
