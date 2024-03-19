@@ -310,12 +310,12 @@ TextureImporter:
       name: Purple tile_13
       rect:
         serializedVersion: 2
-        x: 2482
-        y: 139
+        x: 2479
+        y: 142
         width: 464
         height: 392
       alignment: 9
-      pivot: {x: 0.4843145, y: 0.12867235}
+      pivot: {x: 0.49346608, y: 0.06728601}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

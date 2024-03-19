@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3580042624096663245}
   - component: {fileID: 6547958421664382837}
   - component: {fileID: 6456333781602589705}
-  - component: {fileID: 8250056792930626083}
   - component: {fileID: 6986579329608877357}
   - component: {fileID: 8071746978960416654}
+  - component: {fileID: 4346396500801557725}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -38,7 +38,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3619229735362957846}
-  - {fileID: 3101707128441528684}
   - {fileID: 2512699790487123162}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -84,9 +83,13 @@ MonoBehaviour:
   attack: Attack
   look: Look
   moveSpeed: 5
+  baseMoveSpeed: 5
   lookSpeed: 10
+  attackSFX: {fileID: 4346396500801557725}
   attackTrigger: 0
   invincible: 0
+  inWater: 0
+  onLily: 0
   reticalRB: {fileID: 6389034256433895204}
   projectPrefab: {fileID: 5102559030586233977, guid: 24ed43c4c554f2f48a399defa5375ca0, type: 3}
   fireStartPos: {x: 0, y: 0, z: 0}
@@ -237,22 +240,10 @@ MonoBehaviour:
     m_ActionId: 7b8f7dfe-9113-49d9-a130-4e0d370d9323
     m_ActionName: Player/Attack[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &8250056792930626083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560749635288811684}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8e205c52515f0e4bbd8c57b9f8488b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &6986579329608877357
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -360,6 +351,102 @@ PolygonCollider2D:
       - {x: 0.21805993, y: 0.020516574}
       - {x: 0.3133334, y: -0.016296133}
   m_UseDelaunayMesh: 0
+--- !u!82 &4346396500801557725
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560749635288811684}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: fffa991e5d5909347acded49e9a3a6a1, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5018644273679063304
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,6 +457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2512699790487123162}
   - component: {fileID: 4945887113670915958}
+  - component: {fileID: 5407354015220192141}
   m_Layer: 6
   m_Name: SpawnerPointer
   m_TagString: Untagged
@@ -387,7 +475,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3336965931421458345}
@@ -432,7 +520,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 8279be287893c4b41b5b0065e62660d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -444,6 +532,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5407354015220192141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5018644273679063304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f088c969eb55b241acc6511f8a1da99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  greyHeart: {fileID: 21300000, guid: a9455816628eacf41a5f1abea0f2363c, type: 3}
+  activeHeart: {fileID: 21300000, guid: 8279be287893c4b41b5b0065e62660d0, type: 3}
 --- !u!1 &6389034256433895204
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,34 +659,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!1 &8872825484125576428
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3101707128441528684}
-  m_Layer: 0
-  m_Name: frogsSprite
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3101707128441528684
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8872825484125576428}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.036, y: -0.181, z: 0}
-  m_LocalScale: {x: 0.35325968, y: 0.3008348, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3336965931421458345}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

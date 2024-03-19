@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour
 {
@@ -24,11 +25,16 @@ public class Movement : MonoBehaviour
     private InputAction attackAction;
     private InputAction lookAction;
 
+    private PlayerManager playerManager;
+
 
     Rigidbody2D rb;
     public float moveSpeed = 5f;
+    public float baseMoveSpeed = 5f;
     public float lookSpeed = 10f;
 
+    //variable to hold the sfx that plays when attacking - Jax
+    public AudioSource attackSFX;
 
     public Vector2 moveInput { get; private set; }
 
@@ -41,6 +47,8 @@ public class Movement : MonoBehaviour
     public bool invincible = false;
     private bool canDodge = true;
     private bool isStaggered = false; //plays stagger animation when hit
+    public bool inWater = false;
+    public bool onLily = false;
 
     //Animator controller
     private Animator anim;
@@ -68,7 +76,7 @@ public class Movement : MonoBehaviour
         RegisterInputActions();
 
         Debug.Log(""+lookAction.ToString());
-        Cursor.visible = false;
+        UnityEngine.Cursor.visible = false;
 
         if (lookAction.ToString() == "Player/Look[/Mouse/position]")
         {
@@ -117,6 +125,8 @@ public class Movement : MonoBehaviour
         anim = GetComponent<Animator>();
         bodyCol = GetComponent<Collider2D>();
 
+        playerManager = GetComponent<PlayerManager>();
+
 
     }
 
@@ -139,6 +149,35 @@ public class Movement : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
 
+
+        //sets the animation when inwater at different times or when the player is on lily
+        if (inWater == true && onLily == false)
+        {
+            anim.SetBool("inWater", true);
+        }
+        else if (inWater == false && invincible == false)
+        {
+            anim.SetBool("inWater", false);
+            moveSpeed = 5;
+        }
+       if(inWater == false && invincible == true)
+        {
+            anim.SetBool("inWater", false);
+        }
+       else if (inWater == true && onLily == true)
+        {
+            anim.SetBool("inWater", false);
+            moveSpeed = baseMoveSpeed;
+        }
+       else if (inWater == true && invincible == false && onLily == false)
+        {
+            anim.SetBool("inWater", true);
+            
+            moveSpeed = 2f;
+            
+        }
+       
+        
         
     }
   
@@ -157,23 +196,35 @@ public class Movement : MonoBehaviour
         }
 
 
+        updateRetical();
+    }
+
+    public void updateRetical()
+    {
         //Entire section is changing where the projectiles spawn a certain distance away from the player in a radius around them
         Vector3 v = reticalRB.transform.position - this.transform.position;
         v.Normalize();
-        v = v * 1.3f;
+        v = v * 1.4f;
         fireStartPos = this.transform.position + v;
         firePointer.transform.position = fireStartPos; //actual retical
         reticalRB.transform.position = firePointer.transform.position;
         //direction it is firing towards
         projectileSpeed = reticalRB.transform.localPosition;
         projectileSpeed.Normalize();
+
+        //Changes direction of  heart, does not work rn
+        float radvalue = Mathf.Atan2(projectileSpeed.y, projectileSpeed.x);
+        float angle = (radvalue * (180/ Mathf.PI))+90;
+        firePointer.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        //This changes the spawn location of the projectile 
         projectileSpeed = projectileSpeed * 10;
     }
 
     public void playerDodge()
     {
 
-        if (!invincible && canDodge)
+        if (canDodge)
         {
             anim.SetBool("isDodging", true); // Set animation parameters for dodge
 
@@ -185,12 +236,14 @@ public class Movement : MonoBehaviour
 
     public void playerFire()
     {
-        if(attackTrigger == false)
+        if(attackTrigger == false && isStaggered == false)
         {
             //instantiating the bullet 
+            updateRetical();
             Rigidbody2D project = Instantiate(projectPrefab, new Vector3(fireStartPos.x, fireStartPos.y, fireStartPos.z), this.transform.rotation) as Rigidbody2D;
             project.GetComponent<ProjectileKnockBack>().moveDir = projectileSpeed;
             project.AddForce(projectileSpeed * 100);
+            attackSFX.Play();
             StartCoroutine(attackCooldown(1));
         }
 
@@ -201,14 +254,14 @@ public class Movement : MonoBehaviour
     {
         invincible = true; // Set invincibility flag to true
         dodgeTrigger = true;
-
-        moveSpeed = moveSpeed * 2;
+        inWater = false;
+        moveSpeed = baseMoveSpeed * 2;
         
 
         yield return new WaitForSeconds(duration);
 
         
-        moveSpeed = moveSpeed / 2;
+        moveSpeed = baseMoveSpeed;
         invincible = false; // Reset invincibility flag
         dodgeTrigger = false;
 
@@ -218,7 +271,9 @@ public class Movement : MonoBehaviour
     IEnumerator attackCooldown(float cooldown)
     {
         attackTrigger = true;
+        changeRetical(0);
         yield return new WaitForSeconds(cooldown);
+        changeRetical(1);
         attackTrigger = false;
     }
 
@@ -250,22 +305,70 @@ public class Movement : MonoBehaviour
         if (collision.CompareTag("Water") && !invincible)
         {
             {
-                moveSpeed = 2f;
+                inWater = true;
+                
             }
         }
+        if (collision.CompareTag("Enemy") && !invincible) // Check if the player is not invulnerable
+        {
+            playerManager.SubtractScore();
+            getStaggered(1f);
+        }
+        if (collision.CompareTag("Ground") && !invincible) // Check if the player is not invulnerable
+        {
+            inWater = false;
+            if(moveSpeed != baseMoveSpeed)
+            {
+                moveSpeed = baseMoveSpeed;
+            }
+        }
+        else if (collision.CompareTag("Ground") && invincible) // Check if the player is not invulnerable
+        {
+            inWater = false;
+            
+        }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //keeps slow even in water after dodging
+
+        if (collision.CompareTag("Water"))
+        {
+            inWater = true;
+            
+        }
+    }
+
+    
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Water"))
         {
+            inWater = false;
             moveSpeed = 5f;
+            
         }
         
     }
 
+    
     public void getStaggered(float duration)
     {
         StartCoroutine(staggerEffect(duration));
+    }
+
+    public void changeRetical(int mode)
+    {
+        if(mode == 0)
+        {
+            firePointer.GetComponent<SpriteRenderer>().GetComponent<changeSprite>().changeRetical(0);
+        }
+        else
+        {
+            firePointer.GetComponent<SpriteRenderer>().GetComponent<changeSprite>().changeRetical(1);
+        }
+        
     }
 }
