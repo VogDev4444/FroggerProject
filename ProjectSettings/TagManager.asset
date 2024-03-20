@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - PlayerA
   - Enemy
+  - Projectile
   layers:
   - Default
   - TransparentFX
