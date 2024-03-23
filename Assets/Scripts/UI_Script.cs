@@ -170,7 +170,7 @@ public class UI_Script : MonoBehaviour
         p2Before.SetActive(false);
 
         playerController.SwitchCurrentActionMap("UI");
-        player2Controler.SwitchCurrentActionMap("UI");
+        //player2Controler.SwitchCurrentActionMap("UI");
 
         StartCoroutine(EndDisplayTimer());
     }
