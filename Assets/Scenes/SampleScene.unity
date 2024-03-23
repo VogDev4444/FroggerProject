@@ -4584,6 +4584,11 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &1357753039 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3676281253854273318, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+  m_PrefabInstance: {fileID: 1663896010111680437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1406871271
 GameObject:
   m_ObjectHideFlags: 0
@@ -17035,6 +17040,7 @@ MonoBehaviour:
   p1Before: {fileID: 1663896010111680452}
   p2OldTitle: {fileID: 1663896010111680451}
   p2Before: {fileID: 1663896010111680438}
+  separator: {fileID: 1357753039}
   p1NewTitle: {fileID: 1663896010111680450}
   p1End: {fileID: 1663896010111680449}
   p1FinalScore: {fileID: 1663896010111680448}
@@ -17362,15 +17368,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1826294945592813885, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.b
-      value: 0
+      value: 0.8490566
       objectReference: {fileID: 0}
     - target: {fileID: 1826294945592813885, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.g
-      value: 0
+      value: 0.8490566
       objectReference: {fileID: 0}
     - target: {fileID: 1826294945592813885, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.r
-      value: 1
+      value: 0.8490566
       objectReference: {fileID: 0}
     - target: {fileID: 1826294945592813885, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -17530,15 +17536,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8957314449379682812, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.b
-      value: 0
+      value: 0.8584906
       objectReference: {fileID: 0}
     - target: {fileID: 8957314449379682812, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.g
-      value: 0
+      value: 0.8584906
       objectReference: {fileID: 0}
     - target: {fileID: 8957314449379682812, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.r
-      value: 1
+      value: 0.8584906
       objectReference: {fileID: 0}
     - target: {fileID: 8957314449379682812, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
