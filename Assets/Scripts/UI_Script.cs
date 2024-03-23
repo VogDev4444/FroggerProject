@@ -172,7 +172,7 @@ public class UI_Script : MonoBehaviour
         separator.SetActive(false);
 
         playerController.SwitchCurrentActionMap("UI");
-        player2Controler.SwitchCurrentActionMap("UI");
+        //player2Controler.SwitchCurrentActionMap("UI");
 
         StartCoroutine(EndDisplayTimer());
     }
