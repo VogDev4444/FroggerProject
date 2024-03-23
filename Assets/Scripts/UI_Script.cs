@@ -22,6 +22,7 @@ public class UI_Script : MonoBehaviour
     public GameObject p1Before;
     public GameObject p2OldTitle;
     public GameObject p2Before;
+    public GameObject separator;
 
     //ui turned on at endgame
     public GameObject p1NewTitle;
@@ -168,6 +169,7 @@ public class UI_Script : MonoBehaviour
         p2OldTitle.SetActive(false);
         p1Before.SetActive(false);
         p2Before.SetActive(false);
+        separator.SetActive(false);
 
         playerController.SwitchCurrentActionMap("UI");
         //player2Controler.SwitchCurrentActionMap("UI");
