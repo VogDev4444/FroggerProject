@@ -50,6 +50,7 @@ public class Movement : MonoBehaviour
     public bool inWater = false;
     public bool onLily = false;
 
+
     //Animator controller
     private Animator anim;
 
@@ -60,6 +61,11 @@ public class Movement : MonoBehaviour
     public Vector3 fireStartPos; //where the projectile spawns
     Vector2 projectileSpeed;
     public GameObject firePointer;
+
+    //variables related to calcuating the cooldown
+    private float cooldownLengthInSeconds = 5;
+    private float cdCalc = 0;
+    public Slider dodgeCDDisplay;
 
     private bool kbMouse = false;
 
@@ -178,7 +184,15 @@ public class Movement : MonoBehaviour
         }
        
         
-        
+       if(!canDodge)
+        {
+            cdCalc++;
+            dodgeCDDisplay.value = (cdCalc / 50) / cooldownLengthInSeconds;
+        }
+       else
+        {
+            dodgeCDDisplay.value = 1f;
+        }
     }
   
     public void playerLookMethod()
@@ -229,7 +243,7 @@ public class Movement : MonoBehaviour
             anim.SetBool("isDodging", true); // Set animation parameters for dodge
 
             StartCoroutine(InvincibleTimer(.4f)); // Start invincibility timer
-            StartCoroutine(DodgeCooldown(5)); // Start dodge cooldown timer
+            StartCoroutine(DodgeCooldown(cooldownLengthInSeconds)); // Start dodge cooldown timer
         }
 
     }

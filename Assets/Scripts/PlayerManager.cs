@@ -21,6 +21,10 @@ public class PlayerManager : MonoBehaviour
     public Vector2 direction;
     public string lastIn;
 
+    //variable to hold the sfx that plays when you gain/lose points - Jax
+    public AudioSource pointGainSFX;
+    public AudioSource pointLossSFX;
+
     public int playerNum;
 
     public bool flyingCoolDown;
@@ -78,11 +82,13 @@ public class PlayerManager : MonoBehaviour
             }
             if (playerNum == 1)
             {
+                pointGainSFX.Play();
                 bm.bugCount1++;
                 //score_UI.increaseScore(1); does not exist
             }
             else
             {
+                pointGainSFX.Play();
                 bm.bugCount2++;
                 //score_UI.increaseScore(2); does not exist
             }
@@ -253,6 +259,7 @@ public class PlayerManager : MonoBehaviour
 
     public void StealPoint()
     {
+        pointLossSFX.Play();
         if (playerNum == 1)
         {
             if (bm.bugCount1 > 0)
