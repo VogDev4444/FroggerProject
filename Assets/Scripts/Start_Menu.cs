@@ -42,7 +42,7 @@ public class Start_Menu : MonoBehaviour
 
     public void CreditsScene()
     {
-        //load credits scene
+        SceneManager.LoadScene("CreditsScene");
     }
 
     public void SettingsScene()
