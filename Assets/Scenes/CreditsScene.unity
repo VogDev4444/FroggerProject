@@ -301,18 +301,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2105041697969700867, guid: 4420b2ecf68215c4caf998c361170120, type: 3}
-      propertyPath: m_Colors.m_SelectedColor.b
-      value: 0.62352943
-      objectReference: {fileID: 0}
-    - target: {fileID: 2105041697969700867, guid: 4420b2ecf68215c4caf998c361170120, type: 3}
-      propertyPath: m_Colors.m_SelectedColor.g
-      value: 0.50980395
-      objectReference: {fileID: 0}
-    - target: {fileID: 2105041697969700867, guid: 4420b2ecf68215c4caf998c361170120, type: 3}
-      propertyPath: m_Colors.m_SelectedColor.r
-      value: 0.654902
-      objectReference: {fileID: 0}
     - target: {fileID: 3788603700102711784, guid: 4420b2ecf68215c4caf998c361170120, type: 3}
       propertyPath: m_Name
       value: CreditsCanvas
@@ -396,10 +384,6 @@ PrefabInstance:
     - target: {fileID: 5807897674422429750, guid: 4420b2ecf68215c4caf998c361170120, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7307678714603898718, guid: 4420b2ecf68215c4caf998c361170120, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

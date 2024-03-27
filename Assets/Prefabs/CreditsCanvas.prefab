@@ -168,8 +168,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -476.76074, y: -226.90448}
-  m_SizeDelta: {x: 491.5215, y: 384.3923}
+  m_AnchoredPosition: {x: 249.08, y: -226.90448}
+  m_SizeDelta: {x: 483.69, y: 384.3923}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2562030019074986796
 CanvasRenderer:
@@ -556,8 +556,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 201, y: -226.91}
-  m_SizeDelta: {x: 478.6602, y: 384.39}
+  m_AnchoredPosition: {x: -522, y: -226.91}
+  m_SizeDelta: {x: 660.1501, y: 384.39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6422291503240752902
 CanvasRenderer:
@@ -590,13 +590,14 @@ MonoBehaviour:
   m_text: 'Sounds:
 
 
-    Blighted Town
+    Blighted Town - by PotatoSaladLord
 
 
-    DM-CGS-21
+    DM-CGS-21 - by
+    dustyroomgames
 
 
-    Sparkle Sound Effect'
+    Sparkle Sound Effect - by dustyroomgames'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 58510f0d9eac9834e958ffd84a2ba11a, type: 2}
   m_sharedMaterial: {fileID: -7674141133102219920, guid: 58510f0d9eac9834e958ffd84a2ba11a, type: 2}
@@ -623,8 +624,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -659,7 +660,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -100.827576, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -975,7 +976,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.8627451, g: 0.7137255, b: 0.8666667, a: 1}
     m_HighlightedColor: {r: 0.654902, g: 0.50980395, b: 0.62352943, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.654902, g: 0.50980395, b: 0.62352943, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
