@@ -142,74 +142,74 @@ public class PlayerManager : MonoBehaviour
             StartCoroutine(InvincibleTimer(1));
         }
     }
-    public void SetMovement(Vector2 input)
-    {
-        if (input.x != 0 && input.y != 0)
-        {
-            input.y /= 1.5f;
-            input.x /= 1.5f;
-            input.x *= 2f;
-        }
-        moveInput = input;
-        //TODO: normalize "direction" to 8 for animation calls
-        if (moveInput.x > 0)
-        {
-            if (moveInput.y > 0)
-            {
-                anim.Play("WalkingNE");
-                lastIn = "NE";
-            }
-            if (moveInput.y < 0)
-            {
-                anim.Play("WalkingSE");
-                lastIn = "SE";
-            }
-            else
-            {
-                anim.Play("WalkingE");
-                lastIn = "E";
-            }
-        }
-        if (moveInput.x < 0)
-        {
-            if (moveInput.y > 0)
-            {
-                anim.Play("WalkingNW");
-                lastIn = "NW";
-            }
-            if (moveInput.y < 0)
-            {
-                anim.Play("WalkingSW");
-                lastIn = "SW";
-            }
-            else
-            {
-                anim.Play("WalkingW");
-                lastIn = "W";
-            }
-        }
-        if (moveInput.x == 0)
-        {
-            if (moveInput.y > 0)
-            {
-                anim.Play("WalkingN");
-                lastIn = "N";
-            }
-            if (moveInput.y < 0)
-            {
-                anim.Play("WalkingS");
-                lastIn = "S";
-            }
-        }
-        if (moveInput != Vector2.zero)
-        {
-            direction = input;
-        }
-        if (moveInput == Vector2.zero)
-        {
-            anim.Play(lastIn);
-        }
-    }
+    //public void SetMovement(Vector2 input)
+    //{
+    //    if (input.x != 0 && input.y != 0)
+    //    {
+    //        input.y /= 1.5f;
+    //        input.x /= 1.5f;
+    //        input.x *= 2f;
+    //    }
+    //    moveInput = input;
+    //    //TODO: normalize "direction" to 8 for animation calls
+    //    if (moveInput.x > 0)
+    //    {
+    //        if (moveInput.y > 0)
+    //        {
+    //            anim.Play("WalkingNE");
+    //            lastIn = "NE";
+    //        }
+    //        if (moveInput.y < 0)
+    //        {
+    //            anim.Play("WalkingSE");
+    //            lastIn = "SE";
+    //        }
+    //        else
+    //        {
+    //            anim.Play("WalkingE");
+    //            lastIn = "E";
+    //        }
+    //    }
+    //    if (moveInput.x < 0)
+    //    {
+    //        if (moveInput.y > 0)
+    //        {
+    //            anim.Play("WalkingNW");
+    //            lastIn = "NW";
+    //        }
+    //        if (moveInput.y < 0)
+    //        {
+    //            anim.Play("WalkingSW");
+    //            lastIn = "SW";
+    //        }
+    //        else
+    //        {
+    //            anim.Play("WalkingW");
+    //            lastIn = "W";
+    //        }
+    //    }
+    //    if (moveInput.x == 0)
+    //    {
+    //        if (moveInput.y > 0)
+    //        {
+    //            anim.Play("WalkingN");
+    //            lastIn = "N";
+    //        }
+    //        if (moveInput.y < 0)
+    //        {
+    //            anim.Play("WalkingS");
+    //            lastIn = "S";
+    //        }
+    //    }
+    //    if (moveInput != Vector2.zero)
+    //    {
+    //        direction = input;
+    //    }
+    //    if (moveInput == Vector2.zero)
+    //    {
+    //        anim.Play(lastIn);
+    //    }
+    //}
 
     IEnumerator InvincibleTimer(float duration)
     {

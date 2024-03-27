@@ -47,7 +47,7 @@ public class UI_Script : MonoBehaviour
     //score
     int p1_score = 0;
     int p2_score = 0;
-    int scoreCap = 10;  //change to score that makes sense
+    public  int scoreCap = 10;  //change to score that makes sense
 
 
     void Start()

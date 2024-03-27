@@ -86,15 +86,16 @@ MonoBehaviour:
   moveSpeed: 5
   baseMoveSpeed: 5
   lookSpeed: 10
+  startingPoint: {x: 0, y: 15.86, z: 0}
   attackSFX: {fileID: 8449944134309006927}
   attackTrigger: 0
   invincible: 0
   inWater: 0
   onLily: 0
-  reticalRB: {fileID: 4369558305498689154}
+  reticalRB: {fileID: 0}
   projectPrefab: {fileID: 5102559030586233977, guid: 24ed43c4c554f2f48a399defa5375ca0, type: 3}
   fireStartPos: {x: 0, y: 0, z: 0}
-  firePointer: {fileID: 7717244581382735840}
+  firePointer: {fileID: 0}
 --- !u!114 &1461822457759913284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,7 +548,7 @@ Transform:
   m_GameObject: {fileID: 7717244581382735840}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.34, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []

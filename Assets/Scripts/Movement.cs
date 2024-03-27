@@ -32,6 +32,7 @@ public class Movement : MonoBehaviour
     public float moveSpeed = 5f;
     public float baseMoveSpeed = 5f;
     public float lookSpeed = 10f;
+    public Vector3 startingPoint;
 
     //variable to hold the sfx that plays when attacking - Jax
     public AudioSource attackSFX;
@@ -54,12 +55,12 @@ public class Movement : MonoBehaviour
     private Animator anim;
 
     //where the projectile will be aimed at
-    public GameObject reticalRB;
+    public Transform reticalRB = null;
     //the projectile prefab itself
     public Rigidbody2D projectPrefab;
     public Vector3 fireStartPos; //where the projectile spawns
     Vector2 projectileSpeed;
-    public GameObject firePointer;
+    public Transform firePointer = null;
 
     private bool kbMouse = false;
 
@@ -68,13 +69,15 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         playerControls = this.GetComponent<PlayerInput>().actions;
+        findSetUp();
+        
 
         moveAction = playerControls.FindActionMap(actionMapName).FindAction(move);
         dodgeAction = playerControls.FindActionMap(actionMapName).FindAction(dodge);
         attackAction = playerControls.FindActionMap(actionMapName).FindAction(attack);
         lookAction = playerControls.FindActionMap(actionMapName).FindAction(look);
         RegisterInputActions();
-
+        
         Debug.Log(""+lookAction.ToString());
         UnityEngine.Cursor.visible = false;
 
@@ -83,6 +86,46 @@ public class Movement : MonoBehaviour
             kbMouse = true;
         }
         Debug.Log(kbMouse);
+        this.gameObject.transform.position = startingPoint;
+        
+
+    }
+
+    void findSetUp()
+    {
+        rb = this.GetComponent<Rigidbody2D>();
+        anim = this.GetComponent<Animator>();
+        bodyCol = this.GetComponent<Collider2D>();
+        playerManager = this.GetComponent<PlayerManager>();
+
+        reticalRB = this.transform.Find("Retical");
+        firePointer = this.transform.Find("FirePointer");
+    }
+
+    void onReplaySetUp()
+    {
+        if(anim == null)
+        {
+            anim = this.GetComponent<Animator>();
+        }
+        if(reticalRB == null)
+        {
+            reticalRB = this.transform.Find("Retical");
+        }
+        if(firePointer == null)
+        {   
+            firePointer = this.transform.Find("FirePointer");
+        }
+        if(playerControls == null)
+        {
+            playerControls = this.GetComponent<PlayerInput>().actions;
+            playerControls.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+            moveAction = playerControls.FindActionMap(actionMapName).FindAction(move);
+            dodgeAction = playerControls.FindActionMap(actionMapName).FindAction(dodge);
+            attackAction = playerControls.FindActionMap(actionMapName).FindAction(attack);
+            lookAction = playerControls.FindActionMap(actionMapName).FindAction(look);
+            RegisterInputActions();
+        }
     }
 
     //Registering the actions
@@ -121,17 +164,14 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        bodyCol = GetComponent<Collider2D>();
-
-        playerManager = GetComponent<PlayerManager>();
+        findSetUp();
 
 
     }
 
     private void FixedUpdate()
     {
+        onReplaySetUp();
        if(isStaggered == false)
         {
             rb.velocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed);
