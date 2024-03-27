@@ -165,6 +165,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         findSetUp();
+        
 
 
     }
