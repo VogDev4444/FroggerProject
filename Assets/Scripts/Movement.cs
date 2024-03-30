@@ -78,15 +78,15 @@ public class Movement : MonoBehaviour
         lookAction = playerControls.FindActionMap(actionMapName).FindAction(look);
         RegisterInputActions();
         
-        Debug.Log(""+lookAction.ToString());
+        
         UnityEngine.Cursor.visible = false;
 
         if (lookAction.ToString() == "Player/Look[/Mouse/position]")
         {
             kbMouse = true;
         }
-        Debug.Log(kbMouse);
         this.gameObject.transform.position = startingPoint;
+        moveAction.Enable();
         
 
     }
@@ -111,6 +111,7 @@ public class Movement : MonoBehaviour
         if(reticalRB == null)
         {
             reticalRB = this.transform.Find("Retical");
+            Debug.Log("ReticalRb Found");
         }
         if(firePointer == null)
         {   
@@ -134,16 +135,34 @@ public class Movement : MonoBehaviour
         moveAction.performed += context => moveInput = context.ReadValue<Vector2>(); //reads the value at the time of the input
         moveAction.canceled += context => moveInput = Vector2.zero; //when no player input, defaults to 0
 
-        dodgeAction.performed += context => playerDodge(); // Changed method name to follow convention
+        dodgeAction.performed += playerDodge; // Changed method name to follow convention
         dodgeAction.canceled += context => dodgeTrigger = false;
 
-        attackAction.performed += context => playerFire();
+        attackAction.performed += playerFire;
         //attackAction.canceled += context => attackTrigger = false;
 
         lookAction.performed += context => lookInput = context.ReadValue<Vector2>();
-        lookAction.performed += context => playerLookMethod();//reads the vector2 value to change the retical location
+        lookAction.performed += playerLookMethod;//reads the vector2 value to change the retical location
         lookAction.canceled += context => lookInput = Vector2.zero;
     }
+
+    //Calls when object is destroyed to unregister actions 
+    void UnregisterActions()
+    {
+        moveAction.performed -= context => moveInput = context.ReadValue<Vector2>(); //reads the value at the time of the input
+        moveAction.canceled -= context => moveInput = Vector2.zero; //when no player input, defaults to 0
+
+        dodgeAction.performed -= playerDodge; // Changed method name to follow convention
+        dodgeAction.canceled -= context => dodgeTrigger = false;
+
+        attackAction.performed -= playerFire;
+        //attackAction.canceled += context => attackTrigger = false;
+
+        lookAction.performed -= context => lookInput = context.ReadValue<Vector2>();
+        lookAction.performed -= playerLookMethod;//reads the vector2 value to change the retical location
+        lookAction.canceled -= context => lookInput = Vector2.zero;
+    }
+
     private void onEnable()
     {
         moveAction.Enable();
@@ -161,6 +180,10 @@ public class Movement : MonoBehaviour
         lookAction.Disable();
     }
 
+    private void OnDestroy()
+    {
+       UnregisterActions();
+    }
 
     void Start()
     {
@@ -222,7 +245,7 @@ public class Movement : MonoBehaviour
         
     }
   
-    public void playerLookMethod()
+    public void playerLookMethod(InputAction.CallbackContext context)
     {
         //changes where the retical is aimed as if it is another players
         //reticalRB.transform.Translate(new Vector2(lookInput.x, lookInput.y));
@@ -262,7 +285,7 @@ public class Movement : MonoBehaviour
         projectileSpeed = projectileSpeed * 10;
     }
 
-    public void playerDodge()
+    public void playerDodge(InputAction.CallbackContext context)
     {
 
         if (canDodge)
@@ -275,7 +298,7 @@ public class Movement : MonoBehaviour
 
     }
 
-    public void playerFire()
+    public void playerFire(InputAction.CallbackContext context)
     {
         if(attackTrigger == false && isStaggered == false)
         {
