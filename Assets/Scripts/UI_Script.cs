@@ -47,7 +47,7 @@ public class UI_Script : MonoBehaviour
     //score
     int p1_score = 0;
     int p2_score = 0;
-    int scoreCap = 10;  //change to score that makes sense
+    [SerializeField] int scoreCap = 10;  //change to score that makes sense
 
 
     void Start()
@@ -160,7 +160,6 @@ public class UI_Script : MonoBehaviour
     public void EndGame()
     {
         //final score is calculated
-        Cursor.visible=true;
         p1FinalScore.text = p1_score.ToString();
         p2FinalScore.text = p2_score.ToString();
 
@@ -172,7 +171,8 @@ public class UI_Script : MonoBehaviour
         separator.SetActive(false);
 
         playerController.SwitchCurrentActionMap("UI");
-        //player2Controler.SwitchCurrentActionMap("UI");
+        player2Controler.SwitchCurrentActionMap("UI");
+        Cursor.visible = true;
 
         StartCoroutine(EndDisplayTimer());
     }
