@@ -65,8 +65,6 @@ public class Movement : MonoBehaviour
 
     //variables related to calcuating the cooldown
     private float cooldownLengthInSeconds = 5;
-    private float cdCalc = 0;
-    public Slider dodgeCDDisplay;
 
     private bool kbMouse = false;
 
@@ -194,7 +192,6 @@ public class Movement : MonoBehaviour
     void Start()
     {
         findSetUp();
-        
 
 
     }
@@ -247,16 +244,6 @@ public class Movement : MonoBehaviour
             
         }
        
-        
-       if(!canDodge)
-        {
-            cdCalc++;
-            dodgeCDDisplay.value = (cdCalc / 50) / cooldownLengthInSeconds;
-        }
-       else
-        {
-            dodgeCDDisplay.value = 1f;
-        }
     }
   
     public void playerLookMethod(InputAction.CallbackContext context)
@@ -310,6 +297,25 @@ public class Movement : MonoBehaviour
             StartCoroutine(DodgeCooldown(cooldownLengthInSeconds)); // Start dodge cooldown timer
         }
 
+    }
+
+    //needed for dodgeCooldown HUD - jax
+    public bool hasPlayerDodged()
+    {
+        if(canDodge)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    //needed for dodgeCooldown HUD - jax
+    public float getCooldownLength()
+    {
+        return cooldownLengthInSeconds;
     }
 
     public void playerFire(InputAction.CallbackContext context)
