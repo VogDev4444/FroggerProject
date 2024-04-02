@@ -1,0 +1,378 @@
+fileFormatVersion: 2
+guid: 25c64e2d097ea174e9f8daf0a1a02161
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rocksTileMap_noGlow_1
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 87
+        width: 1135
+        height: 2913
+      alignment: 9
+      pivot: {x: 0.5320616, y: 0.06526768}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -58.5, y: -1301.5}
+        - {x: -53.5, y: -1156.5}
+        - {x: 90.5, y: -1151.5}
+        - {x: 119.5, y: -1291.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 488e8452942216147b0a4d416773b645
+      internalID: 617654368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocksTileMap_noGlow_4
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 1957
+        width: 675
+        height: 959
+      alignment: 9
+      pivot: {x: 0.5943247, y: 0.035953842}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 1.5, y: -452.5}
+        - {x: 40.5, y: -341.5}
+        - {x: 137.5, y: -346.5}
+        - {x: 151.5, y: -452.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d407679e6ec42534bbb0ca53dabeb3e3
+      internalID: 888061621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocksTileMap_noGlow_8
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 2167
+        width: 438
+        height: 296
+      alignment: 9
+      pivot: {x: 0.52295214, y: 0.16037153}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b2a8a341dd837d458e75d8c06e643e3
+      internalID: -1295541528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocksTileMap_noGlow_12
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 1256
+        width: 656
+        height: 441
+      alignment: 9
+      pivot: {x: 0.5110945, y: 0.20293815}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -237.5, y: -90.5}
+        - {x: -237.5, y: -9.5}
+        - {x: 194.5, y: -54.5}
+        - {x: 288.5, y: -52.5}
+        - {x: 297.5, y: -124.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdb1752b45ba2ce468a8407da4a40985
+      internalID: -1305859969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocksTileMap_noGlow_13
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 1237
+        width: 520
+        height: 539
+      alignment: 9
+      pivot: {x: 0.4720074, y: 0.21644086}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -215, y: -154}
+        - {x: -249, y: -99}
+        - {x: 209, y: -95}
+        - {x: 209, y: -150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83788f07dbae0f74a8098bced8773ab1
+      internalID: 1678214690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocksTileMap_noGlow_17
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 664
+        width: 655
+        height: 441
+      alignment: 9
+      pivot: {x: 0.5111114, y: 0.2194416}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -237.5, y: -90.5}
+        - {x: -237.5, y: -9.5}
+        - {x: 194.5, y: -54.5}
+        - {x: 288.5, y: -52.5}
+        - {x: 297.5, y: -124.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4db6bbe06f1b65c448c848ea7b0e36e3
+      internalID: -2030198783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocksTileMap_noGlow_18
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 645
+        width: 520
+        height: 539
+      alignment: 9
+      pivot: {x: 0.5139958, y: 0.22994378}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -215, y: -154}
+        - {x: -249, y: -99}
+        - {x: 209, y: -95}
+        - {x: 209, y: -150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8df3e38cb861bfd4bb70673751d30230
+      internalID: 1164231401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocksTileMap_noGlow_22
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 52
+        width: 655
+        height: 441
+      alignment: 9
+      pivot: {x: 0.51111126, y: 0.21944141}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -237.5, y: -90.5}
+        - {x: -237.5, y: -9.5}
+        - {x: 194.5, y: -54.5}
+        - {x: 288.5, y: -52.5}
+        - {x: 297.5, y: -124.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: aff4cc0450b417f4f903b363e83f16a7
+      internalID: -1338747446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocksTileMap_noGlow_23
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 33
+        width: 520
+        height: 538
+      alignment: 9
+      pivot: {x: 0.5, y: 0.22944185}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -215, y: -154}
+        - {x: -249, y: -99}
+        - {x: 209, y: -95}
+        - {x: 209, y: -150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ee750e8502ff7f48ba1012aa12074e9
+      internalID: 822881073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      rocksTileMap_noGlow_0: -1444491507
+      rocksTileMap_noGlow_1: 617654368
+      rocksTileMap_noGlow_10: 1080839552
+      rocksTileMap_noGlow_11: 1181674051
+      rocksTileMap_noGlow_12: -1305859969
+      rocksTileMap_noGlow_13: 1678214690
+      rocksTileMap_noGlow_14: -2067823620
+      rocksTileMap_noGlow_15: -336013119
+      rocksTileMap_noGlow_16: -766486462
+      rocksTileMap_noGlow_17: -2030198783
+      rocksTileMap_noGlow_18: 1164231401
+      rocksTileMap_noGlow_19: 974819611
+      rocksTileMap_noGlow_2: 496030039
+      rocksTileMap_noGlow_20: 588866539
+      rocksTileMap_noGlow_21: 1889753548
+      rocksTileMap_noGlow_22: -1338747446
+      rocksTileMap_noGlow_23: 822881073
+      rocksTileMap_noGlow_24: 643161166
+      rocksTileMap_noGlow_25: 544902267
+      rocksTileMap_noGlow_26: 899458152
+      rocksTileMap_noGlow_3: -1754277359
+      rocksTileMap_noGlow_4: 888061621
+      rocksTileMap_noGlow_5: -674946557
+      rocksTileMap_noGlow_6: -454463571
+      rocksTileMap_noGlow_7: 2054591743
+      rocksTileMap_noGlow_8: -1295541528
+      rocksTileMap_noGlow_9: 2091058775
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
