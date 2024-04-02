@@ -7,6 +7,8 @@ public class PlayerManager : MonoBehaviour
 {
     public BugManager bm;
     public UI_Script score_UI;
+    public EarnPoint pointchange1;
+    public EarnPoint pointchange2;
     private Animator anim;
 
     //booleans for state of the players 
@@ -84,13 +86,13 @@ public class PlayerManager : MonoBehaviour
             {
                 pointGainSFX.Play();
                 bm.bugCount1++;
-                //score_UI.increaseScore(1); does not exist
+                pointchange1.PlusOne();
             }
             else
             {
                 pointGainSFX.Play();
                 bm.bugCount2++;
-                //score_UI.increaseScore(2); does not exist
+                pointchange2.PlusOne();
             }
         }
         if (other.gameObject.CompareTag("Death") && !invincible)
@@ -100,6 +102,7 @@ public class PlayerManager : MonoBehaviour
                 if (bm.bugCount1 > 0)
                 {
                     bm.bugCount1--;
+                    pointchange1.MinusOne();
                 }
             }
             else
@@ -107,6 +110,7 @@ public class PlayerManager : MonoBehaviour
                 if (bm.bugCount2 > 0)
                 {
                     bm.bugCount2--;
+                    pointchange2.MinusOne();
                 }
             }
             StartCoroutine(InvincibleTimer(1));
@@ -114,7 +118,6 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.CompareTag("Water") && isAirborn == false)
         {
             isInWater = true;
-
         }
 
     }
@@ -136,6 +139,7 @@ public class PlayerManager : MonoBehaviour
                 if (bm.bugCount1 > 0)
                 {
                     bm.bugCount1--;
+                    pointchange1.MinusOne();
                 }
             }
             else
@@ -143,6 +147,7 @@ public class PlayerManager : MonoBehaviour
                 if (bm.bugCount2 > 0)
                 {
                     bm.bugCount2--;
+                    pointchange2.MinusOne();
                 }
             }
             StartCoroutine(InvincibleTimer(1));
@@ -245,6 +250,7 @@ public class PlayerManager : MonoBehaviour
             if (bm.bugCount1 > 0)
             {
                 bm.bugCount1--;
+                pointchange1.MinusOne();
             }
         }
         else
@@ -252,6 +258,7 @@ public class PlayerManager : MonoBehaviour
             if (bm.bugCount2 > 0)
             {
                 bm.bugCount2--;
+                pointchange2.MinusOne();
             }
         }
 
@@ -265,7 +272,9 @@ public class PlayerManager : MonoBehaviour
             if (bm.bugCount1 > 0)
             {
                 bm.bugCount2++;
+                pointchange2.PlusOne();
                 bm.bugCount1--;
+                pointchange1.MinusOne();
             }
         }
         else
@@ -273,7 +282,9 @@ public class PlayerManager : MonoBehaviour
             if (bm.bugCount2 > 0)
             {
                 bm.bugCount1++;
+                pointchange1.PlusOne();
                 bm.bugCount2--;
+                pointchange2.MinusOne();
             }
         }
     }
