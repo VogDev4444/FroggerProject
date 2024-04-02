@@ -47,6 +47,6 @@ public class Start_Menu : MonoBehaviour
 
     public void SettingsScene()
     {
-        SceneManager.LoadScene("SettingsScene");
+        //load settings scene. We can also change this to whatever we want it to be, such as how to play
     }
 }
