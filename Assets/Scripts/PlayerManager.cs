@@ -7,6 +7,8 @@ public class PlayerManager : MonoBehaviour
 {
     public BugManager bm;
     public UI_Script score_UI;
+    //public EarnPoint pointchange1;
+    //public EarnPoint pointchange2;
     private Animator anim;
 
     //booleans for state of the players 
@@ -20,6 +22,10 @@ public class PlayerManager : MonoBehaviour
     public Vector2 moveInput;
     public Vector2 direction;
     public string lastIn;
+
+    //variable to hold the sfx that plays when you gain/lose points - Jax
+    public AudioSource pointGainSFX;
+    public AudioSource pointLossSFX;
 
     public int playerNum;
 
@@ -78,13 +84,15 @@ public class PlayerManager : MonoBehaviour
             }
             if (playerNum == 1)
             {
+                pointGainSFX.Play();
                 bm.bugCount1++;
-                //score_UI.increaseScore(1); does not exist
+                //pointchange1.PlusOne();
             }
             else
             {
+                pointGainSFX.Play();
                 bm.bugCount2++;
-                //score_UI.increaseScore(2); does not exist
+                //pointchange2.PlusOne();
             }
         }
         if (other.gameObject.CompareTag("Death") && !invincible)
@@ -94,6 +102,7 @@ public class PlayerManager : MonoBehaviour
                 if (bm.bugCount1 > 0)
                 {
                     bm.bugCount1--;
+                    //pointchange1.MinusOne();
                 }
             }
             else
@@ -101,6 +110,7 @@ public class PlayerManager : MonoBehaviour
                 if (bm.bugCount2 > 0)
                 {
                     bm.bugCount2--;
+                    //pointchange2.MinusOne();
                 }
             }
             StartCoroutine(InvincibleTimer(1));
@@ -108,7 +118,6 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.CompareTag("Water") && isAirborn == false)
         {
             isInWater = true;
-
         }
 
     }
@@ -130,6 +139,7 @@ public class PlayerManager : MonoBehaviour
                 if (bm.bugCount1 > 0)
                 {
                     bm.bugCount1--;
+                   // pointchange1.MinusOne();
                 }
             }
             else
@@ -137,79 +147,80 @@ public class PlayerManager : MonoBehaviour
                 if (bm.bugCount2 > 0)
                 {
                     bm.bugCount2--;
+                    //pointchange2.MinusOne();
                 }
             }
             StartCoroutine(InvincibleTimer(1));
         }
     }
-    public void SetMovement(Vector2 input)
-    {
-        if (input.x != 0 && input.y != 0)
-        {
-            input.y /= 1.5f;
-            input.x /= 1.5f;
-            input.x *= 2f;
-        }
-        moveInput = input;
-        //TODO: normalize "direction" to 8 for animation calls
-        if (moveInput.x > 0)
-        {
-            if (moveInput.y > 0)
-            {
-                anim.Play("WalkingNE");
-                lastIn = "NE";
-            }
-            if (moveInput.y < 0)
-            {
-                anim.Play("WalkingSE");
-                lastIn = "SE";
-            }
-            else
-            {
-                anim.Play("WalkingE");
-                lastIn = "E";
-            }
-        }
-        if (moveInput.x < 0)
-        {
-            if (moveInput.y > 0)
-            {
-                anim.Play("WalkingNW");
-                lastIn = "NW";
-            }
-            if (moveInput.y < 0)
-            {
-                anim.Play("WalkingSW");
-                lastIn = "SW";
-            }
-            else
-            {
-                anim.Play("WalkingW");
-                lastIn = "W";
-            }
-        }
-        if (moveInput.x == 0)
-        {
-            if (moveInput.y > 0)
-            {
-                anim.Play("WalkingN");
-                lastIn = "N";
-            }
-            if (moveInput.y < 0)
-            {
-                anim.Play("WalkingS");
-                lastIn = "S";
-            }
-        }
-        if (moveInput != Vector2.zero)
-        {
-            direction = input;
-        }
-        if (moveInput == Vector2.zero)
-        {
-            anim.Play(lastIn);
-        }
-    }
+    //public void SetMovement(Vector2 input)
+    //{
+    //    if (input.x != 0 && input.y != 0)
+    //    {
+    //        input.y /= 1.5f;
+    //        input.x /= 1.5f;
+    //        input.x *= 2f;
+    //    }
+    //    moveInput = input;
+    //    //TODO: normalize "direction" to 8 for animation calls
+    //    if (moveInput.x > 0)
+    //    {
+    //        if (moveInput.y > 0)
+    //        {
+    //            anim.Play("WalkingNE");
+    //            lastIn = "NE";
+    //        }
+    //        if (moveInput.y < 0)
+    //        {
+    //            anim.Play("WalkingSE");
+    //            lastIn = "SE";
+    //        }
+    //        else
+    //        {
+    //            anim.Play("WalkingE");
+    //            lastIn = "E";
+    //        }
+    //    }
+    //    if (moveInput.x < 0)
+    //    {
+    //        if (moveInput.y > 0)
+    //        {
+    //            anim.Play("WalkingNW");
+    //            lastIn = "NW";
+    //        }
+    //        if (moveInput.y < 0)
+    //        {
+    //            anim.Play("WalkingSW");
+    //            lastIn = "SW";
+    //        }
+    //        else
+    //        {
+    //            anim.Play("WalkingW");
+    //            lastIn = "W";
+    //        }
+    //    }
+    //    if (moveInput.x == 0)
+    //    {
+    //        if (moveInput.y > 0)
+    //        {
+    //            anim.Play("WalkingN");
+    //            lastIn = "N";
+    //        }
+    //        if (moveInput.y < 0)
+    //        {
+    //            anim.Play("WalkingS");
+    //            lastIn = "S";
+    //        }
+    //    }
+    //    if (moveInput != Vector2.zero)
+    //    {
+    //        direction = input;
+    //    }
+    //    if (moveInput == Vector2.zero)
+    //    {
+    //        anim.Play(lastIn);
+    //    }
+    //}
 
     IEnumerator InvincibleTimer(float duration)
     {
@@ -239,6 +250,7 @@ public class PlayerManager : MonoBehaviour
             if (bm.bugCount1 > 0)
             {
                 bm.bugCount1--;
+                //pointchange1.MinusOne();
             }
         }
         else
@@ -246,6 +258,7 @@ public class PlayerManager : MonoBehaviour
             if (bm.bugCount2 > 0)
             {
                 bm.bugCount2--;
+                //pointchange2.MinusOne();
             }
         }
 
@@ -253,12 +266,15 @@ public class PlayerManager : MonoBehaviour
 
     public void StealPoint()
     {
+        pointLossSFX.Play();
         if (playerNum == 1)
         {
             if (bm.bugCount1 > 0)
             {
                 bm.bugCount2++;
+                //pointchange2.PlusOne();
                 bm.bugCount1--;
+               //pointchange1.MinusOne();
             }
         }
         else
@@ -266,7 +282,9 @@ public class PlayerManager : MonoBehaviour
             if (bm.bugCount2 > 0)
             {
                 bm.bugCount1++;
+                //pointchange1.PlusOne();
                 bm.bugCount2--;
+                //pointchange2.MinusOne();
             }
         }
     }

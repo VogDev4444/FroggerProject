@@ -32,6 +32,7 @@ public class Movement : MonoBehaviour
     public float moveSpeed = 5f;
     public float baseMoveSpeed = 5f;
     public float lookSpeed = 10f;
+    public Vector3 startingPoint;
 
     //variable to hold the sfx that plays when attacking - Jax
     public AudioSource attackSFX;
@@ -49,16 +50,20 @@ public class Movement : MonoBehaviour
     public bool inWater = false;
     public bool onLily = false;
 
+
     //Animator controller
     private Animator anim;
 
     //where the projectile will be aimed at
-    public GameObject reticalRB;
+    public Transform reticalRB = null;
     //the projectile prefab itself
     public Rigidbody2D projectPrefab;
     public Vector3 fireStartPos; //where the projectile spawns
     Vector2 projectileSpeed;
-    public GameObject firePointer;
+    public Transform firePointer = null;
+
+    //variables related to calcuating the cooldown
+    private float cooldownLengthInSeconds = 5;
 
     private bool kbMouse = false;
 
@@ -67,21 +72,64 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         playerControls = this.GetComponent<PlayerInput>().actions;
+        findSetUp();
+        
 
         moveAction = playerControls.FindActionMap(actionMapName).FindAction(move);
         dodgeAction = playerControls.FindActionMap(actionMapName).FindAction(dodge);
         attackAction = playerControls.FindActionMap(actionMapName).FindAction(attack);
         lookAction = playerControls.FindActionMap(actionMapName).FindAction(look);
         RegisterInputActions();
-
-        Debug.Log(""+lookAction.ToString());
+        
+        
         UnityEngine.Cursor.visible = false;
 
         if (lookAction.ToString() == "Player/Look[/Mouse/position]")
         {
             kbMouse = true;
         }
-        Debug.Log(kbMouse);
+        this.gameObject.transform.position = startingPoint;
+        moveAction.Enable();
+        
+
+    }
+
+    void findSetUp()
+    {
+        rb = this.GetComponent<Rigidbody2D>();
+        anim = this.GetComponent<Animator>();
+        bodyCol = this.GetComponent<Collider2D>();
+        playerManager = this.GetComponent<PlayerManager>();
+
+        reticalRB = this.transform.Find("Retical");
+        firePointer = this.transform.Find("FirePointer");
+    }
+
+    void onReplaySetUp()
+    {
+        if(anim == null)
+        {
+            anim = this.GetComponent<Animator>();
+        }
+        if(reticalRB == null)
+        {
+            reticalRB = this.transform.Find("Retical");
+            Debug.Log("ReticalRb Found");
+        }
+        if(firePointer == null)
+        {   
+            firePointer = this.transform.Find("FirePointer");
+        }
+        if(playerControls == null)
+        {
+            playerControls = this.GetComponent<PlayerInput>().actions;
+            playerControls.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+            moveAction = playerControls.FindActionMap(actionMapName).FindAction(move);
+            dodgeAction = playerControls.FindActionMap(actionMapName).FindAction(dodge);
+            attackAction = playerControls.FindActionMap(actionMapName).FindAction(attack);
+            lookAction = playerControls.FindActionMap(actionMapName).FindAction(look);
+            RegisterInputActions();
+        }
     }
 
     //Registering the actions
@@ -90,16 +138,34 @@ public class Movement : MonoBehaviour
         moveAction.performed += context => moveInput = context.ReadValue<Vector2>(); //reads the value at the time of the input
         moveAction.canceled += context => moveInput = Vector2.zero; //when no player input, defaults to 0
 
-        dodgeAction.performed += context => playerDodge(); // Changed method name to follow convention
+        dodgeAction.performed += playerDodge; // Changed method name to follow convention
         dodgeAction.canceled += context => dodgeTrigger = false;
 
-        attackAction.performed += context => playerFire();
+        attackAction.performed += playerFire;
         //attackAction.canceled += context => attackTrigger = false;
 
         lookAction.performed += context => lookInput = context.ReadValue<Vector2>();
-        lookAction.performed += context => playerLookMethod();//reads the vector2 value to change the retical location
+        lookAction.performed += playerLookMethod;//reads the vector2 value to change the retical location
         lookAction.canceled += context => lookInput = Vector2.zero;
     }
+
+    //Calls when object is destroyed to unregister actions 
+    void UnregisterActions()
+    {
+        moveAction.performed -= context => moveInput = context.ReadValue<Vector2>(); //reads the value at the time of the input
+        moveAction.canceled -= context => moveInput = Vector2.zero; //when no player input, defaults to 0
+
+        dodgeAction.performed -= playerDodge; // Changed method name to follow convention
+        dodgeAction.canceled -= context => dodgeTrigger = false;
+
+        attackAction.performed -= playerFire;
+        //attackAction.canceled += context => attackTrigger = false;
+
+        lookAction.performed -= context => lookInput = context.ReadValue<Vector2>();
+        lookAction.performed -= playerLookMethod;//reads the vector2 value to change the retical location
+        lookAction.canceled -= context => lookInput = Vector2.zero;
+    }
+
     private void onEnable()
     {
         moveAction.Enable();
@@ -117,20 +183,21 @@ public class Movement : MonoBehaviour
         lookAction.Disable();
     }
 
+    private void OnDestroy()
+    {
+       UnregisterActions();
+    }
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        bodyCol = GetComponent<Collider2D>();
-
-        playerManager = GetComponent<PlayerManager>();
+        findSetUp();
 
 
     }
 
     private void FixedUpdate()
     {
+        onReplaySetUp();
        if(isStaggered == false)
         {
             rb.velocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed);
@@ -176,11 +243,9 @@ public class Movement : MonoBehaviour
             
         }
        
-        
-        
     }
   
-    public void playerLookMethod()
+    public void playerLookMethod(InputAction.CallbackContext context)
     {
         //changes where the retical is aimed as if it is another players
         //reticalRB.transform.Translate(new Vector2(lookInput.x, lookInput.y));
@@ -220,7 +285,7 @@ public class Movement : MonoBehaviour
         projectileSpeed = projectileSpeed * 10;
     }
 
-    public void playerDodge()
+    public void playerDodge(InputAction.CallbackContext context)
     {
 
         if (canDodge)
@@ -228,12 +293,31 @@ public class Movement : MonoBehaviour
             anim.SetBool("isDodging", true); // Set animation parameters for dodge
 
             StartCoroutine(InvincibleTimer(.4f)); // Start invincibility timer
-            StartCoroutine(DodgeCooldown(5)); // Start dodge cooldown timer
+            StartCoroutine(DodgeCooldown(cooldownLengthInSeconds)); // Start dodge cooldown timer
         }
 
     }
 
-    public void playerFire()
+    //needed for dodgeCooldown HUD - jax
+    public bool hasPlayerDodged()
+    {
+        if(canDodge)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    //needed for dodgeCooldown HUD - jax
+    public float getCooldownLength()
+    {
+        return cooldownLengthInSeconds;
+    }
+
+    public void playerFire(InputAction.CallbackContext context)
     {
         if(attackTrigger == false && isStaggered == false)
         {
