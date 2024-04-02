@@ -656,6 +656,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2116072737}
     m_Modifications:
+    - target: {fileID: 697751124037018345, guid: 5ddde12dde3f6884ea9be7ae3142e714, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4098488399272232315, guid: 5ddde12dde3f6884ea9be7ae3142e714, type: 3}
       propertyPath: m_Name
       value: Lilypad (1)
@@ -703,7 +707,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4098488399272232315, guid: 5ddde12dde3f6884ea9be7ae3142e714, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1801551819}
   m_SourcePrefab: {fileID: 100100000, guid: 5ddde12dde3f6884ea9be7ae3142e714, type: 3}
 --- !u!1 &366804711
 GameObject:
@@ -795,6 +802,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2116072737}
     m_Modifications:
+    - target: {fileID: 697751124037018345, guid: 5ddde12dde3f6884ea9be7ae3142e714, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4098488399272232315, guid: 5ddde12dde3f6884ea9be7ae3142e714, type: 3}
       propertyPath: m_Name
       value: Lilypad (8)
@@ -842,7 +853,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4098488399272232315, guid: 5ddde12dde3f6884ea9be7ae3142e714, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2027153455}
   m_SourcePrefab: {fileID: 100100000, guid: 5ddde12dde3f6884ea9be7ae3142e714, type: 3}
 --- !u!114 &552961585 stripped
 MonoBehaviour:
@@ -2470,6 +2484,7 @@ GameObject:
   - component: {fileID: 991693984}
   - component: {fileID: 991693983}
   - component: {fileID: 991693985}
+  - component: {fileID: 991693986}
   m_Layer: 0
   m_Name: P2Cam
   m_TagString: Untagged
@@ -2577,6 +2592,50 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &991693986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991693981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1001 &1011659425
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3053,6 +3112,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 35.612457, y: 5.008191}
   m_EdgeRadius: 0
+--- !u!1 &1202971704 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4098488399272232315, guid: 5ddde12dde3f6884ea9be7ae3142e714, type: 3}
+  m_PrefabInstance: {fileID: 327400458}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1239024093
 GameObject:
   m_ObjectHideFlags: 0
@@ -3065,6 +3129,7 @@ GameObject:
   - component: {fileID: 1239024095}
   - component: {fileID: 1239024094}
   - component: {fileID: 1239024097}
+  - component: {fileID: 1239024098}
   m_Layer: 0
   m_Name: P1Cam
   m_TagString: Untagged
@@ -3180,6 +3245,50 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1239024098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239024093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &1341803921
 GameObject:
   m_ObjectHideFlags: 0
@@ -17105,6 +17214,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5879822605594875612, guid: 5ddde12dde3f6884ea9be7ae3142e714, type: 3}
   m_PrefabInstance: {fileID: 327400458}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1801551819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202971704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e88df7e5476be4eb6e9a0bedc1dbc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  destroyThreshold: 25
+  respawnPositionX: -27
+  riverStartX: -27
+  riverEndX: 25
+  disappearDelay: 3
 --- !u!1 &1898471919
 GameObject:
   m_ObjectHideFlags: 3
@@ -17272,6 +17399,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1913543785487101414, guid: 8c2890d19ce3e8c4e890a8ee51ff6d93, type: 3}
   m_PrefabInstance: {fileID: 2011116564}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2027153450 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4098488399272232315, guid: 5ddde12dde3f6884ea9be7ae3142e714, type: 3}
+  m_PrefabInstance: {fileID: 448038503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2027153455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027153450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e88df7e5476be4eb6e9a0bedc1dbc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  destroyThreshold: 25
+  respawnPositionX: -27
+  riverStartX: -27
+  riverEndX: 25
+  disappearDelay: 3
 --- !u!1001 &2033651178
 PrefabInstance:
   m_ObjectHideFlags: 0
