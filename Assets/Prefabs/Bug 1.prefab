@@ -157,9 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091adbd1bfc9a4747b03bea784013d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 10
-  minDistance: 3
-  newTargetDelay: 3
+  circleRadius: 5
   movementSpeed: 5
 --- !u!195 &3691553901277237417
 NavMeshAgent:

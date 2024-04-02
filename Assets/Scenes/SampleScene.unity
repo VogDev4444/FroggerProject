@@ -2537,7 +2537,7 @@ Transform:
   m_GameObject: {fileID: 991693981}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.039976925, y: 11.8898, z: -10}
+  m_LocalPosition: {x: -0.026479192, y: 11.8898, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2844,8 +2844,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bugPrefab: {fileID: 3587554274976217564, guid: d3356f62f5734bd4bb658f7e4c7eca75, type: 3}
   spawnInterval: 3
-  spawnAreaWidth: 30
-  spawnAreaHeight: 20
+  spawnAreaWidth: 20
+  spawnAreaHeight: 15
   maxBugs: 5
 --- !u!4 &1075009616
 Transform:
@@ -3140,7 +3140,7 @@ Transform:
   m_GameObject: {fileID: 1239024093}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8713415, y: -3.71177, z: -10}
+  m_LocalPosition: {x: 1.8641312, y: -3.7117796, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

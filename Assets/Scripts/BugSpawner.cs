@@ -9,6 +9,7 @@ public class BugSpawner : MonoBehaviour
     public float spawnAreaWidth = 10f; // Width of the area where bugs can spawn
     public float spawnAreaHeight = 4f; // Height of the area where bugs can spawn
     public int maxBugs = 10; // Maximum number of bugs allowed on the screen
+    public float bugLifetime = 10f; // Lifetime of bugs in seconds
 
     private int currentBugs = 0; // Current number of bugs on the screen
 
