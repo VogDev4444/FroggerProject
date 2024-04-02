@@ -9,7 +9,6 @@ public class BugSpawner : MonoBehaviour
     public float spawnAreaWidth = 10f; // Width of the area where bugs can spawn
     public float spawnAreaHeight = 4f; // Height of the area where bugs can spawn
     public int maxBugs = 10; // Maximum number of bugs allowed on the screen
-    public float bugLifespan = 10f; // Lifespan of each bug
 
     private int currentBugs = 0; // Current number of bugs on the screen
 
@@ -50,14 +49,6 @@ public class BugSpawner : MonoBehaviour
             yield return new WaitForSeconds(spawnInterval);
         }
     }
-
-    IEnumerator DestroyBugAfterTime(GameObject bug)
-    {
-        yield return new WaitForSeconds(bugLifespan);
-        Destroy(bug);
-        currentBugs--; // Decrement the current bug count
-    }
-
 
     // Method to decrement the current bug count when a bug is destroyed
     public void BugDestroyed()
