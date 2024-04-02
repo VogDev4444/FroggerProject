@@ -2463,7 +2463,7 @@ Transform:
   m_GameObject: {fileID: 991693981}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.021040618, y: 11.8898, z: -10}
+  m_LocalPosition: {x: -0.020306112, y: 11.8898, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3066,7 +3066,7 @@ Transform:
   m_GameObject: {fileID: 1239024093}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8612349, y: -3.7117796, z: -10}
+  m_LocalPosition: {x: 1.8608371, y: -3.71177, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4546,6 +4546,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 662780069096059138, guid: a647f211ea617974c98b7c1b3d6041cd, type: 3}
+      propertyPath: dodgeCDDisplay
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1094844110373127607, guid: a647f211ea617974c98b7c1b3d6041cd, type: 3}
       propertyPath: bm
       value: 
@@ -4602,6 +4606,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5230829492172953138, guid: a647f211ea617974c98b7c1b3d6041cd, type: 3}
+      propertyPath: dodgeCD
+      value: 
+      objectReference: {fileID: 2099573077}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16788,6 +16796,17 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!114 &1656271787 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1689776629860099250, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+  m_PrefabInstance: {fileID: 1663896010111680437}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1783584292
 GameObject:
   m_ObjectHideFlags: 0
@@ -17071,6 +17090,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5879822605594875612, guid: 5ddde12dde3f6884ea9be7ae3142e714, type: 3}
   m_PrefabInstance: {fileID: 317597488}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2099573077 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6578934660063979475, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+  m_PrefabInstance: {fileID: 1663896010111680437}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2116072736
 GameObject:
   m_ObjectHideFlags: 0
@@ -17126,9 +17156,57 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1783584293}
+    - target: {fileID: 1981305811893375318, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981305811893375318, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981305811893375318, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2919458582298610205, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405743191980869823, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405743191980869823, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405743191980869823, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6321743882927055632, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6321743882927055632, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6321743882927055632, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510887204346251358, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510887204346251358, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510887204346251358, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8872517658748339147, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_Pivot.x
@@ -17410,6 +17488,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2970756946219389946, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
+      propertyPath: dodgeCDDisplay
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3336965931421458345, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.85
@@ -17458,6 +17540,10 @@ PrefabInstance:
       propertyPath: score_UI
       value: 
       objectReference: {fileID: 1783584293}
+    - target: {fileID: 6366589608094401150, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
+      propertyPath: dodgeCD
+      value: 
+      objectReference: {fileID: 1656271787}
     - target: {fileID: 6456333781602589705, guid: 73c0a50ec57661845a44c706ae2bc130, type: 3}
       propertyPath: m_UIInputModule
       value: 

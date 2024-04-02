@@ -51,6 +51,7 @@ public class Movement : MonoBehaviour
     public bool inWater = false;
     public bool onLily = false;
 
+
     //Animator controller
     private Animator anim;
 
@@ -61,6 +62,9 @@ public class Movement : MonoBehaviour
     public Vector3 fireStartPos; //where the projectile spawns
     Vector2 projectileSpeed;
     public Transform firePointer = null;
+
+    //variables related to calcuating the cooldown
+    private float cooldownLengthInSeconds = 5;
 
     private bool kbMouse = false;
 
@@ -188,7 +192,6 @@ public class Movement : MonoBehaviour
     void Start()
     {
         findSetUp();
-        
 
 
     }
@@ -241,8 +244,6 @@ public class Movement : MonoBehaviour
             
         }
        
-        
-        
     }
   
     public void playerLookMethod(InputAction.CallbackContext context)
@@ -293,9 +294,28 @@ public class Movement : MonoBehaviour
             anim.SetBool("isDodging", true); // Set animation parameters for dodge
 
             StartCoroutine(InvincibleTimer(.4f)); // Start invincibility timer
-            StartCoroutine(DodgeCooldown(5)); // Start dodge cooldown timer
+            StartCoroutine(DodgeCooldown(cooldownLengthInSeconds)); // Start dodge cooldown timer
         }
 
+    }
+
+    //needed for dodgeCooldown HUD - jax
+    public bool hasPlayerDodged()
+    {
+        if(canDodge)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    //needed for dodgeCooldown HUD - jax
+    public float getCooldownLength()
+    {
+        return cooldownLengthInSeconds;
     }
 
     public void playerFire(InputAction.CallbackContext context)
