@@ -310,6 +310,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bm: {fileID: 0}
   score_UI: {fileID: 0}
+  pointchange1: {fileID: 0}
+  pointchange2: {fileID: 5067982768758079931}
   isAirborn: 0
   isStaggered: 0
   isKnockedBack: 0
