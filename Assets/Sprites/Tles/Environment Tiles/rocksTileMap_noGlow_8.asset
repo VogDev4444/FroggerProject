@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: rocksTileMap_noGlow_8
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: -1295541528, guid: 25c64e2d097ea174e9f8daf0a1a02161, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
   m_Transform:
     e00: 1
     e01: 0
