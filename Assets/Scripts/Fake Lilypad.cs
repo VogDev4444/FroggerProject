@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FakeLiLyPad : MonoBehaviour
@@ -12,6 +13,9 @@ public class FakeLiLyPad : MonoBehaviour
     private float disappearTimer = 0f;
     private bool isPlayerOnPad = false;
 
+    public GameObject player; //keeps track of whats on it
+    public GameObject player2;
+
     void FixedUpdate()
     {
         MoveLilyPad();
@@ -23,6 +27,19 @@ public class FakeLiLyPad : MonoBehaviour
             if (disappearTimer <= 0f)
             {
                 // Destroy the lily pad if the timer expires
+                // needs to make sure the players are not children of the lilypad anymore before it gets destroyed
+                if(player != null || player2 != null)
+                {
+                    if(player != null)
+                    {
+                        player.transform.SetParent(null);
+                    }
+                    if(player2 != null)
+                    {
+                        player2.transform.SetParent (null);
+                    }
+                    
+                }
                 Destroy(gameObject);
             }
         }
@@ -63,6 +80,14 @@ public class FakeLiLyPad : MonoBehaviour
             // Start the disappear timer when a player steps on the lily pad
             isPlayerOnPad = true;
             disappearTimer = disappearDelay;
+            if(player == null )
+            {
+                player = other.gameObject;
+            }
+            else if (player2 == null)
+            {
+                player2 = other.gameObject;
+            }
 
             // Move the player with the lily pad by setting it as the parent
             other.transform.SetParent(transform);
@@ -73,6 +98,14 @@ public class FakeLiLyPad : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if(other == player)
+            {
+                player = null;
+            }
+            else if (other == player2)
+            {
+                player2 = null;
+            }
             // Reset the state when the player leaves the lily pad
             isPlayerOnPad = false;
 
