@@ -2782,7 +2782,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 786671741}
-  - component: {fileID: 786671740}
+  - component: {fileID: 786671742}
   m_Layer: 0
   m_Name: GoldBugSpawner
   m_TagString: Untagged
@@ -2790,23 +2790,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &786671740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 786671739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b26d415c1db5eb46a53f0e3976247a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bugPrefab: {fileID: 1855323053905356341, guid: 2f2e032ce4a3edb4fb6109a9c260ad38, type: 3}
-  spawnInterval: 15
-  spawnAreaWidth: 30
-  spawnAreaHeight: 20
-  maxBugs: 1
 --- !u!4 &786671741
 Transform:
   m_ObjectHideFlags: 0
@@ -2822,6 +2805,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &786671742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786671739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea0f82f30432b9428317050de21ca39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldenBugPrefab: {fileID: 1855323053905356341, guid: 2f2e032ce4a3edb4fb6109a9c260ad38, type: 3}
+  spawnInterval: 15
+  spawnAreaWidth: 20
+  spawnAreaHeight: 20
+  maxGoldenBugs: 3
 --- !u!4 &835719353 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6517621078111986265, guid: 683ef52453b755142b45593cbf1dd839, type: 3}
@@ -3318,7 +3318,7 @@ Transform:
   m_GameObject: {fileID: 991693981}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.014518683, y: 10.394219, z: -10}
+  m_LocalPosition: {x: 0.018273901, y: 10.39423, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3757,6 +3757,7 @@ MonoBehaviour:
   spawnAreaWidth: 30
   spawnAreaHeight: 20
   maxBugs: 5
+  uiScript: {fileID: 1783584293}
 --- !u!4 &1075009616
 Transform:
   m_ObjectHideFlags: 0
@@ -4056,7 +4057,7 @@ Transform:
   m_GameObject: {fileID: 1239024093}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8627765, y: -2.10035, z: -10}
+  m_LocalPosition: {x: 1.8660781, y: -2.10035, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19173,6 +19174,8 @@ MonoBehaviour:
   EndButton: {fileID: 1663896010111680439}
   player1: {fileID: 0}
   player2: {fileID: 0}
+  p1_score: 0
+  p2_score: 0
   scoreCap: 10
 --- !u!114 &1783584294
 MonoBehaviour:
