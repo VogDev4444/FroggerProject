@@ -100,19 +100,19 @@ public class PlayerManager : MonoBehaviour
             Destroy(other.gameObject);
             if (bm != null)
             {
-                bm.GoldenBugDestroyed();  //needed to decrement bug count
-            }
-            if (playerNum == 1)
-            {
-                pointGainSFX.Play();
-                bm.bugCount1 = bm.bugCount1 + 2;
-                pointchange1.PlusTwo();
-            }
-            else
-            {
-                pointGainSFX.Play();
-                bm.bugCount2 = bm.bugCount2 + 2;
-                pointchange2.PlusTwo();
+                bm.GoldenBugDestroyed();  //needed to decrement golden bug count
+                if (playerNum == 1)
+                {
+                    pointGainSFX.Play();
+                    bm.bugCount1 = bm.bugCount1 + 2;
+                    pointchange1.PlusTwo();
+                }
+                else
+                {
+                    pointGainSFX.Play();
+                    bm.bugCount2 = bm.bugCount2 + 2;
+                    pointchange2.PlusTwo();
+                }
             }
         }
         if (other.gameObject.CompareTag("Death") && !invincible)

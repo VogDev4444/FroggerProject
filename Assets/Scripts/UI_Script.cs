@@ -67,6 +67,10 @@ public class UI_Script : MonoBehaviour
         p1.text = "0";
         p2.text = "0";
 
+        playerController.SwitchCurrentActionMap("Player");
+        player2Controler.SwitchCurrentActionMap("Player");
+        Cursor.visible = false;
+
         FindPlayers();
     }
 
