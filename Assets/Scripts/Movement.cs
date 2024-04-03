@@ -301,7 +301,11 @@ public class Movement : MonoBehaviour
     //needed for dodgeCooldown HUD - jax
     public bool hasPlayerDodged()
     {
-        if(canDodge)
+        if(canDodge && isStaggered == false)
+        {
+            return true;
+        }
+        else if (isStaggered == true)
         {
             return true;
         }
