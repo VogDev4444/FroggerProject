@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - Projectile
   - BugWall
+  - GoldenBug
   layers:
   - Default
   - TransparentFX

@@ -95,6 +95,26 @@ public class PlayerManager : MonoBehaviour
                 pointchange2.PlusOne();
             }
         }
+        if (other.gameObject.CompareTag("GoldenBug"))
+        {
+            Destroy(other.gameObject);
+            if (bm != null)
+            {
+                bm.GoldenBugDestroyed();  //needed to decrement bug count
+            }
+            if (playerNum == 1)
+            {
+                pointGainSFX.Play();
+                bm.bugCount1 = bm.bugCount1 + 2;
+                pointchange1.PlusTwo();
+            }
+            else
+            {
+                pointGainSFX.Play();
+                bm.bugCount2 = bm.bugCount2 + 2;
+                pointchange2.PlusTwo();
+            }
+        }
         if (other.gameObject.CompareTag("Death") && !invincible)
         {
             if (playerNum == 1)

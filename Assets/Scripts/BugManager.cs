@@ -11,10 +11,12 @@ public class BugManager : MonoBehaviour
     public TMP_Text bugText2;
 
     private BugSpawner bugSpawner;
+    private GoldenBugSpawner goldenBugSpawner;
 
     void Start()
     {
         bugSpawner = FindObjectOfType<BugSpawner>();
+        goldenBugSpawner = FindObjectOfType<GoldenBugSpawner>();
         StartCoroutine(UpdateBugCounts());
     }
 
@@ -31,5 +33,10 @@ public class BugManager : MonoBehaviour
     public void BugDestroyed()
     {
         bugSpawner.BugDestroyed();
+    }
+
+    public void GoldenBugDestroyed()
+    {
+        goldenBugSpawner.GoldenBugDestroyed();
     }
 }
