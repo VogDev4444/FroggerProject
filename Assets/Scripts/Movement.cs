@@ -36,7 +36,6 @@ public class Movement : MonoBehaviour
 
     //variable to hold the sfx that plays when attacking - Jax
     public AudioSource attackSFX;
-
     public Vector2 moveInput { get; private set; }
 
     public Vector2 lookInput { get; private set; }

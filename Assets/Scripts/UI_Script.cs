@@ -45,8 +45,8 @@ public class UI_Script : MonoBehaviour
     bool p2win = false;
 
     //score
-    int p1_score = 0;
-    int p2_score = 0;
+    public int p1_score = 0;
+    public int p2_score = 0;
     [SerializeField] int scoreCap = 10;  //change to score that makes sense
 
 
