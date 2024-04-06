@@ -2821,7 +2821,7 @@ MonoBehaviour:
   spawnInterval: 15
   spawnAreaWidth: 20
   spawnAreaHeight: 20
-  maxGoldenBugs: 3
+  maxGoldenBugs: 2
 --- !u!4 &835719353 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6517621078111986265, guid: 683ef52453b755142b45593cbf1dd839, type: 3}
@@ -3318,7 +3318,7 @@ Transform:
   m_GameObject: {fileID: 991693981}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.014518683, y: 10.394219, z: -10}
+  m_LocalPosition: {x: 0.018273901, y: 10.39423, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3756,7 +3756,7 @@ MonoBehaviour:
   spawnInterval: 3
   spawnAreaWidth: 30
   spawnAreaHeight: 20
-  maxBugs: 5
+  maxBugs: 3
   uiScript: {fileID: 1783584293}
 --- !u!4 &1075009616
 Transform:
@@ -4057,7 +4057,7 @@ Transform:
   m_GameObject: {fileID: 1239024093}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8627765, y: -2.10035, z: -10}
+  m_LocalPosition: {x: 1.8660781, y: -2.10035, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
