@@ -6446,7 +6446,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.2635101, y: 0.3284334, z: 0}
   m_MaxChunkCount: 16
@@ -18740,6 +18740,8 @@ MonoBehaviour:
   p1Before: {fileID: 1663896010111680452}
   p2OldTitle: {fileID: 1663896010111680451}
   p2Before: {fileID: 1663896010111680438}
+  p1Dodge: {fileID: 0}
+  p2Dodge: {fileID: 0}
   separator: {fileID: 1357753039}
   p1NewTitle: {fileID: 1663896010111680450}
   p1End: {fileID: 1663896010111680449}
