@@ -26,8 +26,8 @@ public class BugSpawner : MonoBehaviour
     {
         while (true)
         {
-            // Check if both players' scores are above a threshold to determine if spawning should continue
-            if (uiScript.p1_score > 6 && uiScript.p2_score > 6)
+            // Check if the sum of both players' scores equals 13 to determine if spawning should continue
+            if (uiScript.p1_score + uiScript.p2_score == 12)
             {
                 // Destroy any active bugs
                 foreach (GameObject bug in activeBugs)
@@ -36,37 +36,39 @@ public class BugSpawner : MonoBehaviour
                 }
                 activeBugs.Clear();
 
-                yield break; // Exit the coroutine if both players' scores are above 6
+                yield break; // Exit the coroutine if the sum of both players' scores equals 12
             }
-            else
+            else if (uiScript.p1_score + uiScript.p2_score < 12) // Resume spawning if the sum of scores drops below 12
             {
-                if (currentBugs < maxBugs)
+                currentBugs = 0; // Reset current bug count
+            }
+
+            if (currentBugs < maxBugs)
+            {
+                // Calculate random spawn position within the spawn area
+                Vector3 spawnPosition = new Vector3(
+                    Random.Range(-spawnAreaWidth / 2f, spawnAreaWidth / 2f),
+                    Random.Range(-spawnAreaHeight / 2f, spawnAreaHeight / 2f),
+                    0f
+                );
+
+                // Instantiate a bug at the calculated spawn position
+                GameObject newBug = Instantiate(bugPrefab, spawnPosition, Quaternion.identity);
+                activeBugs.Add(newBug); // Add the bug to the list of active bugs
+
+                // Play "Idle" animation on the bug
+                Animator bugAnimator = newBug.GetComponent<Animator>();
+                if (bugAnimator != null)
                 {
-                    // Calculate random spawn position within the spawn area
-                    Vector3 spawnPosition = new Vector3(
-                        Random.Range(-spawnAreaWidth / 2f, spawnAreaWidth / 2f),
-                        Random.Range(-spawnAreaHeight / 2f, spawnAreaHeight / 2f),
-                        0f
-                    );
-
-                    // Instantiate a bug at the calculated spawn position
-                    GameObject newBug = Instantiate(bugPrefab, spawnPosition, Quaternion.identity);
-                    activeBugs.Add(newBug); // Add the bug to the list of active bugs
-
-                    // Play "Idle" animation on the bug
-                    Animator bugAnimator = newBug.GetComponent<Animator>();
-                    if (bugAnimator != null)
-                    {
-                        bugAnimator.Play("Idle");
-                    }
-
-                    // Increment the current bug count
-                    currentBugs++;
+                    bugAnimator.Play("Idle");
                 }
 
-                // Wait for the specified spawn interval before spawning the next bug
-                yield return new WaitForSeconds(spawnInterval);
+                // Increment the current bug count
+                currentBugs++;
             }
+
+            // Wait for the specified spawn interval before spawning the next bug
+            yield return new WaitForSeconds(spawnInterval);
         }
     }
 
