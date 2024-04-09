@@ -46,6 +46,9 @@ public class Movement : MonoBehaviour
 
     public bool invincible = false;
     private bool canDodge = true;
+    //added onCD and hitBy to prevent issues with the Dodge UI stopping
+    private bool isOnCooldown = false;
+    private bool isHitByEnvironment = false;
     private bool isStaggered = false; //plays stagger animation when hit
     public bool inWater = false;
     public bool onLily = false;
@@ -299,15 +302,15 @@ public class Movement : MonoBehaviour
     }
 
     //needed for dodgeCooldown HUD - jax
-    public bool hasPlayerDodged()
+    public bool canPlayerDodge()
     {
-        if(canDodge && isStaggered == false)
+        if(canDodge == true && isStaggered == false)
         {
             return true;
         }
         else if (isStaggered == true)
         {
-            return true;
+            return false;
         }
         else
         {
@@ -367,21 +370,29 @@ public class Movement : MonoBehaviour
     IEnumerator DodgeCooldown(float cooldownDuration)
     {
         canDodge = false; // Set canDodge flag to false during cooldown
+        isOnCooldown = true;
         
         yield return new WaitForSeconds(cooldownDuration);
-        
+
+        isOnCooldown = false;
         canDodge = true; // Reset canDodge flag after cooldown duration
     }
 
     IEnumerator staggerEffect(float duration)
     {
         isStaggered = true;
-        canDodge = false;
+        if(!isOnCooldown || isHitByEnvironment)
+        {
+            canDodge = false;
+        }
         anim.SetBool("isStaggered", true);
         yield return new WaitForSeconds(duration);
         anim.SetBool("isStaggered", false);
-        canDodge = true;
         isStaggered = false;
+        if(!isOnCooldown || isHitByEnvironment)
+        {
+            canDodge = true;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -403,8 +414,10 @@ public class Movement : MonoBehaviour
         }
         if (collision.CompareTag("Enemy") && !invincible) // Check if the player is not invulnerable
         {
+            isHitByEnvironment = true;
             playerManager.SubtractScore();
             getStaggered(1f);
+            isHitByEnvironment = false;
         }
         if (collision.CompareTag("Ground") && !invincible) // Check if the player is not invulnerable
         {
@@ -428,7 +441,7 @@ public class Movement : MonoBehaviour
         if (collision.CompareTag("Water"))
         {
             inWater = true;
-            
+            this.gameObject.transform.position = this.gameObject.transform.position + new Vector3(0.01f, 0f, 0f);
         }
     }
 

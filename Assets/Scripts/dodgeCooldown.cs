@@ -18,14 +18,15 @@ public class dodgeCooldown : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(!player.GetComponent<Movement>().hasPlayerDodged())
+        //check to see if the player CANNOT dodge, if the player is staggered it will still charge
+        if(!player.GetComponent<Movement>().canPlayerDodge())
         {
             cdCalc++;
             dodgeCD.value = (cdCalc / 50) / cdLength;
         }
-        else if(cdCalc > 250f && player.GetComponent<Movement>().hasPlayerDodged())
+        //check to see if the player CAN dodge and if the cooldown is up
+        else if(cdCalc > 250f && player.GetComponent<Movement>().canPlayerDodge())
         {
-            Debug.Log("cdCalc: " + cdCalc + "Current Slider Value: " + dodgeCD.value);
             dodgeCD.value = 1f;
             cdCalc = 0f;
         }
