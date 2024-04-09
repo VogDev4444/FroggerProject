@@ -74,7 +74,7 @@ Material:
     - _WindInfluenceMask: 5
     - _WindScale: 1
     - _WindSpeed: 1
-    - _WindStrength: 0.6
+    - _WindStrength: 0.8
     m_Colors:
     - _WindDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
