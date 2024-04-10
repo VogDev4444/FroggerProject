@@ -440,8 +440,11 @@ public class Movement : MonoBehaviour
 
         if (collision.CompareTag("Water"))
         {
-            inWater = true;
-            this.gameObject.transform.position = this.gameObject.transform.position + new Vector3(0.01f, 0f, 0f);
+            //inWater = true;
+            if (inWater && onLily == false)
+            {
+                this.gameObject.transform.position = this.gameObject.transform.position + new Vector3(0.01f, 0f, 0f);
+            }
         }
     }
 
