@@ -66,6 +66,14 @@ public class LilyPadMovement : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        if(GetComponentInChildren<PlayerManager>() != null)
+        {
+            this.GetComponentInChildren<PlayerManager>().transform.SetParent(null);
+        }
+    }
+
     // Stop moving the player with the lily pad when they exit the trigger
     void OnTriggerExit2D(Collider2D other)
     {
