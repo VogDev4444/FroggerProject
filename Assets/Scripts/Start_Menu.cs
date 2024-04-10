@@ -8,6 +8,8 @@ public class Start_Menu : MonoBehaviour
     public CanvasGroup start;
     public CanvasGroup howToPlay;
 
+    float newButtonPress = 0.0f; //to stop from immediately pressing start upon menu appearing
+
     private void Start()
     {
         //display start menu
@@ -17,22 +19,32 @@ public class Start_Menu : MonoBehaviour
         howToPlay.alpha = 0;
         howToPlay.interactable = false;
         howToPlay.blocksRaycasts = false;
+
+        newButtonPress = Time.time;
     }
 
     public void StartGame()
     {
-        //display howToPlay canvas
-        howToPlay.alpha = 1;
-        howToPlay.interactable = true;
-        howToPlay.blocksRaycasts = true;
-        start.alpha = 0;
-        start.interactable = false;
-        start.blocksRaycasts = false;
+        if (Time.time > newButtonPress + 0.5f)
+        {
+            //display howToPlay canvas
+            howToPlay.alpha = 1;
+            howToPlay.interactable = true;
+            howToPlay.blocksRaycasts = true;
+            start.alpha = 0;
+            start.interactable = false;
+            start.blocksRaycasts = false;
+            //update last time button was pressed
+            newButtonPress = Time.time;
+        }
     }
 
     public void Ready()
     {
-        SceneManager.LoadScene("SampleScene");
+        if (Time.time > newButtonPress + 0.5f)
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
     }
 
     public void QuitGame()
@@ -42,11 +54,17 @@ public class Start_Menu : MonoBehaviour
 
     public void CreditsScene()
     {
-        SceneManager.LoadScene("CreditsScene");
+        if (Time.time > newButtonPress + 0.5f)
+        {
+            SceneManager.LoadScene("CreditsScene");
+        }
     }
 
     public void SettingsScene()
     {
-        SceneManager.LoadScene("SettingsScene");
+        if (Time.time > newButtonPress + 0.5f)
+        {
+            SceneManager.LoadScene("SettingsScene");
+        }
     }
 }

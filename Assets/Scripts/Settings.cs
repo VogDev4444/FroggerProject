@@ -19,6 +19,8 @@ public class Settings : MonoBehaviour
     public AudioSource mainAudio;
     public AudioSource[] sfxAudio;
 
+    float newButtonPress = 0.0f; //to stop from immediately pressing start upon menu appearing
+
     private void Awake()
     {
         settingsInt = PlayerPrefs.GetInt(settings);
@@ -39,6 +41,8 @@ public class Settings : MonoBehaviour
             sfxFloat = PlayerPrefs.GetFloat(sfxPref);
             sfxVol.value = sfxFloat;
         }
+
+        newButtonPress = Time.time;
     }
 
     public void SaveSettings()
@@ -71,6 +75,9 @@ public class Settings : MonoBehaviour
 
     public void Back()
     {
-        SceneManager.LoadScene("StartMenu");
+        if (Time.time > newButtonPress + 0.5f)
+        {
+            SceneManager.LoadScene("StartMenu");
+        }
     }
 }

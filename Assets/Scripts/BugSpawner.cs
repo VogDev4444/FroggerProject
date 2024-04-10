@@ -8,13 +8,16 @@ public class BugSpawner : MonoBehaviour
     public float spawnInterval = 3f; // Time interval between bug spawns
     public float spawnAreaWidth = 10f; // Width of the area where bugs can spawn
     public float spawnAreaHeight = 4f; // Height of the area where bugs can spawn
-    public int maxBugs = 10; // Maximum number of bugs allowed on the screen
+    public int maxBugs = 2; // Maximum number of bugs allowed on the screen
 
-    private int currentBugs = 0; // Current number of bugs on the screen
+    [SerializeField] private int currentBugs = 0; // Current number of bugs on the screen
 
     public UI_Script uiScript; // Reference to the UI_Script
 
     private List<GameObject> activeBugs = new List<GameObject>(); // List to keep track of active bugs
+
+    bool isSpawning = true; //false if score goes above 12
+    bool isCoroutineRunning = true; //in order to restart coroutine
 
     void Start()
     {
@@ -22,51 +25,63 @@ public class BugSpawner : MonoBehaviour
         StartCoroutine(SpawnBugs());
     }
 
+    private void Update()
+    {
+        // Check if the sum of both players' scores equals 13 to determine if spawning should continue
+        if (uiScript.p1_score + uiScript.p2_score >= 12)
+        {
+            isSpawning = false;
+            // Destroy any active bugs
+            foreach (GameObject bug in activeBugs)
+            {
+                Destroy(bug);
+            }
+            activeBugs.Clear();
+            currentBugs = 0;
+            StopCoroutine(SpawnBugs()); //stop coroutine
+            isCoroutineRunning = false; 
+        }
+        else 
+        {
+            isSpawning = true;
+            if (!isCoroutineRunning) //if coroutine ever stopped (because points above 12)
+            {
+                isCoroutineRunning = true;
+                StartCoroutine(SpawnBugs()); //restart coroutine
+            }
+        }
+    }
+
     IEnumerator SpawnBugs()
     {
-        while (true)
+        while (isSpawning == true)
         {
-            // Check if both players' scores are above a threshold to determine if spawning should continue
-            if (uiScript.p1_score > 6 && uiScript.p2_score > 6)
+            if (currentBugs < maxBugs)
             {
-                // Destroy any active bugs
-                foreach (GameObject bug in activeBugs)
+                // Calculate random spawn position within the spawn area
+                Vector3 spawnPosition = new Vector3(
+                    Random.Range(-spawnAreaWidth / 2f, spawnAreaWidth / 2f),
+                    Random.Range(-spawnAreaHeight / 2f, spawnAreaHeight / 2f),
+                    0f
+                );
+
+                // Instantiate a bug at the calculated spawn position
+                GameObject newBug = Instantiate(bugPrefab, spawnPosition, Quaternion.identity);
+                activeBugs.Add(newBug); // Add the bug to the list of active bugs
+
+                // Play "Idle" animation on the bug
+                Animator bugAnimator = newBug.GetComponent<Animator>();
+                if (bugAnimator != null)
                 {
-                    Destroy(bug);
-                }
-                activeBugs.Clear();
-
-                yield break; // Exit the coroutine if both players' scores are above 6
-            }
-            else
-            {
-                if (currentBugs < maxBugs)
-                {
-                    // Calculate random spawn position within the spawn area
-                    Vector3 spawnPosition = new Vector3(
-                        Random.Range(-spawnAreaWidth / 2f, spawnAreaWidth / 2f),
-                        Random.Range(-spawnAreaHeight / 2f, spawnAreaHeight / 2f),
-                        0f
-                    );
-
-                    // Instantiate a bug at the calculated spawn position
-                    GameObject newBug = Instantiate(bugPrefab, spawnPosition, Quaternion.identity);
-                    activeBugs.Add(newBug); // Add the bug to the list of active bugs
-
-                    // Play "Idle" animation on the bug
-                    Animator bugAnimator = newBug.GetComponent<Animator>();
-                    if (bugAnimator != null)
-                    {
-                        bugAnimator.Play("Idle");
-                    }
-
-                    // Increment the current bug count
-                    currentBugs++;
+                    bugAnimator.Play("Idle");
                 }
 
-                // Wait for the specified spawn interval before spawning the next bug
-                yield return new WaitForSeconds(spawnInterval);
+                // Increment the current bug count
+                currentBugs++;
             }
+
+            // Wait for the specified spawn interval before spawning the next bug
+            yield return new WaitForSeconds(spawnInterval);
         }
     }
 
