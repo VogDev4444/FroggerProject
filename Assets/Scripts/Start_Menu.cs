@@ -25,7 +25,6 @@ public class Start_Menu : MonoBehaviour
 
     public void StartGame()
     {
-        Debug.Log("StartGame was pressed");
         if (Time.time > newButtonPress + 0.5f)
         {
             //display howToPlay canvas
