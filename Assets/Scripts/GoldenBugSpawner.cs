@@ -8,9 +8,9 @@ public class GoldenBugSpawner : MonoBehaviour
     public float spawnInterval = 15f; // Time interval between golden bug spawns
     public float spawnAreaWidth = 20f; // Width of the area where golden bugs can spawn
     public float spawnAreaHeight = 20f; // Height of the area where golden bugs can spawn
-    public int maxGoldenBugs = 2; // Maximum number of golden bugs allowed on the screen
+    public int maxGoldenBugs = 1; // Maximum number of golden bugs allowed on the screen
 
-    private int currentGoldenBugs = 0; // Current number of golden bugs on the screen
+    [SerializeField] private int currentGoldenBugs = 0; // Current number of golden bugs on the screen
 
     void Start()
     {

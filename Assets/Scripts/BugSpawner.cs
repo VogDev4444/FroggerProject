@@ -8,13 +8,16 @@ public class BugSpawner : MonoBehaviour
     public float spawnInterval = 3f; // Time interval between bug spawns
     public float spawnAreaWidth = 10f; // Width of the area where bugs can spawn
     public float spawnAreaHeight = 4f; // Height of the area where bugs can spawn
-    public int maxBugs = 10; // Maximum number of bugs allowed on the screen
+    public int maxBugs = 2; // Maximum number of bugs allowed on the screen
 
-    private int currentBugs = 0; // Current number of bugs on the screen
+    [SerializeField] private int currentBugs = 0; // Current number of bugs on the screen
 
     public UI_Script uiScript; // Reference to the UI_Script
 
     private List<GameObject> activeBugs = new List<GameObject>(); // List to keep track of active bugs
+
+    bool isSpawning = true; //false if score goes above 12
+    bool isCoroutineRunning = true; //in order to restart coroutine
 
     void Start()
     {
@@ -22,27 +25,37 @@ public class BugSpawner : MonoBehaviour
         StartCoroutine(SpawnBugs());
     }
 
+    private void Update()
+    {
+        // Check if the sum of both players' scores equals 13 to determine if spawning should continue
+        if (uiScript.p1_score + uiScript.p2_score >= 12)
+        {
+            isSpawning = false;
+            // Destroy any active bugs
+            foreach (GameObject bug in activeBugs)
+            {
+                Destroy(bug);
+            }
+            activeBugs.Clear();
+            currentBugs = 0;
+            StopCoroutine(SpawnBugs()); //stop coroutine
+            isCoroutineRunning = false; 
+        }
+        else 
+        {
+            isSpawning = true;
+            if (!isCoroutineRunning) //if coroutine ever stopped (because points above 12)
+            {
+                isCoroutineRunning = true;
+                StartCoroutine(SpawnBugs()); //restart coroutine
+            }
+        }
+    }
+
     IEnumerator SpawnBugs()
     {
-        while (true)
+        while (isSpawning == true)
         {
-            // Check if the sum of both players' scores equals 13 to determine if spawning should continue
-            if (uiScript.p1_score + uiScript.p2_score == 12)
-            {
-                // Destroy any active bugs
-                foreach (GameObject bug in activeBugs)
-                {
-                    Destroy(bug);
-                }
-                activeBugs.Clear();
-
-                yield break; // Exit the coroutine if the sum of both players' scores equals 12
-            }
-            else if (uiScript.p1_score + uiScript.p2_score < 12) // Resume spawning if the sum of scores drops below 12
-            {
-                currentBugs = 0; // Reset current bug count
-            }
-
             if (currentBugs < maxBugs)
             {
                 // Calculate random spawn position within the spawn area
