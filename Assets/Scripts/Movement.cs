@@ -49,7 +49,7 @@ public class Movement : MonoBehaviour
     //added onCD and hitBy to prevent issues with the Dodge UI stopping
     private bool isOnCooldown = false;
     private bool isHitByEnvironment = false;
-    private bool isStaggered = false; //plays stagger animation when hit
+    public bool isStaggered = false; //plays stagger animation when hit
     public bool inWater = false;
     public bool onLily = false;
 
@@ -386,6 +386,7 @@ public class Movement : MonoBehaviour
             canDodge = false;
         }
         anim.SetBool("isStaggered", true);
+        
         yield return new WaitForSeconds(duration);
         anim.SetBool("isStaggered", false);
         isStaggered = false;
@@ -393,6 +394,7 @@ public class Movement : MonoBehaviour
         {
             canDodge = true;
         }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
