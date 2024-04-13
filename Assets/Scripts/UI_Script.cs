@@ -36,7 +36,6 @@ public class UI_Script : MonoBehaviour
 
     public GameObject win;
     public TMP_Text winText;
-    public GameObject RestartButton;
     public GameObject EndButton;
 
     //players stop moving at endgame
@@ -62,7 +61,6 @@ public class UI_Script : MonoBehaviour
         p2NewTitle.SetActive(false);
         p2End.SetActive(false);
         win.SetActive(false);
-        RestartButton.SetActive(false);
         EndButton.SetActive(false);
 
         //set score text to 0
@@ -224,7 +222,6 @@ public class UI_Script : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         //display buttons
-        RestartButton.SetActive(true);
         EndButton.SetActive(true);
     }
 

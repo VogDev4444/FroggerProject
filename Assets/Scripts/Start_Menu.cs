@@ -25,7 +25,7 @@ public class Start_Menu : MonoBehaviour
 
     public void StartGame()
     {
-        if (Time.time > newButtonPress + 0.5f)
+        if (Time.time > newButtonPress + 0.6f)
         {
             //display howToPlay canvas
             howToPlay.alpha = 1;
@@ -41,7 +41,7 @@ public class Start_Menu : MonoBehaviour
 
     public void Ready()
     {
-        if (Time.time > newButtonPress + 0.5f)
+        if (Time.time > newButtonPress + 0.7f)
         {
             SceneManager.LoadScene("SampleScene");
         }
