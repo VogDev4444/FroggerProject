@@ -4,10 +4,9 @@ public class LilyPadSpawner : MonoBehaviour
 {
     public GameObject lilyPadPrefab; // Reference to the LilyPad prefab
     public float spawnInterval = 5f; // Interval between each lily pad spawn
+    public float spawnPositionY = 2f; // Y-position where lily pads should spawn
     public float riverStartX = -15f; // X-position where the river starts
     public float riverEndX = 15f; // X-position where the river ends
-    public float lowerSpawnPositionY = 0f; // Lower Y-position where lily pads should spawn
-    public float upperSpawnPositionY = 5f; // Upper Y-position where lily pads should spawn
 
     private float timer; // Timer to track spawn intervals
 
@@ -29,34 +28,10 @@ public class LilyPadSpawner : MonoBehaviour
 
     void SpawnLilyPad()
     {
-        // Attempt to spawn a lily pad multiple times until a non-overlapping position is found
-        const int maxAttempts = 10;
-        for (int i = 0; i < maxAttempts; i++)
-        {
-            // Calculate a random X-position within the river bounds
-            float randomX = Random.Range(riverStartX, riverEndX);
+        // Calculate a random X-position within the river bounds
+        float randomX = Random.Range(riverStartX, riverEndX);
 
-            // Calculate a random Y-position within the specified range
-            float randomY = Random.Range(lowerSpawnPositionY, upperSpawnPositionY);
-
-            // Check if the spawn position overlaps with any existing lily pads
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(randomX, randomY), 1f);
-            bool overlapping = false;
-            foreach (Collider2D collider in colliders)
-            {
-                if (collider.CompareTag("Ground"))
-                {
-                    overlapping = true;
-                    break;
-                }
-            }
-
-            // If the spawn position does not overlap, spawn the lily pad and exit the loop
-            if (!overlapping)
-            {
-                Instantiate(lilyPadPrefab, new Vector3(randomX, randomY, 0f), Quaternion.identity);
-                break;
-            }
-        }
+        // Spawn a lily pad at the random position
+        Instantiate(lilyPadPrefab, new Vector3(randomX, spawnPositionY, 0f), Quaternion.identity);
     }
 }

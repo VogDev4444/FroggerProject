@@ -1,12 +1,10 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LilyPadMovement : MonoBehaviour
 {
     public float speed = 2f; // Adjust this value to control the speed of movement
     public float destroyThreshold = 10f; // Adjust this value to control when the lily pad gets destroyed
-    public float respawnPositionX = -10f; // X-position where the lily pad respawns
-    public float riverStartX = -15f; // X-position where the river starts
+    public float riverStartX = -48f; // X-position where the river starts
     public float riverEndX = 15f; // X-position where the river ends
 
     void FixedUpdate()
@@ -17,15 +15,9 @@ public class LilyPadMovement : MonoBehaviour
         // Check if the lily pad has gone beyond the destroy threshold
         if (transform.position.x > destroyThreshold)
         {
-            // Respawn the lily pad at the respawn position
-            RespawnLilyPad();
+            // Destroy the lily pad
+            Destroy(gameObject);
         }
-    }
-
-    void RespawnLilyPad()
-    {
-        // Reset the position of the lily pad to the respawn position
-        transform.position = new Vector3(respawnPositionX, transform.position.y, transform.position.z);
     }
 
     // Check if the lily pad has reached the end of the river
@@ -51,7 +43,7 @@ public class LilyPadMovement : MonoBehaviour
                 if (other.GetComponent<Movement>().onLily == false)
                 {
                     other.GetComponent<Movement>().onLily = true;
-                };
+                }
             }
             else
             {
@@ -61,16 +53,8 @@ public class LilyPadMovement : MonoBehaviour
                 if (other.GetComponent<Movement>().onLily == false)
                 {
                     other.GetComponent<Movement>().onLily = true;
-                };
+                }
             }
-        }
-    }
-
-    private void OnDestroy()
-    {
-        if(GetComponentInChildren<PlayerManager>() != null)
-        {
-            this.GetComponentInChildren<PlayerManager>().transform.SetParent(null);
         }
     }
 
@@ -80,16 +64,12 @@ public class LilyPadMovement : MonoBehaviour
         // Check if the collider belongs to a player
         if (other.CompareTag("Player"))
         {
-            if(other.GetComponent<Transform>().parent == this.transform)
+            if (other.GetComponent<Transform>().parent == this.transform)
             {
-                //if (parent of player is the lilypad that it's on other.gameObject.parent = lilypad){}
                 // Remove the lily pad as the parent of the player
                 other.GetComponent<Movement>().onLily = false;
                 other.transform.SetParent(null);
             }
-            
-            
         }
-        
     }
 }

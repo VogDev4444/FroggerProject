@@ -13,7 +13,7 @@ public class Credits : MonoBehaviour
     }
     public void Back()
     {
-        if (Time.time > newButtonPress + 0.5f)
+        if (Time.time > newButtonPress + 0.6f)
         {
             SceneManager.LoadScene("StartMenu");
         }
