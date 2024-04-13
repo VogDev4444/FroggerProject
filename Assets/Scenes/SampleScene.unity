@@ -3306,7 +3306,7 @@ Transform:
   m_GameObject: {fileID: 991693981}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.014518683, y: 10.394219, z: -10}
+  m_LocalPosition: {x: 0.027299643, y: 10.39423, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3824,6 +3824,96 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6517621078111986265, guid: 683ef52453b755142b45593cbf1dd839, type: 3}
   m_PrefabInstance: {fileID: 1108689482}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1114507523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1114507526}
+  - component: {fileID: 1114507525}
+  - component: {fileID: 1114507524}
+  m_Layer: 0
+  m_Name: DestroyLilypad
+  m_TagString: Destroy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1114507524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114507523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 818bbc0a6c776f4468b3505bf6c29dad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1114507525
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114507523}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.26330757, y: 0.24688888}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.5266151, y: 5.8187737}
+  m_EdgeRadius: 0
+--- !u!4 &1114507526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114507523}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 44.62, y: 3.72, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1140114024
 GameObject:
   m_ObjectHideFlags: 0
@@ -4071,7 +4161,7 @@ Transform:
   m_GameObject: {fileID: 1239024093}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8627765, y: -2.10035, z: -10}
+  m_LocalPosition: {x: 1.8740245, y: -2.10035, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28405,10 +28495,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lilyPadPrefab: {fileID: 8365673091200957831, guid: 0ca508fd88ff1ef47b836800db0b0e59, type: 3}
   spawnInterval: 2
-  riverStartX: -200
+  spawnPositionY: 3
+  riverStartX: -48
   riverEndX: 200
-  lowerSpawnPositionY: 2.9
-  upperSpawnPositionY: 4
 --- !u!4 &1851473327
 Transform:
   m_ObjectHideFlags: 0
@@ -28418,7 +28507,7 @@ Transform:
   m_GameObject: {fileID: 1851473325}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -50.12, y: 3.33, z: 0.08481889}
+  m_LocalPosition: {x: -48.67, y: 3.33, z: 0.08481889}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29374,3 +29463,4 @@ SceneRoots:
   - {fileID: 284030127}
   - {fileID: 122321856}
   - {fileID: 481078204}
+  - {fileID: 1114507526}
