@@ -8,6 +8,8 @@ public class LilyPadSpawner : MonoBehaviour
     public float riverStartX = -15f; // X-position where the river starts
     public float riverEndX = 15f; // X-position where the river ends
 
+    public float randomYStart;
+    public float randomYEnd;
     private float timer; // Timer to track spawn intervals
 
     void Update()
@@ -31,7 +33,9 @@ public class LilyPadSpawner : MonoBehaviour
         // Calculate a random X-position within the river bounds
         float randomX = Random.Range(riverStartX, riverEndX);
 
+        float randomY = Random.Range(randomYStart, randomYEnd);
+
         // Spawn a lily pad at the random position
-        Instantiate(lilyPadPrefab, new Vector3(randomX, spawnPositionY, 0f), Quaternion.identity);
+        Instantiate(lilyPadPrefab, new Vector3(randomX, randomY, 0f), Quaternion.identity);
     }
 }

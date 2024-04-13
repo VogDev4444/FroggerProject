@@ -61,6 +61,7 @@ MonoBehaviour:
   score_UI: {fileID: 0}
   pointchange1: {fileID: 598754516479383171}
   pointchange2: {fileID: 0}
+  movementScript: {fileID: 0}
   isAirborn: 0
   isStaggered: 0
   isKnockedBack: 1
@@ -97,6 +98,7 @@ MonoBehaviour:
   attackSFX: {fileID: 4346396500801557725}
   attackTrigger: 0
   invincible: 0
+  isStaggered: 0
   inWater: 0
   onLily: 0
   reticalRB: {fileID: 0}
@@ -372,7 +374,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fffa991e5d5909347acded49e9a3a6a1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 0.2618952
   m_Pitch: 1
   Loop: 0
   Mute: 0

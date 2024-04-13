@@ -3306,7 +3306,7 @@ Transform:
   m_GameObject: {fileID: 991693981}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.027299643, y: 10.39423, z: -10}
+  m_LocalPosition: {x: 0.014518683, y: 10.394219, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3835,7 +3835,8 @@ GameObject:
   - component: {fileID: 1114507526}
   - component: {fileID: 1114507525}
   - component: {fileID: 1114507524}
-  m_Layer: 0
+  - component: {fileID: 1114507527}
+  m_Layer: 6
   m_Name: DestroyLilypad
   m_TagString: Destroy
   m_Icon: {fileID: 0}
@@ -3914,6 +3915,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1114507527
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114507523}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1140114024
 GameObject:
   m_ObjectHideFlags: 0
@@ -4161,7 +4189,7 @@ Transform:
   m_GameObject: {fileID: 1239024093}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8740245, y: -2.10035, z: -10}
+  m_LocalPosition: {x: 1.8627765, y: -2.10035, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16334,6 +16362,57 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1615010609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1615010611}
+  - component: {fileID: 1615010610}
+  m_Layer: 0
+  m_Name: LilyPadSpawner2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1615010610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615010609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8463d70e5aabcfb4bb403daa6cf4c49f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lilyPadPrefab: {fileID: 8365673091200957831, guid: 0ca508fd88ff1ef47b836800db0b0e59, type: 3}
+  spawnInterval: 2
+  spawnPositionY: 3
+  riverStartX: -48
+  riverEndX: -40
+  randomYStart: 3.2
+  randomYEnd: 6
+--- !u!4 &1615010611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615010609}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -48.67, y: 3.33, z: 0.08481889}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1625891387
 GameObject:
   m_ObjectHideFlags: 0
@@ -28497,7 +28576,9 @@ MonoBehaviour:
   spawnInterval: 2
   spawnPositionY: 3
   riverStartX: -48
-  riverEndX: 200
+  riverEndX: -40
+  randomYStart: 2.4
+  randomYEnd: 3.2
 --- !u!4 &1851473327
 Transform:
   m_ObjectHideFlags: 0
@@ -29458,6 +29539,7 @@ SceneRoots:
   - {fileID: 563082203}
   - {fileID: 305498076}
   - {fileID: 1851473327}
+  - {fileID: 1615010611}
   - {fileID: 1406871274}
   - {fileID: 845417149}
   - {fileID: 284030127}

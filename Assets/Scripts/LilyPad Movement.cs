@@ -12,22 +12,13 @@ public class LilyPadMovement : MonoBehaviour
         // Move the lily pad to the right along the X-axis
         transform.Translate(Vector3.right * speed * Time.fixedDeltaTime);
 
-        // Check if the lily pad has gone beyond the destroy threshold
-        if (transform.position.x > destroyThreshold)
-        {
-            // Destroy the lily pad
-            Destroy(gameObject);
-        }
+        
     }
 
     // Check if the lily pad has reached the end of the river
     void Update()
     {
-        if (transform.position.x > riverEndX)
-        {
-            // Reset the position of the lily pad to the start of the river
-            transform.position = new Vector3(riverStartX, transform.position.y, transform.position.z);
-        }
+        transform.position = new Vector3(transform.position.x+.01f, transform.position.y, transform.position.z);
     }
 
     // Detect collisions with players
@@ -55,6 +46,11 @@ public class LilyPadMovement : MonoBehaviour
                     other.GetComponent<Movement>().onLily = true;
                 }
             }
+        }
+
+        if(other.CompareTag("Destroy"))
+        {
+            Destroy(this.gameObject);
         }
     }
 
