@@ -72,6 +72,10 @@ public class Movement : MonoBehaviour
 
     Collider2D bodyCol;
 
+    //invulnerbility after stagger variables here
+    private float staggerInvulnTime = 2.2f;
+    public float staggerTimer = 0f;
+
     private void Awake()
     {
         playerControls = this.GetComponent<PlayerInput>().actions;
@@ -245,6 +249,19 @@ public class Movement : MonoBehaviour
             moveSpeed = 2f;
             
         }
+
+        
+       //stagger invulnerbility time
+       if(staggerTimer < staggerInvulnTime)
+        {
+            staggerTimer += Time.deltaTime;
+            invincible = true;
+        }
+       if(staggerTimer >= staggerInvulnTime)
+        {
+            invincible = false;
+            
+        }
        
     }
   
@@ -381,7 +398,8 @@ public class Movement : MonoBehaviour
     IEnumerator staggerEffect(float duration)
     {
         isStaggered = true;
-        if(!isOnCooldown || isHitByEnvironment)
+        staggerTimer = 0;
+        if (!isOnCooldown || isHitByEnvironment)
         {
             canDodge = false;
         }
@@ -394,6 +412,7 @@ public class Movement : MonoBehaviour
         {
             canDodge = true;
         }
+        
         
     }
 
@@ -414,7 +433,7 @@ public class Movement : MonoBehaviour
                 
             }
         }
-        if (collision.CompareTag("Enemy") && !invincible) // Check if the player is not invulnerable
+        if (collision.CompareTag("Enemy") && !invincible && !isStaggered) // Check if the player is not invulnerable
         {
             isHitByEnvironment = true;
             playerManager.SubtractScore();
@@ -463,10 +482,22 @@ public class Movement : MonoBehaviour
         
     }
 
+    public bool returnInvulnState()
+    {
+        if(!invincible && !isStaggered)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     
     public void getStaggered(float duration)
     {
         StartCoroutine(staggerEffect(duration));
+        
     }
 
     public void changeRetical(int mode)
