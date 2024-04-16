@@ -46,6 +46,7 @@ public class Movement : MonoBehaviour
 
     public bool invincible = false;
     private bool canDodge = true;
+    private bool dodgingState = false; //needed to keep track if player is currently dodging
     //added onCD and hitBy to prevent issues with the Dodge UI stopping
     private bool isOnCooldown = false;
     private bool isHitByEnvironment = false;
@@ -231,7 +232,7 @@ public class Movement : MonoBehaviour
         else if (inWater == false && invincible == false)
         {
             anim.SetBool("inWater", false);
-            moveSpeed = 5;
+            moveSpeed = baseMoveSpeed;
         }
        if(inWater == false && invincible == true)
         {
@@ -257,7 +258,7 @@ public class Movement : MonoBehaviour
             staggerTimer += Time.deltaTime;
             invincible = true;
         }
-       if(staggerTimer >= staggerInvulnTime)
+       if(staggerTimer >= staggerInvulnTime && dodgingState == false)
         {
             invincible = false;
             
@@ -363,11 +364,11 @@ public class Movement : MonoBehaviour
         dodgeTrigger = true;
         inWater = false;
         moveSpeed = baseMoveSpeed * 2;
-        
+        dodgingState = true;
 
         yield return new WaitForSeconds(duration);
 
-        
+        dodgingState = false;
         moveSpeed = baseMoveSpeed;
         invincible = false; // Reset invincibility flag
         dodgeTrigger = false;
