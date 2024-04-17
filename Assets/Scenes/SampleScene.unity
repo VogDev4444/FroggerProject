@@ -1194,6 +1194,57 @@ Transform:
   - {fileID: 1330597880}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &519051339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 519051341}
+  - component: {fileID: 519051340}
+  m_Layer: 0
+  m_Name: LilyPadSpawner3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &519051340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519051339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8463d70e5aabcfb4bb403daa6cf4c49f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lilyPadPrefab: {fileID: 8365673091200957831, guid: 0ca508fd88ff1ef47b836800db0b0e59, type: 3}
+  spawnInterval: 2
+  spawnPositionY: 3
+  riverStartX: -48
+  riverEndX: -40
+  randomYStart: 6
+  randomYEnd: 7
+--- !u!4 &519051341
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519051339}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -48.67, y: 3.33, z: 0.08481889}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &536524278 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5067982768758079931, guid: a647f211ea617974c98b7c1b3d6041cd, type: 3}
@@ -29540,6 +29591,7 @@ SceneRoots:
   - {fileID: 305498076}
   - {fileID: 1851473327}
   - {fileID: 1615010611}
+  - {fileID: 519051341}
   - {fileID: 1406871274}
   - {fileID: 845417149}
   - {fileID: 284030127}
