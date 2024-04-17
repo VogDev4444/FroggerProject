@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     public EarnPoint pointchange1;
     public EarnPoint pointchange2;
     private Animator anim;
+    public Movement movementScript;
 
     //booleans for state of the players 
     bool isInWater = false;
@@ -37,6 +38,7 @@ public class PlayerManager : MonoBehaviour
         anim = GetComponent<Animator>();
         bm = FindAnyObjectByType<BugManager>();
         score_UI = FindAnyObjectByType<UI_Script>();
+        movementScript = GetComponent<Movement>();
         if (playerNum == 0)
         {
             playerNum = 2;
@@ -152,26 +154,7 @@ public class PlayerManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Death") && !invincible)
-        {
-            if (playerNum == 1)
-            {
-                if (bm.bugCount1 > 0)
-                {
-                    bm.bugCount1--;
-                    pointchange1.MinusOne();
-                }
-            }
-            else
-            {
-                if (bm.bugCount2 > 0)
-                {
-                    bm.bugCount2--;
-                    pointchange2.MinusOne();
-                }
-            }
-            StartCoroutine(InvincibleTimer(1));
-        }
+        
     }
     //public void SetMovement(Vector2 input)
     //{
