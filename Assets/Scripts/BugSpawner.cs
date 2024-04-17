@@ -16,7 +16,7 @@ public class BugSpawner : MonoBehaviour
 
     private List<GameObject> activeBugs = new List<GameObject>(); // List to keep track of active bugs
 
-    bool isSpawning = true; //false if score goes above 12
+    bool isSpawning = true; //false if score goes above 11
     bool isCoroutineRunning = true; //in order to restart coroutine
 
     void Start()
@@ -28,7 +28,7 @@ public class BugSpawner : MonoBehaviour
     private void Update()
     {
         // Check if the sum of both players' scores equals 13 to determine if spawning should continue
-        if (uiScript.p1_score + uiScript.p2_score >= 12)
+        if (uiScript.p1_score + uiScript.p2_score >= 11)
         {
             isSpawning = false;
             // Destroy any active bugs

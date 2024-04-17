@@ -12,15 +12,51 @@ public class GoldenBugSpawner : MonoBehaviour
 
     [SerializeField] private int currentGoldenBugs = 0; // Current number of golden bugs on the screen
 
+    public UI_Script uiScript; // Reference to the UI_Script
+
+    private List<GameObject> activeGoldenBugs = new List<GameObject>(); // List to keep track of active bugs
+
+    bool isSpawning = true; //false if score goes above 11
+    bool isCoroutineRunning = true; //in order to restart coroutine
     void Start()
     {
         // Start spawning golden bugs at regular intervals
         StartCoroutine(SpawnGoldenBugs());
     }
 
+
+    private void Update()
+    {
+        // Check if the sum of both players' scores equals 13 to determine if spawning should continue
+        if (uiScript.p1_score + uiScript.p2_score >= 11)
+        {
+            isSpawning = false;
+            // Destroy any active bugs
+            foreach (GameObject bug in activeGoldenBugs)
+            {
+                Destroy(bug);
+            }
+            activeGoldenBugs.Clear();
+            currentGoldenBugs = 0;
+            StopCoroutine(SpawnGoldenBugs()); //stop coroutine
+            isCoroutineRunning = false;
+        }
+        else
+        {
+            isSpawning = true;
+            if (!isCoroutineRunning) //if coroutine ever stopped (because points above 12)
+            {
+                isCoroutineRunning = true;
+                StartCoroutine(SpawnGoldenBugs()); //restart coroutine
+            }
+        }
+    }
+
+
+
     IEnumerator SpawnGoldenBugs()
     {
-        while (true)
+        while (isSpawning == true)
         {
             if (currentGoldenBugs < maxGoldenBugs)
             {

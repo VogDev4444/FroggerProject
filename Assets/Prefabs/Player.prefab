@@ -105,6 +105,7 @@ MonoBehaviour:
   projectPrefab: {fileID: 5102559030586233977, guid: 24ed43c4c554f2f48a399defa5375ca0, type: 3}
   fireStartPos: {x: 0, y: 0, z: 0}
   firePointer: {fileID: 0}
+  staggerTimer: 0
 --- !u!50 &3580042624096663245
 Rigidbody2D:
   serializedVersion: 4
@@ -374,7 +375,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fffa991e5d5909347acded49e9a3a6a1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2618952
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
