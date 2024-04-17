@@ -28979,6 +28979,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1783584293}
     - target: {fileID: 1864688324641241036, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
+      propertyPath: m_FirstSelected
+      value: 
+      objectReference: {fileID: 1663896010111680439}
+    - target: {fileID: 1864688324641241036, guid: 84e66720596091d418d3cc6616d55a01, type: 3}
       propertyPath: m_sendNavigationEvents
       value: 1
       objectReference: {fileID: 0}

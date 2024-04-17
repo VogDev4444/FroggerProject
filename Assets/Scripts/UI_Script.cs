@@ -177,7 +177,9 @@ public class UI_Script : MonoBehaviour
         p2Dodge.SetActive(false);
 
         playerController.SwitchCurrentActionMap("UI");
+        playerController.currentActionMap.Enable();
         player2Controler.SwitchCurrentActionMap("UI");
+        player2Controler.currentActionMap.Enable();
         Cursor.visible = true;
 
         StartCoroutine(EndDisplayTimer());
